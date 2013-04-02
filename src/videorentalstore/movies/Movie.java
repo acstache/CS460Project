@@ -27,12 +27,7 @@ public class Movie {
         return this.actors;
     }
     
-    @Deprecated
     private void setTitle(String title) {
-        setNewTitle(title);
-    }
-    
-    private void setNewTitle(String tile) {
-        
+        //TODO fix
     }
 }
