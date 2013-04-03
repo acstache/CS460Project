@@ -28,6 +28,14 @@ public class Movie {
     }
     
     private void setTitle(String title) {
-        //TODO fix
+        this.title = title;
+    }
+    
+    private void setDirector(String director) {
+        this.director = director;
+    }
+    
+    private void setActors(String[] actors) {
+        this.actors = actors;
     }
 }
