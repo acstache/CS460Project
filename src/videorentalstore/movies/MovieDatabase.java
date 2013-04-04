@@ -23,7 +23,7 @@ public class MovieDatabase {
     }
     
     protected void findMoviesByTitle(String title) {
-        
+        String s = "SELECT title from movies WHERE title='" + title + "'";
     }
     
     protected void findMoviesByDirector(String director) {
