@@ -9,6 +9,7 @@ public class Movie {
     private String title, director;
     private String actors;
     
+    
     public Movie(String title, String director, String actors) {
         setTitle(title);
         setDirector(director);
