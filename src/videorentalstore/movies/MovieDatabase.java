@@ -6,15 +6,27 @@ package videorentalstore.movies;
  * @author bslater
  */
 public class MovieDatabase {
-    public void addMovieToDB(Movie movie) {
+    public MovieDatabase(String DbUrl) {
+        //TODO load database DbUrl, then the movies table
+    }
+    
+    protected void addMovieToDB(Movie movie) {
         //add movie into database
     }
     
-    public void remMovieFromDB(Movie movie) {
+    protected void remMovieFromDB(Movie movie) {
         //find movie in database, remove it
     }
     
-    public void editMovieInDB(Movie movie) {
+    protected void editMovieInDB(Movie movie) {
         //find movie in database, compare "changes", if different, make changes
+    }
+    
+    protected void findMoviesByTitle(String title) {
+        
+    }
+    
+    protected void findMoviesByDirector(String director) {
+        
     }
 }

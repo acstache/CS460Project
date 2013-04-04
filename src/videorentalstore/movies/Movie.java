@@ -7,12 +7,12 @@ package videorentalstore.movies;
  */
 public class Movie {
     private String title, director;
-    private String[] actors;
+    private String actors;
     
-    public Movie(String title, String director, String[] actors) {
-        this.title = title;
-        this.director = director;
-        this.actors = actors;
+    public Movie(String title, String director, String actors) {
+        setTitle(title);
+        setDirector(director);
+        setActors(actors);
     }
     
     public String getTitle() {
@@ -23,7 +23,7 @@ public class Movie {
         return this.director;
     }
     
-    public String[] getActors() {
+    public String getActors() {
         return this.actors;
     }
     
@@ -35,7 +35,7 @@ public class Movie {
         this.director = director;
     }
     
-    private void setActors(String[] actors) {
+    private void setActors(String actors) {
         this.actors = actors;
     }
 }
