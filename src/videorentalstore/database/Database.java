@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Collection;
 
 import videorentalstore.movies.Movie;
 
@@ -13,6 +14,7 @@ public class Database {
     private String DbName, DbUrl;
     private String Jdbc = "jdbc:sqlite";
     private int timeout = 30;
+    private Collection<Movie> movies;
     
     public Database(String DbName) throws Exception {
         // register the driver 
@@ -23,12 +25,23 @@ public class Database {
         DbUrl = Jdbc + ":" + this.DbName;
         
         this.conn = DriverManager.getConnection(DbUrl);
+        
+        //createMovieObjects(); no actors column in movies table
     }
     
     public void initDatabaseTables() throws Exception {
         executeUpdate("CREATE TABLE \"customer\" (\"customerId\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE , \"firstName\" VARCHAR NOT NULL , \"lastName\" VARCHAR NOT NULL , \"email\" VARCHAR NOT NULL , \"password\" VARCHAR NOT NULL , \"birthday\" VARCHAR, \"creditCardNum\" INTEGER, \"creditCardExpDate\" VARCHAR, \"address\" VARCHAR, \"city\" VARCHAR, \"state\" VARCHAR, \"zipcode\" INTEGER)");
-        executeUpdate("CREATE TABLE \"movies\" (\"movieId\" INTEGER PRIMARY KEY NOT NULL UNIQUE , \"title\" VARCHAR NOT NULL , \"genre\" VARCHAR NOT NULL , \"director\" VARCHAR NOT NULL , \"MPAA\" VARCHAR NOT NULL , \"userRating\" INTEGER NOT NULL )");
-        executeUpdate("CREATE TABLE \"rentals\" (\"rentalID\" INTEGER PRIMARY KEY NOT NULL UNIQUE ,\"customerID\" INTEGER NOT NULL ,\"movieID\" INTEGER NOT NULL ,\"timeRented\" DATETIME NOT NULL DEFAULT (CURRENT_DATE) ,\"timeDue\" DATETIME NOT NULL DEFAULT (CURRENT_DATE) )");
+        executeUpdate("CREATE TABLE \"movies\" (\"movieId\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE , \"title\" VARCHAR NOT NULL , \"genre\" VARCHAR NOT NULL , \"director\" VARCHAR NOT NULL , \"MPAA\" VARCHAR NOT NULL , \"userRating\" INTEGER NOT NULL )");
+        executeUpdate("CREATE TABLE \"rentals\" (\"rentalID\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE ,\"customerID\" INTEGER NOT NULL ,\"movieID\" INTEGER NOT NULL ,\"timeRented\" DATETIME NOT NULL DEFAULT (CURRENT_DATE) ,\"timeDue\" DATETIME NOT NULL DEFAULT (CURRENT_DATE) )");
+    }
+    
+    private void createMovieObjects() throws Exception {
+        stmt = conn.createStatement();
+        stmt.setQueryTimeout(timeout);
+        ResultSet rs = stmt.executeQuery("SELECT * FROM movies");
+        while(rs.next()) {
+            movies.add(new Movie(rs.getInt("movieId"), rs.getString("title"), rs.getString("director"), rs.getString("actors"), rs.getInt("userRating"), rs.getString("MPAA")));
+        }
     }
     
     private void executeUpdate(String update) throws Exception {
@@ -84,7 +97,7 @@ public class Database {
     }
     
     public void findMoviesByDirector(String director) {
-        String search = "SELECT director FROM movies WHERE director LIKE '%" + director + "%'";
+        String search = "SELECT DISTINCT director FROM movies WHERE director LIKE '%" + director + "%'";
         try {
             ResultSet directors = executeQuery(search);
             while (directors.next()) {

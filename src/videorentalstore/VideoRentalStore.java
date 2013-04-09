@@ -19,9 +19,9 @@ public class VideoRentalStore {
         //rentalStore.initDatabaseTables();
         //System.out.println("Tables created");
         rentalStore.findMoviesByTitle("Star Wars");
-        System.out.println("\n");
+        System.out.print("\n");
         rentalStore.findMoviesByTitle("of the");
-        System.out.println("\n");
+        System.out.print("\n");
         rentalStore.findMoviesByDirector("ge Lu");
         System.out.println("\nDone running");
     }
