@@ -6,14 +6,22 @@ package videorentalstore.movies;
  * @author bslater
  */
 public class Movie {
-    private String title, director;
-    private String actors;
+    private String title, director, mpaaRating;
+    private String actors; //possibly make this a list?
+    private int movieID, userRating;
     
     
-    public Movie(String title, String director, String actors) {
+    public Movie(int movieID, String title, String director, String actors, int userRating, String mpaaRating) {
+        setMovieID(movieID);
         setTitle(title);
         setDirector(director);
         setActors(actors);
+        setUserRating(userRating);
+        setMPAARating(mpaaRating);
+    }
+    
+    public int getMovieID() {
+        return this.movieID;
     }
     
     public String getTitle() {
@@ -28,15 +36,35 @@ public class Movie {
         return this.actors;
     }
     
-    private void setTitle(String title) {
+    public int getUserRating() {
+        return this.userRating;
+    }
+    
+    public String getMPAARating() {
+        return this.mpaaRating;
+    }
+    
+    public void setMovieID(int movieID) {
+        this.movieID = movieID;
+    }
+    
+    public void setTitle(String title) {
         this.title = title;
     }
     
-    private void setDirector(String director) {
+    public void setDirector(String director) {
         this.director = director;
     }
     
-    private void setActors(String actors) {
+    public void setActors(String actors) {
         this.actors = actors;
+    }
+    
+    public void setUserRating(int userRating) {
+        this.userRating = userRating;
+    }
+    
+    public void setMPAARating(String mpaaRating) {
+        this.mpaaRating = mpaaRating;
     }
 }
