@@ -1,5 +1,6 @@
 package videorentalstore;
 
+import videorentalstore.User.User;
 import videorentalstore.database.Database;
 
 
@@ -30,7 +31,18 @@ public class VideoRentalStore {
         System.out.println();
         rentalStore.browseDirectors();
         //TODO include actors, user ratings searches/browse options
-        System.out.println("\nDone running");
-        //TODO insert more movies into the database. Lethal Weapon, LotR, w/e
+        System.out.println("\nDone running");        
+        
+        User u = new User(1,"Will","Acheson","willyach07","password");
+        
+        //rentalStore.addUsertoDB(u);
+        
+        //rentalStore.searchUserinDBbyID(50);
+        rentalStore.searchUserinDBbyID(1);
+        
+        rentalStore.searchUserinDBbyLastName("Acheson");
+        
+        rentalStore.displayTable();
+        //rentalStore.deleteUser("Will", "Acheson");
     }
 }

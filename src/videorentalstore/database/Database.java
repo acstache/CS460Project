@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Collection;
 
+import videorentalstore.User.User;
 import videorentalstore.movies.Movie;
 
 public class Database {
@@ -191,11 +192,100 @@ public class Database {
     }
     
     
+    
     /***************************************
      *                                     *
      *        Customer Table Stuff         *
      *                                     *
      ***************************************/
+    
+    
+    public void addUsertoDB(User user) {
+        //Statement stmt;
+        boolean userAddRES;
+        try {
+            String insert = "INSERT INTO customer (customerID , lastName , firstName , email, password) VALUES ( " + user.getCustomerID() + " , " + " ' " + user.getLastName() + " ' " + " , " + " ' " + user.getFirstName() + " ' " + " , " + " ' " + user.getEmail() + " ' " + " , " + " ' " + user.getPassword() + " ' " + " ) ";
+            System.out.println(insert);
+            stmt = conn.createStatement();
+            userAddRES = stmt.execute(insert);
+        }
+        catch (Exception e) {
+            System.out.println("Error adding user to Database: " + e.toString());
+            try {
+                conn.close();
+            }
+            catch (Exception e1) {}
+        }
+    }
+    
+    public void searchUserinDBbyID(int ID) {
+        try {
+            String search = "SELECT * FROM customer WHERE customerID = " + ID ;
+            ResultSet searchUserRES = executeQuery(search);
+            while (searchUserRES.next()) {
+                String user = "First Name: " + searchUserRES.getString("firstName") + "Last Name: " +searchUserRES.getString("lastName") + "Email Address" + searchUserRES.getString("email") + "Password: " + searchUserRES.getString("password");
+                System.out.println("User Found at searched ID " + ID + ": " + user);
+            }
+        }
+        catch (Exception e) {
+            try {
+                conn.close();
+            }
+            catch (Exception e1) {}
+        }
+        
+    }
+   
+    public void searchUserinDBbyLastName(String lastName){
+        try {
+            String search = "SELECT * FROM customer WHERE lastName = " + " ' " + lastName + " ' " ;
+            ResultSet searchUserLastNameRES = executeQuery(search);
+            while (searchUserLastNameRES.next()) {
+                String user = "First Name: " + searchUserLastNameRES.getString("firstName") + "Last Name: " +searchUserLastNameRES.getString("lastName") + "Email Address" + searchUserLastNameRES.getString("email") + "Password: " + searchUserLastNameRES.getString("password");
+                System.out.println("User Found at Last Name: " + lastName + ": " + user);
+            }
+        }
+        catch (Exception e) {
+            try {
+                conn.close();
+            }
+            catch (Exception e1){}
+        }
+    }
+   
+    //doesnt work yet
+    //TODO finish this
+    public void displayTable(){
+        try {
+            String wholeTable = "SELECT * FROM customer";
+            ResultSet customerTable = executeQuery(wholeTable);
+        }
+        catch (Exception e){
+            try {
+                conn.close();
+            }
+            catch (Exception e1){}
+        }
+    }
+    
+    public void deleteUser(String firstName , String lastName){
+        boolean userDeleteRES;
+        try {
+            String delete = "DELETE FROM customer WHERE lastName = " + " ' " + lastName + " ' " + "AND firstName = " + " ' " + firstName + " ' ";
+            System.out.println(delete);
+            stmt = conn.createStatement();
+            userDeleteRES = stmt.execute(delete);
+            System.out.println("User: " + firstName + lastName + " was deleted from the database.");
+        }
+        catch (Exception e){
+            System.out.println("Error deleting user from Database: " + e.toString());
+            try {
+                conn.close();
+            }
+            catch (Exception e1){
+            }
+        }
+    }
     
     
     
