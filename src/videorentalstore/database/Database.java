@@ -17,13 +17,15 @@ public class Database {
     private Collection<Movie> movies;
     
     public Database(String DbName) throws Exception {
-        // register the driver 
+        // register the JDBC driver 
         String sDriverName = "org.sqlite.JDBC";
         Class.forName(sDriverName);
         
+        // create the database url to connect to
         this.DbName = DbName;
         DbUrl = Jdbc + ":" + this.DbName;
         
+        // create the connection
         this.conn = DriverManager.getConnection(DbUrl);
         
         //createMovieObjects(); no actors column in movies table
@@ -76,15 +78,19 @@ public class Database {
         //find movie in database, compare "changes", if different, make changes
     }
     
-    
+    /**
+     * Search the database of movies based on provided Movie Title
+     * @param title the title (or part of) provided
+     */
     public void findMoviesByTitle(String title) {
         String search = "SELECT title FROM movies WHERE title LIKE '%" + title + "%'";
         try {
             ResultSet movies = executeQuery(search);
+            System.out.println("Movies with \"" + title + "\" in the title:");
             while (movies.next()) {
                 String movie = movies.getString("title");
                 System.out.println(movie);
-                //TODO make this do something else, possibly add to a collection of Movie Objects
+                //TODO make this tie into the GUI
             }
             try {
                 movies.close();
@@ -96,17 +102,86 @@ public class Database {
         }
     }
     
+    /**
+     * Browse the database of all unique movies
+     */
+    public void browseMoviesByTitles() {
+        String search = "SELECT DISTINCT title FROM movies";
+        try {
+            ResultSet movies = executeQuery(search);
+            System.out.println("A List of all Movies in stock");
+            while (movies.next()) {
+                String movie = movies.getString("title");
+                System.out.println(movie);
+                //TODO make this tie into the GUI
+            }
+            try {
+                movies.close();
+            }
+            catch (Exception ignore) {}
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    /**
+     * Search the database for a list of directors of movies in stock
+     * @param director the name (or part of) of the director
+     */
     public void findMoviesByDirector(String director) {
-        String search = "SELECT DISTINCT director FROM movies WHERE director LIKE '%" + director + "%'";
+        String search = "SELECT DISTINCT director, title FROM movies WHERE director LIKE '%" + director + "%'";
         try {
             ResultSet directors = executeQuery(search);
+            System.out.println("Directors with \"" + director + "\" in their name");
             while (directors.next()) {
                 String dirName = directors.getString("director");
-                System.out.println(dirName);
-                //TODO make this do something else, possibly add to a collection of Movie Objects
+                String title = directors.getString("title");
+                System.out.println(dirName + " directed " + title);
+                //TODO make this tie into the GUI
             }
             try {
                 directors.close();
+            }
+            catch (Exception ignore) {}
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void browseDirectors() {
+        String search = "SELECT DISTINCT director FROM movies";
+        try {
+            ResultSet directors = executeQuery(search);
+            System.out.println("Directors of movies in stock");
+            while (directors.next()) {
+                String dirName = directors.getString("director");
+                System.out.println(dirName);
+                //TODO make this tie into the GUI
+            }
+            try {
+                directors.close();
+            }
+            catch (Exception ignore) {}
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void browseMoviesByGenre(String genre) {
+        String search = "SELECT DISTINCT title, genre FROM movies WHERE genre='" + genre + "'";
+        try {
+            ResultSet movies = executeQuery(search);
+            System.out.println("Movies tagged with genre: \"" + genre + "\"");
+            while (movies.next()) {
+                String movieName = movies.getString("title");
+                System.out.println(movieName);
+                //TODO make this tie into the GUI
+            }
+            try {
+                movies.close();
             }
             catch (Exception ignore) {}
         }

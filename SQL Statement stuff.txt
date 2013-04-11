@@ -1,6 +1,8 @@
 SELECT [DISTINCT] ___ FROM tableName [WHERE columnName LIKE '%toFind%'] (DISTINCT & WHERE are optional, also LIKE can be a couple of different comparisons)
-UPDATE tableName SET title = 'newTitle' WHERE ___ (WHERE is required here)
+UPDATE tableName SET title = 'newTitle', director = 'newDir' WHERE ___ (WHERE is required here)
 ALTER tableName ADD columnName TEXT NOT NULL
+ALTER tableName DROP columnName
 CREATE TABLE tableName (columName FLAGS, ... , columName FLAGS)
 Dates will be best if parsed/calculated outside of SQL for easiest understanding
+lower(columnName) for case insensitive searches
 slipcor knows more
