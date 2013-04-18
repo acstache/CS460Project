@@ -33,8 +33,8 @@ public class Database {
     }
     
     public void initDatabaseTables() throws Exception {
-        executeUpdate("CREATE TABLE \"customer\" (\"customerId\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE , \"firstName\" VARCHAR NOT NULL , \"lastName\" VARCHAR NOT NULL , \"email\" VARCHAR NOT NULL , \"password\" VARCHAR NOT NULL , \"birthday\" VARCHAR, \"creditCardNum\" INTEGER, \"creditCardExpDate\" VARCHAR, \"address\" VARCHAR, \"city\" VARCHAR, \"state\" VARCHAR, \"zipcode\" INTEGER)");
-        executeUpdate("CREATE TABLE \"movies\" (\"movieId\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE , \"title\" VARCHAR NOT NULL , \"genre\" VARCHAR NOT NULL , \"director\" VARCHAR NOT NULL , \"MPAA\" VARCHAR NOT NULL , \"userRating\" INTEGER NOT NULL )");
+        executeUpdate("CREATE TABLE \"customer\" (\"customerID\" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , \"firstName\" VARCHAR NOT NULL , \"lastName\" VARCHAR NOT NULL , \"email\" VARCHAR NOT NULL , \"password\" VARCHAR NOT NULL , \"birthday\" VARCHAR, \"CreditCardNum\" INTEGER, \"CreditCardExpDate\" VARCHAR, \"address\" VARCHAR, \"city\" VARCHAR, \"state\" VARCHAR, \"zipcode\" INTEGER)");
+        executeUpdate("CREATE TABLE \"movies\" (\"movieId\" INTEGER PRIMARY KEY  NOT NULL  UNIQUE , \"title\" VARCHAR NOT NULL , \"genre\" VARCHAR NOT NULL , \"director\" VARCHAR NOT NULL , \"MPAA\" VARCHAR NOT NULL , \"userRating\" INTEGER NOT NULL , \"totalQuantity\" INTEGER NOT NULL  DEFAULT 1, \"leftInStock\" INTEGER NOT NULL  DEFAULT 1, \"actors\" VARCHAR)");
         executeUpdate("CREATE TABLE \"rentals\" (\"rentalID\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE ,\"customerID\" INTEGER NOT NULL ,\"movieID\" INTEGER NOT NULL ,\"timeRented\" DATETIME NOT NULL DEFAULT (CURRENT_DATE) ,\"timeDue\" DATETIME NOT NULL DEFAULT (CURRENT_DATE) )");
     }
     
@@ -68,7 +68,21 @@ public class Database {
     
     
     public void addMovieToDB(Movie movie) {
-        //add movie into database
+        String findMovie = "SELECT * FROM movies WHERE title='" + movie.getTitle() + "'";
+        try {
+            ResultSet movies = executeQuery(findMovie);
+            while (movies.next()) {
+                String addMovie = "UPDATE movies SET totalQuantity=" + (movies.getInt("totalQuantity")+1) + ", leftInStock=" + (movies.getInt("leftInStock")+1) + " WHERE title='" + movie.getTitle() + "'";
+                executeUpdate(addMovie);
+            }
+            try {
+                movies.close();
+            }
+            catch (Exception ignore) {}
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
     }
     
     public void remMovieFromDB(Movie movie) {
@@ -201,10 +215,9 @@ public class Database {
     
     
     public void addUsertoDB(User user) {
-        //Statement stmt;
         boolean userAddRES;
         try {
-            String insert = "INSERT INTO customer (customerID , lastName , firstName , email, password) VALUES ( " + user.getCustomerID() + " , " + " ' " + user.getLastName() + " ' " + " , " + " ' " + user.getFirstName() + " ' " + " , " + " ' " + user.getEmail() + " ' " + " , " + " ' " + user.getPassword() + " ' " + " ) ";
+            String insert = "INSERT INTO \"customer\" (\"firstName\",\"lastName\",\"email\",\"password\") VALUES (" + user.getFirstName() + "," + user.getLastName() + "," + user.getEmail() + "," + user.getPassword() + ")";
             System.out.println(insert);
             stmt = conn.createStatement();
             userAddRES = stmt.execute(insert);
@@ -223,8 +236,8 @@ public class Database {
             String search = "SELECT * FROM customer WHERE customerID = " + ID ;
             ResultSet searchUserRES = executeQuery(search);
             while (searchUserRES.next()) {
-                String user = "First Name: " + searchUserRES.getString("firstName") + "Last Name: " +searchUserRES.getString("lastName") + "Email Address" + searchUserRES.getString("email") + "Password: " + searchUserRES.getString("password");
-                System.out.println("User Found at searched ID " + ID + ": " + user);
+                String user = "\nFirst Name: " + searchUserRES.getString("firstName") + "\nLast Name: " + searchUserRES.getString("lastName") + "\nEmail Address: " + searchUserRES.getString("email") + "\nPassword: " + searchUserRES.getString("password");
+                System.out.println("User Found at searched ID: " + ID + user);
             }
         }
         catch (Exception e) {
@@ -236,53 +249,38 @@ public class Database {
         
     }
    
-    public void searchUserinDBbyLastName(String lastName){
+    public void searchUserinDBbyLastName(String lastName) {
         try {
-            String search = "SELECT * FROM customer WHERE lastName = " + " ' " + lastName + " ' " ;
+            String search = "SELECT * FROM customer WHERE lastName = '" + lastName + "'" ;
             ResultSet searchUserLastNameRES = executeQuery(search);
             while (searchUserLastNameRES.next()) {
-                String user = "First Name: " + searchUserLastNameRES.getString("firstName") + "Last Name: " +searchUserLastNameRES.getString("lastName") + "Email Address" + searchUserLastNameRES.getString("email") + "Password: " + searchUserLastNameRES.getString("password");
-                System.out.println("User Found at Last Name: " + lastName + ": " + user);
+                String user = "\nFirst Name: " + searchUserLastNameRES.getString("firstName") + "\nLast Name: " + searchUserLastNameRES.getString("lastName") + "\nEmail Address" + searchUserLastNameRES.getString("email") + "\nPassword: " + searchUserLastNameRES.getString("password");
+                System.out.println("User Found at Last Name: " + lastName + user);
             }
         }
         catch (Exception e) {
             try {
                 conn.close();
             }
-            catch (Exception e1){}
-        }
-    }
-   
-    //doesnt work yet
-    //TODO finish this
-    public void displayTable(){
-        try {
-            String wholeTable = "SELECT * FROM customer";
-            ResultSet customerTable = executeQuery(wholeTable);
-        }
-        catch (Exception e){
-            try {
-                conn.close();
-            }
-            catch (Exception e1){}
+            catch (Exception e1) {}
         }
     }
     
-    public void deleteUser(String firstName , String lastName){
+    public void deleteUser(String firstName , String lastName) {
         boolean userDeleteRES;
         try {
-            String delete = "DELETE FROM customer WHERE lastName = " + " ' " + lastName + " ' " + "AND firstName = " + " ' " + firstName + " ' ";
+            String delete = "DELETE FROM customer WHERE lastName ='" + lastName + "' AND firstName='" + firstName + "'";
             System.out.println(delete);
             stmt = conn.createStatement();
             userDeleteRES = stmt.execute(delete);
-            System.out.println("User: " + firstName + lastName + " was deleted from the database.");
+            System.out.println("User: " + firstName + " " + lastName + " was deleted from the database.");
         }
-        catch (Exception e){
+        catch (Exception e) {
             System.out.println("Error deleting user from Database: " + e.toString());
             try {
                 conn.close();
             }
-            catch (Exception e1){
+            catch (Exception e1) {
             }
         }
     }
@@ -294,4 +292,24 @@ public class Database {
      *         Rental Table Stuff          *
      *                                     *
      ***************************************/
+    
+    
+    public void addRental(int customerID, int movieID) {
+        String addRental = "INSERT INTO \"rentals\" (\"customerID\",\"movieID\",\"timeRented\",\"timeDue\") VALUES (" + customerID + ", " + movieID + ", CURRENT_DATE, CURRENT_DATE";
+        try {
+            executeUpdate(addRental);
+        }
+        catch (Exception e) {}
+    }
+    
+    public void showAllRentals() {
+        String rentals = "SELECT * FROM rentals";
+        try {
+            ResultSet rs = executeQuery(rentals);
+            while(rs.next()) {
+                System.out.println("Customer ID: " + rs.getInt("customerID") + "\nMovie ID: " + rs.getInt("movieID") + "\nTime Rented: " + rs.getDate("timeRented") + "\nTime Due: " + rs.getDate("timeDue") + "\n");
+            }
+        }
+        catch (Exception e) {}
+    }
 }

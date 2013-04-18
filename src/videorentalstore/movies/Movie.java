@@ -2,20 +2,20 @@ package videorentalstore.movies;
 
 /**
  * Created 4/2/13
- * Last Edited 4/2/13
+ * Last Edited 4/16/13
  * @author bslater
  */
 public class Movie {
     private String title, director, mpaaRating;
-    private String actors; //possibly make this a list?
+    private String[] actors;
     private int movieID, userRating;
     
     
-    public Movie(int movieID, String title, String director, String actors, int userRating, String mpaaRating) {
+    public Movie(int movieID, String title, String director, String actorList, int userRating, String mpaaRating) {
         setMovieID(movieID);
         setTitle(title);
         setDirector(director);
-        setActors(actors);
+        setActors(actorList);
         setUserRating(userRating);
         setMPAARating(mpaaRating);
     }
@@ -32,7 +32,7 @@ public class Movie {
         return this.director;
     }
     
-    public String getActors() {
+    public String[] getActors() {
         return this.actors;
     }
     
@@ -56,8 +56,12 @@ public class Movie {
         this.director = director;
     }
     
+    /**
+     * Sets the Array of Actor/Actress names given a comma separated list of names
+     * @param actors the comma separated list of names
+     */
     public void setActors(String actors) {
-        this.actors = actors;
+        this.actors = actors.split(",");
     }
     
     public void setUserRating(int userRating) {

@@ -22,27 +22,34 @@ public class VideoRentalStore {
         //rentalStore.findMoviesByTitle("Star Wars");
         //System.out.print("\n");
         rentalStore.findMoviesByTitle("of the");
-        System.out.print("\n");
+        System.out.println();
         rentalStore.findMoviesByDirector("Lucas");
-        System.out.print("\n");
+        System.out.println();
         rentalStore.browseMoviesByTitles();
-        System.out.print("\n");
+        System.out.println();
         rentalStore.browseMoviesByGenre("Adventure");
         System.out.println();
         rentalStore.browseDirectors();
+        System.out.println();
         //TODO include actors, user ratings searches/browse options
-        System.out.println("\nDone running");        
         
-        User u = new User(1,"Will","Acheson","willyach07","password");
+        //User u = new User(1,"Will","Acheson","willyach07","password");
         
         //rentalStore.addUsertoDB(u);
         
         //rentalStore.searchUserinDBbyID(50);
-        rentalStore.searchUserinDBbyID(1);
-        
+        rentalStore.searchUserinDBbyID(2);
+        System.out.println();
         rentalStore.searchUserinDBbyLastName("Acheson");
-        
-        rentalStore.displayTable();
         //rentalStore.deleteUser("Will", "Acheson");
+        
+        /*rentalStore.addRental(2, 6);
+        rentalStore.addRental(2, 11);
+        rentalStore.addRental(1, 3);*/
+        
+        rentalStore.showAllRentals();
+        
+
+        System.out.println("\nDone running");
     }
 }
