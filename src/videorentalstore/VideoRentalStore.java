@@ -1,6 +1,7 @@
 package videorentalstore;
 
 import videorentalstore.database.Database;
+import videorentalstore.gui.Account_SignIn;
 
 public class VideoRentalStore {
 
@@ -33,7 +34,8 @@ public class VideoRentalStore {
         System.out.println();
         rentalStore.findMoviesWithMPAARating("R");
         System.out.println();
-        //TODO include actors, user ratings searches/browse options
+        rentalStore.findMovieByID(16);
+        System.out.println();
         
         //User u = new User(1,"Will","Acheson","willyach07","password");
         
@@ -56,5 +58,7 @@ public class VideoRentalStore {
         
 
         System.out.println("\nDone running");
+        
+        new Account_SignIn(rentalStore).setVisible(true);
     }
 }

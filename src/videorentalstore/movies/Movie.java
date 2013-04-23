@@ -8,21 +8,16 @@ package videorentalstore.movies;
 public class Movie {
     private String title, genre, director, mpaaRating, actorList;
     private String[] actors;
-    private int movieID, userRating;
+    private int userRating;
     
     
-    public Movie(int movieID, String title, String genre, String director, String actorList, int userRating, String mpaaRating) {
-        setMovieID(movieID);
+    public Movie(String title, String genre, String director, String actorList, int userRating, String mpaaRating) {
         setTitle(title);
         setGenre(genre);
         setDirector(director);
         setActors(actorList);
         setUserRating(userRating);
         setMPAARating(mpaaRating);
-    }
-    
-    public int getMovieID() {
-        return this.movieID;
     }
     
     public String getTitle() {
@@ -51,10 +46,6 @@ public class Movie {
     
     public String getMPAARating() {
         return this.mpaaRating;
-    }
-    
-    public void setMovieID(int movieID) {
-        this.movieID = movieID;
     }
     
     public void setTitle(String title) {

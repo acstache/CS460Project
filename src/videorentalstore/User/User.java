@@ -5,11 +5,10 @@ package videorentalstore.User;
 * @author wacheson
 */
 public class User {
-    private String firstName, lastName, email, password, birthday, creditCardNum, creditCardExpireDate, address, city, state;
+    private String firstName, lastName, email, password, birthday, creditCardNum, creditCardExpireDate, address, city, state, zipCode;
     private int customerID;
-    private String zipCode;
     
-    public User(int customerID, String firstName, String lastName, String email, String password, String birthday,
+    public User(String firstName, String lastName, String email, String password, String birthday,
             String creditCardNum, String creditCardExpireDate, String address, String city, String state, String zipCode)
     {
         setCustomerID(customerID);
