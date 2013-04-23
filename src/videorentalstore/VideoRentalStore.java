@@ -1,13 +1,7 @@
 package videorentalstore;
 
-import videorentalstore.User.User;
 import videorentalstore.database.Database;
 
-
-/**
- *
- * @author bslater
- */
 public class VideoRentalStore {
 
     /**
@@ -43,9 +37,11 @@ public class VideoRentalStore {
         rentalStore.searchUserinDBbyLastName("Acheson");
         //rentalStore.deleteUser("Will", "Acheson");
         
-        /*rentalStore.addRental(2, 6);
+        System.out.println();
+        
+        rentalStore.addRental(2, 6);
         rentalStore.addRental(2, 11);
-        rentalStore.addRental(1, 3);*/
+        rentalStore.addRental(1, 3);
         
         rentalStore.showAllRentals();
         

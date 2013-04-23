@@ -17,6 +17,11 @@ public class Database {
     private int timeout = 30;
     private Collection<Movie> movies;
     
+    /**
+     * 
+     * @param DbName
+     * @throws Exception
+     */
     public Database(String DbName) throws Exception {
         // register the JDBC driver 
         String sDriverName = "org.sqlite.JDBC";
@@ -32,27 +37,45 @@ public class Database {
         //createMovieObjects(); no actors column in movies table
     }
     
+    //TODO do we need this?
     public void initDatabaseTables() throws Exception {
         executeUpdate("CREATE TABLE \"customer\" (\"customerID\" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , \"firstName\" VARCHAR NOT NULL , \"lastName\" VARCHAR NOT NULL , \"email\" VARCHAR NOT NULL , \"password\" VARCHAR NOT NULL , \"birthday\" VARCHAR, \"CreditCardNum\" INTEGER, \"CreditCardExpDate\" VARCHAR, \"address\" VARCHAR, \"city\" VARCHAR, \"state\" VARCHAR, \"zipcode\" INTEGER)");
         executeUpdate("CREATE TABLE \"movies\" (\"movieId\" INTEGER PRIMARY KEY  NOT NULL  UNIQUE , \"title\" VARCHAR NOT NULL , \"genre\" VARCHAR NOT NULL , \"director\" VARCHAR NOT NULL , \"MPAA\" VARCHAR NOT NULL , \"userRating\" INTEGER NOT NULL , \"totalQuantity\" INTEGER NOT NULL  DEFAULT 1, \"leftInStock\" INTEGER NOT NULL  DEFAULT 1, \"actors\" VARCHAR)");
         executeUpdate("CREATE TABLE \"rentals\" (\"rentalID\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE ,\"customerID\" INTEGER NOT NULL ,\"movieID\" INTEGER NOT NULL ,\"timeRented\" DATETIME NOT NULL DEFAULT (CURRENT_DATE) ,\"timeDue\" DATETIME NOT NULL DEFAULT (CURRENT_DATE) )");
+        executeUpdate("CREATE TABLE \"billings/payments\""); //TODO fill this in with the proper column names and properties
     }
     
+    /**
+     * 
+     * @throws Exception
+     */
+    //TODO determine if we actually need this and the Movie object
     private void createMovieObjects() throws Exception {
         stmt = conn.createStatement();
         stmt.setQueryTimeout(timeout);
         ResultSet rs = stmt.executeQuery("SELECT * FROM movies");
         while(rs.next()) {
-            movies.add(new Movie(rs.getInt("movieId"), rs.getString("title"), rs.getString("director"), rs.getString("actors"), rs.getInt("userRating"), rs.getString("MPAA")));
+            movies.add(new Movie(rs.getInt("movieId"), rs.getString("title"), rs.getString("actors"), rs.getString("director"), rs.getString("actors"), rs.getInt("userRating"), rs.getString("MPAA")));
         }
     }
     
+    /**
+     * 
+     * @param update
+     * @throws Exception
+     */
     private void executeUpdate(String update) throws Exception {
         stmt = conn.createStatement();
         stmt.setQueryTimeout(timeout);
         stmt.executeUpdate(update);
     }
     
+    /**
+     * 
+     * @param query
+     * @return
+     * @throws Exception
+     */
     private ResultSet executeQuery(String query) throws Exception {
         stmt = conn.createStatement();
         stmt.setQueryTimeout(timeout);
@@ -67,13 +90,24 @@ public class Database {
      ***************************************/
     
     
+    @Deprecated
     public void addMovieToDB(Movie movie) {
-        String findMovie = "SELECT * FROM movies WHERE title='" + movie.getTitle() + "'";
+        addMovieToDB(movie.getTitle(), movie.getGenre(), movie.getDirector(), movie.getMPAARating(), movie.getUserRating(), movie.getActorsList());
+    }
+    
+    public void addMovieToDB(String title, String genre, String director, String MPAA, int userRating, String actors) {
+        String findMovie = "SELECT * FROM movies WHERE title='" + title + "'";
         try {
             ResultSet movies = executeQuery(findMovie);
-            while (movies.next()) {
-                String addMovie = "UPDATE movies SET totalQuantity=" + (movies.getInt("totalQuantity")+1) + ", leftInStock=" + (movies.getInt("leftInStock")+1) + " WHERE title='" + movie.getTitle() + "'";
+            if (!movies.next()) {
+                String addMovie = "INSERT INTO \"movies\" (\"title\", \"genre\", \"director\", \"MPAA\", \"userRating\", \"actors\") VALUES (" + title + ", " + genre + ", " + director + ", " + MPAA + ", " + userRating + ", " + actors + ")";
                 executeUpdate(addMovie);
+            }
+            else {
+                while (movies.next()) {
+                    String addMovie = "UPDATE movies SET totalQuantity=" + (movies.getInt("totalQuantity")+1) + ", leftInStock=" + (movies.getInt("leftInStock")+1) + " WHERE title='" + title + "'";
+                    executeUpdate(addMovie);
+                }
             }
             try {
                 movies.close();
@@ -85,10 +119,18 @@ public class Database {
         }
     }
     
+    /**
+     * 
+     * @param movie
+     */
     public void remMovieFromDB(Movie movie) {
         //find movie in database, remove it
     }
     
+    /**
+     * 
+     * @param movie
+     */
     public void editMovieInDB(Movie movie) {
         //find movie in database, compare "changes", if different, make changes
     }
@@ -165,6 +207,9 @@ public class Database {
         }
     }
     
+    /**
+     * 
+     */
     public void browseDirectors() {
         String search = "SELECT DISTINCT director FROM movies";
         try {
@@ -185,6 +230,10 @@ public class Database {
         }
     }
     
+    /**
+     * 
+     * @param genre
+     */
     public void browseMoviesByGenre(String genre) {
         String search = "SELECT DISTINCT title, genre FROM movies WHERE genre='" + genre + "'";
         try {
@@ -205,6 +254,10 @@ public class Database {
         }
     }
     
+    //TODO add browse/search by actors
+    
+    //TODO add search by user ratings
+    
     
     
     /***************************************
@@ -214,6 +267,11 @@ public class Database {
      ***************************************/
     
     
+    /**
+     * 
+     * @param user
+     */
+    //TODO update this to do every piece of user data, and to use executeUpdate(String)
     public void addUsertoDB(User user) {
         boolean userAddRES;
         try {
@@ -231,6 +289,10 @@ public class Database {
         }
     }
     
+    /**
+     * 
+     * @param ID
+     */
     public void searchUserinDBbyID(int ID) {
         try {
             String search = "SELECT * FROM customer WHERE customerID = " + ID ;
@@ -248,13 +310,17 @@ public class Database {
         }
         
     }
-   
+    
+    /**
+     * 
+     * @param lastName
+     */
     public void searchUserinDBbyLastName(String lastName) {
         try {
             String search = "SELECT * FROM customer WHERE lastName = '" + lastName + "'" ;
             ResultSet searchUserLastNameRES = executeQuery(search);
             while (searchUserLastNameRES.next()) {
-                String user = "\nFirst Name: " + searchUserLastNameRES.getString("firstName") + "\nLast Name: " + searchUserLastNameRES.getString("lastName") + "\nEmail Address" + searchUserLastNameRES.getString("email") + "\nPassword: " + searchUserLastNameRES.getString("password");
+                String user = "\nFirst Name: " + searchUserLastNameRES.getString("firstName") + "\nLast Name: " + searchUserLastNameRES.getString("lastName") + "\nEmail Address: " + searchUserLastNameRES.getString("email") + "\nPassword: " + searchUserLastNameRES.getString("password");
                 System.out.println("User Found at Last Name: " + lastName + user);
             }
         }
@@ -266,6 +332,12 @@ public class Database {
         }
     }
     
+    /**
+     * 
+     * @param firstName
+     * @param lastName
+     */
+    //TODO can we do this based on the Customer ID instead of the first/last name combo? people may have the same name..
     public void deleteUser(String firstName , String lastName) {
         boolean userDeleteRES;
         try {
@@ -294,14 +366,22 @@ public class Database {
      ***************************************/
     
     
+    /**
+     * 
+     * @param customerID
+     * @param movieID
+     */
     public void addRental(int customerID, int movieID) {
-        String addRental = "INSERT INTO \"rentals\" (\"customerID\",\"movieID\",\"timeRented\",\"timeDue\") VALUES (" + customerID + ", " + movieID + ", CURRENT_DATE, CURRENT_DATE";
+        String addRental = "INSERT INTO \"rentals\" (\"customerID\",\"movieID\") VALUES (" + customerID + ", " + movieID + ")";
         try {
             executeUpdate(addRental);
         }
         catch (Exception e) {}
     }
     
+    /**
+     * 
+     */
     public void showAllRentals() {
         String rentals = "SELECT * FROM rentals";
         try {

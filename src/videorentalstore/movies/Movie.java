@@ -6,14 +6,15 @@ package videorentalstore.movies;
  * @author bslater
  */
 public class Movie {
-    private String title, director, mpaaRating;
+    private String title, genre, director, mpaaRating, actorList;
     private String[] actors;
     private int movieID, userRating;
     
     
-    public Movie(int movieID, String title, String director, String actorList, int userRating, String mpaaRating) {
+    public Movie(int movieID, String title, String genre, String director, String actorList, int userRating, String mpaaRating) {
         setMovieID(movieID);
         setTitle(title);
+        setGenre(genre);
         setDirector(director);
         setActors(actorList);
         setUserRating(userRating);
@@ -28,12 +29,20 @@ public class Movie {
         return this.title;
     }
     
+    public String getGenre() {
+        return this.genre;
+    }
+    
     public String getDirector() {
         return this.director;
     }
     
     public String[] getActors() {
         return this.actors;
+    }
+    
+    public String getActorsList() {
+        return this.actorList;
     }
     
     public int getUserRating() {
@@ -52,6 +61,10 @@ public class Movie {
         this.title = title;
     }
     
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+    
     public void setDirector(String director) {
         this.director = director;
     }
@@ -61,6 +74,7 @@ public class Movie {
      * @param actors the comma separated list of names
      */
     public void setActors(String actors) {
+        this.actorList = actors;
         this.actors = actors.split(",");
     }
     

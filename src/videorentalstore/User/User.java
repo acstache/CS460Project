@@ -7,46 +7,25 @@ package videorentalstore.User;
 public class User {
     private String firstName, lastName, email, password, birthday, creditCardNum, creditCardExpireDate, address, city, state;
     private int customerID;
-    private Integer zipCode;
+    private String zipCode;
     
     public User(int customerID, String firstName, String lastName, String email, String password, String birthday,
-            String creditCardNum, String creditCardExpireDate, String address, String city, String state, Integer zipCode)
+            String creditCardNum, String creditCardExpireDate, String address, String city, String state, String zipCode)
     {
         setCustomerID(customerID);
         setFirstName(firstName);
         setLastName(lastName);
         setEmail(email);
         setPassword(password);
-        if (birthday != null)
-            setBirthday(birthday);
-        if (creditCardNum != null)
-            setCreditCardNum(creditCardNum);
-        if (creditCardExpireDate != null)
-            setCreditCardExpireDate(creditCardNum);
-        if (address != null)
-            setAddress(address);
-        if (city != null)
-            setCity(city);
-        if (state != null)
-            setState(state);
-        if (zipCode != null)
-            setZipCode(zipCode);
-            
-        
-    }
-    public User(int customerID, String firstName, String lastName, String email, String password)
-    {
-        setCustomerID(customerID);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setEmail(email);
-        setPassword(password);
-               
+        setBirthday(birthday);
+        setCreditCardNum(creditCardNum);
+        setCreditCardExpireDate(creditCardNum);
+        setAddress(address);
+        setCity(city);
+        setState(state);
+        setZipCode(zipCode);
     }
     
-    //*****************not sure about this one because doesn't the database set this when a user is added to the database? - Will
-    // This should be automatically incremented as users are added to the database, but we'll need to be able to get the number for adding it to
-    // the rentals table - Brian
     public void setCustomerID (int customerID){
         this.customerID = customerID;
     }
@@ -91,7 +70,7 @@ public class User {
         this.state = state;
     }
     
-    public void setZipCode(int zipCode){
+    public void setZipCode(String zipCode){
         this.zipCode = zipCode;
     }
     
@@ -113,5 +92,33 @@ public class User {
     
     public String getPassword() {
         return password;
-    }   
+    }
+    
+    public String getBirthday() {
+        return birthday;
+    }
+    
+    public String getCCNum() {
+        return creditCardNum;
+    }
+    
+    public String getCCExpDate() {
+        return creditCardExpireDate;
+    }
+    
+    public String getAddress() {
+        return address;
+    }
+    
+    public String getCity() {
+        return city;
+    }
+    
+    public String getState() {
+        return state;
+    }
+    
+    public String getZipCode() {
+        return zipCode;
+    }
 }
