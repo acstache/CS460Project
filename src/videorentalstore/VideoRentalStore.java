@@ -25,6 +25,14 @@ public class VideoRentalStore {
         System.out.println();
         rentalStore.browseDirectors();
         System.out.println();
+        rentalStore.browseActors();
+        System.out.println();
+        rentalStore.findMoviesWithActor("Hugo Weaving");
+        System.out.println();
+        rentalStore.findMoviesOverUserRating(80);
+        System.out.println();
+        rentalStore.findMoviesWithMPAARating("R");
+        System.out.println();
         //TODO include actors, user ratings searches/browse options
         
         //User u = new User(1,"Will","Acheson","willyach07","password");
@@ -39,9 +47,9 @@ public class VideoRentalStore {
         
         System.out.println();
         
-        rentalStore.addRental(2, 6);
+        /*rentalStore.addRental(2, 6);
         rentalStore.addRental(2, 11);
-        rentalStore.addRental(1, 3);
+        rentalStore.addRental(1, 3);*/
         
         rentalStore.showAllRentals();
         

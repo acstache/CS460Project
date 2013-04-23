@@ -254,9 +254,77 @@ public class Database {
         }
     }
     
-    //TODO add browse/search by actors
+    public void browseActors() {
+        String search = "SELECT DISTINCT actors FROM movies";
+        try {
+            ResultSet actors = executeQuery(search);
+            System.out.println("Actors of movies in stock");
+            while (actors.next()) {
+                String actorName = actors.getString("actors");
+                System.out.println(actorName);
+                //TODO make this tie into the GUI
+            }
+            try {
+                actors.close();
+            }
+            catch (Exception ignore) {}
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     
-    //TODO add search by user ratings
+    public void findMoviesWithActor(String actor) {
+        String search = "SELECT DISTINCT actors, title FROM movies WHERE actors LIKE '%" + actor + "%'";
+        try {
+            ResultSet actors = executeQuery(search);
+            System.out.println("Actors with \"" + actor + "\" in their name");
+            while (actors.next()) {
+                String title = actors.getString("title");
+                System.out.println(actor + " played in " + title);
+                //TODO make this tie into the GUI
+            }
+            try {
+                actors.close();
+            }
+            catch (Exception ignore) {}
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void findMoviesOverUserRating(int rating) {
+        String search = "SELECT title, userRating FROM movies WHERE userRating>" + rating;
+        try {
+            ResultSet movies = executeQuery(search);
+            System.out.println("Movies with average user ratings over " + rating);
+            while (movies.next()) {
+                int userRating = movies.getInt("userRating");
+                String title = movies.getString("title");
+                System.out.println(title + " is rated " + userRating + " by users");
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void findMoviesWithMPAARating(String rating) {
+        String search = "SELECT title, MPAA FROM movies WHERE MPAA='" + rating + "'";
+        try {
+            ResultSet movies = executeQuery(search);
+            System.out.println("Movies with an MPAA rating of " + rating);
+            while (movies.next()) {
+                String MPAA = movies.getString("MPAA");
+                String title = movies.getString("title");
+                System.out.println(title + " is rated " + MPAA);
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     
     
     
