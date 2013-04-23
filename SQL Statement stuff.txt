@@ -6,3 +6,4 @@ CREATE TABLE tableName (columName FLAGS, ... , columName FLAGS)
 Dates will be best if parsed/calculated outside of SQL for easiest understanding
 lower(columnName) for case insensitive searches
 slipcor knows more
+date('now', '+X day')

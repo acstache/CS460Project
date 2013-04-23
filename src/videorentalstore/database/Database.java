@@ -341,16 +341,20 @@ public class Database {
      * 
      * @param user
      */
-    //TODO update this to do every piece of user data, and to use executeUpdate(String)
     public void addUsertoDB(User user) {
         try {
-            String insert = "INSERT INTO \"customer\" (\"firstName\",\"lastName\",\"email\",\"password\") VALUES (" + user.getFirstName() + "," + user.getLastName() + "," + user.getEmail() + "," + user.getPassword() + ")";
+            String insert = "INSERT INTO customer (lastName , firstName , email, password, birthday, creditCardNum, creditCardExpDate, address, city, state, zipCode) VALUES ( "  + " ' " + user.getLastName() + " ' " + " , " + " ' " + user.getFirstName() + " ' " + " , " + " ' " + user.getEmail() + " ' " + " , " + " ' " + user.getPassword() + " ' " +
+            " , " +  " ' " + user.getBirthday() + " ' " + " , " + " ' " + user.getCCNum() + " ' " + " , " + " ' " + user.getCCExpDate() + " ' " + " , " +    
+                     " ' " + user.getAddress() + " ' " + " , " + " ' " + user.getCity() + " ' " + " , " + " ' " + user.getState() + " ' " + " , " +
+                     " ' " + user.getZipCode() + " ' " + " ) ";
             executeUpdate(insert);
         }
         catch (Exception e) {
             System.out.println("Error adding user to Database: \n" + e.toString());
         }
     }
+    
+    //TODO "addUsertoDB(every single piece)"
     
     /**
      * 
