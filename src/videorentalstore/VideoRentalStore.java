@@ -52,6 +52,7 @@ public class VideoRentalStore {
         rentalStore.addRental(1, 3);*/
         
         rentalStore.showAllRentals();
+        rentalStore.getRentalHistory(2);
         
 
         System.out.println("\nDone running");

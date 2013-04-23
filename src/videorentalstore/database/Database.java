@@ -449,6 +449,23 @@ public class Database {
     
     /**
      * 
+     * @param customerID
+     */
+    public void getRentalHistory(int customerID) {
+       String search = "SELECT * FROM rentals WHERE customerID=" + customerID;
+       try {
+           ResultSet rentHist = executeQuery(search);
+           while(rentHist.next()) {
+               System.out.println("Customer " + customerID + " rented Movie " + rentHist.getInt("movieID") + " on date " + rentHist.getDate("timeRented"));
+           }
+       }
+       catch (Exception e) {
+           System.out.println(e);
+       }
+    }
+    
+    /**
+     * 
      */
     public void showAllRentals() {
         String rentals = "SELECT * FROM rentals";
@@ -460,4 +477,12 @@ public class Database {
         }
         catch (Exception e) {}
     }
+    
+    
+
+    /***************************************
+     *                                     *
+     *    Payments/Billing Table Stuff     *
+     *                                     *
+     ***************************************/
 }
