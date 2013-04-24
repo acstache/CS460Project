@@ -294,7 +294,7 @@ public class CustomerAccount_SignUp extends javax.swing.JFrame {
         String creditCardNum = creditCardNumTxt.getText();
         String creditCardExpireDate = creditCardExpireDateTxt.getText();
 
-        User u = new User(firstName, lastName, email, password,  birthday , creditCardNum,  creditCardExpireDate,  address,  city,  state,  zipCode);
+        User u = new User(firstName, lastName, email, password,  birthday , creditCardNum,  creditCardExpireDate,  address,  city,  state,  zipCode, false);
         db.addUsertoDB(u);
         System.out.println("user added");
 

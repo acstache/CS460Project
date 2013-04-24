@@ -32,8 +32,6 @@ public class Database {
         
         // create the connection
         this.conn = DriverManager.getConnection(DbUrl);
-        
-        //createMovieObjects(); no actors column in movies table
     }
     
     //TODO do we need this?
@@ -109,15 +107,56 @@ public class Database {
      * @param movie
      */
     public void remMovieFromDB(Movie movie, int copies, boolean allCopies) {
-        //TODO different logic if it's remove X copies or all copies
+        String findMovie = "SELECT * FROM movies WHERE title='" + movie.getTitle() + "'";
+        try {
+            ResultSet movies = executeQuery(findMovie);
+            if (!movies.next()) {
+                System.out.println("No movie of that title in stock");
+            }
+            else {
+                movies.previous(); // If there was actually a movie found, you must go back to make sure the pointer is in the right spot
+                if (allCopies) {
+                    String purge = "DELETE FROM movies WHERE title='" + movie.getTitle() + "'";
+                    executeUpdate(purge);
+                }
+                else {
+                    if (copies > movies.getInt("totalQuantity")) {
+                        String purge = "DELETE FROM movies WHERE title='" + movie.getTitle() + "'";
+                        executeUpdate(purge);
+                    }
+                    else {
+                        String removeMovies = "UPDATE moviesSET totalQuantity=" + (movies.getInt("totalQuantity")-copies) + ", leftInStock=" + (movies.getInt("leftInStock")-copies) + " WHERE title='" + movie.getTitle() + "'";
+                        executeUpdate(removeMovies);
+                    }
+                }
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
     }
     
     /**
      * 
      * @param movie
      */
-    public void editMovieInDB(Movie movie) {
+    public void editMovieInDB(int movieID, Movie movie) {
         //TODO find movie in database, compare "changes", if different, make changes
+        String findMovie = "SELECT * FROM movies WHERE movieId=" + movieID;
+        try {
+            ResultSet movies = executeQuery(findMovie);
+            if (!movies.next()) {
+                System.out.println("That movie is not in stock");
+            }
+            else {
+                movies.previous();
+                String updateMovie = "UPDATE movies SET title='" + movie.getTitle() + "', genre='" + movie.getGenre() + "', director='" + movie.getDirector() + "', MPAA='" + movie.getMPAARating() + "', userRating='" + movie.getUserRating() + "', actors='" + movie.getActors() + "' WHERE movieId=" + movieID;
+                executeUpdate(updateMovie);
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
     }
     
     /**
@@ -341,20 +380,38 @@ public class Database {
      * 
      * @param user
      */
+    @Deprecated
     public void addUsertoDB(User user) {
+        addUsertoDB(user.getLastName(), user.getFirstName(), user.getEmail(), user.getPassword(), user.getBirthday(), user.getCCNum(), user.getCCExpDate(), user.getAddress(), user.getCity(), user.getState(), user.getZipCode(), user.isEmployee());
+    }
+    
+    //TODO should we return a String that says the results of the add user call? "account created/already exists/promoted successfully/etc"?
+    public void addUsertoDB(String lastName, String firstName, String email, String password, String birthday, String ccNum, String ccExp, String address, String city, String state, String zipcode, boolean isEmployee) {
+        String search = "SELECT * FROM customer WHERE email='" + email + "'"; 
         try {
-            String insert = "INSERT INTO customer (lastName , firstName , email, password, birthday, creditCardNum, creditCardExpDate, address, city, state, zipCode) VALUES ( "  + " ' " + user.getLastName() + " ' " + " , " + " ' " + user.getFirstName() + " ' " + " , " + " ' " + user.getEmail() + " ' " + " , " + " ' " + user.getPassword() + " ' " +
-            " , " +  " ' " + user.getBirthday() + " ' " + " , " + " ' " + user.getCCNum() + " ' " + " , " + " ' " + user.getCCExpDate() + " ' " + " , " +    
-                     " ' " + user.getAddress() + " ' " + " , " + " ' " + user.getCity() + " ' " + " , " + " ' " + user.getState() + " ' " + " , " +
-                     " ' " + user.getZipCode() + " ' " + " ) ";
-            executeUpdate(insert);
+            ResultSet user = executeQuery(search);
+            if (!user.next()) {
+                String insert = "INSERT INTO customer (lastName , firstName , email, password, birthday, creditCardNum, creditCardExpDate, address, city, state, zipCode, isEmployee) VALUES ('" + lastName + "', '" + firstName + "', '" + email + "', '" + password + "', '" + birthday + "', '" + ccNum + "', '" + ccExp + "', '" + address + "', '" + city + "', '" + state + "', '" + zipcode + "', '" + isEmployee +"')";
+                executeUpdate(insert);
+            }
+            else if (isEmployee) {
+                user.previous(); // If there was actually an account found, you must go back to make sure the pointer is in the right spot
+                if(user.getString("isEmployee").equalsIgnoreCase("true")) {
+                    System.out.println("User is already an Employee");
+                }
+                else {
+                    String promote = "UPDATE customer SET isEmployee='true' WHERE email='" + email + "'";
+                    executeUpdate(promote);
+                }
+            }
+            else {
+                System.out.println("There is already an existing account with that email");
+            }
         }
         catch (Exception e) {
             System.out.println("Error adding user to Database: \n" + e.toString());
         }
     }
-    
-    //TODO "addUsertoDB(every single piece)"
     
     /**
      * 
@@ -411,9 +468,11 @@ public class Database {
     }
     
 
-    /* Author Akua Duah
-     * isUser checks user email and password against customer table in databse
-     * @return iscustomer returns a boolean value which is checked against database
+    /** Author Akua Duah
+     * isUser checks user email and password against customer table in database
+     * @param email username
+     * @param password password
+     * @return returns true if the email/password combo is correct, false in all other cases
      */
     public boolean isUser(String email, String password) throws Exception {
         String search= " SELECT customerId FROM customer WHERE email='"+email+"' AND password='"+password+"'" ;
@@ -425,20 +484,16 @@ public class Database {
         return false;
     }
     
+    /**
+     * isEmployee runs after a user successfully signs in and checks whether or not the Customer is also an Employee
+     * @param email username
+     * @return true/false
+     */
     public boolean isEmloyee(String email) {
         String search = "SELECT isEmployee FROM customer WHERE email='" + email + "'";
         try {
             ResultSet searchEmp = executeQuery(search);
-            if (searchEmp.next()) {
-                System.out.println("Employee");
-                String blah = searchEmp.getString("isEmployee");
-                System.out.println(blah);
-                return blah.equalsIgnoreCase("true");
-            }
-            else {
-                System.out.println("Not an employee");
-                return false;
-            }
+            return searchEmp.getString("isEmployee").equalsIgnoreCase("true");
         }
         catch (Exception e) {
             System.out.println(e);

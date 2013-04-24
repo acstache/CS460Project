@@ -426,7 +426,7 @@ public class EmployeeAccount_SignUp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerEmployeeAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerEmployeeAccountActionPerformed
-         dispose();
+        dispose();
         EmployeeAccount f = new EmployeeAccount(db);
         f.setVisible(true);
     }//GEN-LAST:event_registerEmployeeAccountActionPerformed

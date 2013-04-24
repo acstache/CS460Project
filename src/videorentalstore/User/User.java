@@ -7,9 +7,10 @@ package videorentalstore.User;
 public class User {
     private String firstName, lastName, email, password, birthday, creditCardNum, creditCardExpireDate, address, city, state, zipCode;
     private int customerID;
+    private boolean isEmployee;
     
     public User(String firstName, String lastName, String email, String password, String birthday,
-            String creditCardNum, String creditCardExpireDate, String address, String city, String state, String zipCode)
+            String creditCardNum, String creditCardExpireDate, String address, String city, String state, String zipCode, boolean isEmployee)
     {
         setCustomerID(customerID);
         setFirstName(firstName);
@@ -23,7 +24,15 @@ public class User {
         setCity(city);
         setState(state);
         setZipCode(zipCode);
+        setEmployee(isEmployee);
     }
+    
+    
+    /************************
+     *                      *
+     *       Setters        *
+     *                      *
+     ***********************/
     
     public void setCustomerID (int customerID){
         this.customerID = customerID;
@@ -73,6 +82,17 @@ public class User {
         this.zipCode = zipCode;
     }
     
+    public void setEmployee(boolean isEmployee) {
+        this.isEmployee = isEmployee;
+    }
+    
+    
+    /************************
+     *                      *
+     *       Getters        *
+     *                      *
+     ***********************/
+    
     public int getCustomerID(){
         return customerID;
     }
@@ -119,5 +139,9 @@ public class User {
     
     public String getZipCode() {
         return zipCode;
+    }
+    
+    public boolean isEmployee() {
+        return isEmployee;
     }
 }

@@ -1856,7 +1856,6 @@ public class EmployeeAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_editCustomerAccountLogoutButtonActionPerformed
 
     private void addCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerButtonActionPerformed
-        String username = usernameTxt.getText();
         String password = passwordTxt.getText();
         String email = emailTxt.getText();
         String firstName = firstNameTxt.getText();
@@ -1868,6 +1867,8 @@ public class EmployeeAccount extends javax.swing.JFrame {
         String address = addressTxt.getText();
         String creditCardNum = creditCardNumTxt.getText();
         String creditCardExpireDate = creditCardExpireDateTxt.getText();
+        
+        db.addUsertoDB(lastName, firstName, email, password, birthday, creditCardNum, creditCardExpireDate, address, city, state, zipCode, false);
     }//GEN-LAST:event_addCustomerButtonActionPerformed
 
     private void customerClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerClearButtonActionPerformed
@@ -1892,15 +1893,28 @@ public class EmployeeAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_editDBLogoutButonActionPerformed
 
     private void editMovieInBDButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editMovieInBDButonActionPerformed
-        // TODO add your handling code here:
+        try {
+            int row = movies.getSelectedRow();
+            int movieID = (Integer) movies.getModel().getValueAt(row, 0); 
+            db.editMovieInDB(movieID, new Movie(titleTxt.getText(), genreTxt.getText(), directorTxt.getText(), actorTxt.getText(), Integer.parseInt(userRatingTxt.getText()), mpaarRatingTxt.getText()));
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_editMovieInBDButonActionPerformed
 
     private void removeMovieFromDBButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeMovieFromDBButtonActionPerformed
-        // TODO add your handling code here:
+        try {
+            //TODO perhaps allow for removal of more than 1 at a time? check box for all, text box for specific quantity?
+            db.remMovieFromDB(new Movie(titleTxt.getText(), genreTxt.getText(), directorTxt.getText(), actorTxt.getText(), Integer.parseInt(userRatingTxt.getText()), mpaarRatingTxt.getText()), 1, false);
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_removeMovieFromDBButtonActionPerformed
 
     private void moviesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moviesMouseClicked
-        try{
+        try {
             int row = movies.getSelectedRow();
             String s = (movies.getModel().getValueAt(row,0).toString());
             String sql = "SELECT * FROM movies WHERE movieID=" + s;
@@ -1916,14 +1930,15 @@ public class EmployeeAccount extends javax.swing.JFrame {
                 String add3 =rs.getString("userRating");
                 userRatingTxt.setText(add3);
 
-                String add4 =rs.getString("mpaarRating");
+                String add4 =rs.getString("mpaaRating");
                 mpaarRatingTxt.setText(add4);
 
                 String add5 =rs.getString("director");
                 directorTxt.setText(add5);
             }*/
 
-        }catch(Exception e){
+        }
+        catch(Exception e) {
             System.out.println(e);
         }
     }//GEN-LAST:event_moviesMouseClicked
@@ -1953,9 +1968,7 @@ public class EmployeeAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_addMovieToDBButtonActionPerformed
 
     private void editBillingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBillingButtonActionPerformed
-       
-
-       
+       // TODO add your handling code here:
     }//GEN-LAST:event_editBillingButtonActionPerformed
 
     private void editBillingButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editBillingButtonKeyPressed

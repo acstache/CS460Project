@@ -227,13 +227,11 @@ public class Account_SignIn extends javax.swing.JFrame {
             if(db.isUser(email,p)) { //if username and password matches database take user to user profile
                 if(db.isEmloyee(email)) {
                     dispose();
-                    System.out.println("Employee Account page");
                     EmployeeAccount f = new EmployeeAccount(db);
                     f.setVisible(true);
                 }
                 else {
                     dispose();
-                    System.out.println("Customer Account Page");
                     CustomerAccount_Movies f = new CustomerAccount_Movies(db);
                     f.setVisible(true);
                 }
