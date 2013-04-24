@@ -4,6 +4,7 @@
  */
 package videorentalstore.gui;
 
+import videorentalstore.User.User;
 import videorentalstore.database.Database;
 
 /**
@@ -12,12 +13,14 @@ import videorentalstore.database.Database;
  */
 public class CustomerAccount_Movies extends javax.swing.JFrame {
     private Database db;
+    private User currentUser;
     /**
      * Creates new form CustomerAccount_Movies
      */
-    public CustomerAccount_Movies(Database db) {
+    public CustomerAccount_Movies(Database db, User currentUser) {
         initComponents();
         this.db = db;
+        this.currentUser = currentUser;
     }
 
     /**
@@ -37,7 +40,7 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
         viewRentalHistoryToolBar = new javax.swing.JToolBar();
         deleteAccountToolBar = new javax.swing.JToolBar();
         GenresDropDownMenu = new javax.swing.JComboBox();
-        MPAARDropDownMenu = new javax.swing.JComboBox();
+        MPAADropDownMenu = new javax.swing.JComboBox();
         BrowseByLabel = new javax.swing.JLabel();
         searchTxt = new javax.swing.JTextField();
         findAMovieLabel = new javax.swing.JLabel();
@@ -100,9 +103,9 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
 
         GenresDropDownMenu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Genres", "Action", "Adventure", "Comedy", "Thriller" }));
 
-        MPAARDropDownMenu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MPAA Rating", "G", "PG", "PG13", "R", "NC-17" }));
-        MPAARDropDownMenu.setMinimumSize(new java.awt.Dimension(1800, 1000));
-        MPAARDropDownMenu.setPreferredSize(new java.awt.Dimension(1800, 1000));
+        MPAADropDownMenu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MPAA Rating", "G", "PG", "PG13", "R", "NC-17" }));
+        MPAADropDownMenu.setMinimumSize(new java.awt.Dimension(1800, 1000));
+        MPAADropDownMenu.setPreferredSize(new java.awt.Dimension(1800, 1000));
 
         BrowseByLabel.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
         BrowseByLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,7 +145,7 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
                                 .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(deleteAccountToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(sideBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(MPAARDropDownMenu, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+                                .addComponent(MPAADropDownMenu, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
                                 .addComponent(GenresDropDownMenu, javax.swing.GroupLayout.Alignment.LEADING, 0, 187, Short.MAX_VALUE))))
                     .addGroup(sideBarPanelLayout.createSequentialGroup()
                         .addContainerGap()
@@ -175,7 +178,7 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(GenresDropDownMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(MPAARDropDownMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(MPAADropDownMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1039, 1039, 1039)
                 .addComponent(deleteAccountToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -306,7 +309,7 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
 
     private void rentMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {
         dispose();
-        CustomerAccount_Rent f = new CustomerAccount_Rent(db);
+        CustomerAccount_Rent f = new CustomerAccount_Rent(db, currentUser);
         f.setVisible(true);
     }
 
@@ -318,13 +321,13 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
 
     private void myAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {
         dispose();
-        CustomerAccount_MyAccount f = new CustomerAccount_MyAccount(db);
+        CustomerAccount_MyAccount f = new CustomerAccount_MyAccount(db, currentUser);
         f.setVisible(true);
     }
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {
         dispose();
-        CustomerAccount_Movies f = new CustomerAccount_Movies(db);
+        CustomerAccount_Movies f = new CustomerAccount_Movies(db, currentUser);
         f.setVisible(true);
     }
 
@@ -358,14 +361,14 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomerAccount_Movies(db).setVisible(true);
+                new CustomerAccount_Movies(db, currentUser).setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify
     private javax.swing.JLabel BrowseByLabel;
     private javax.swing.JComboBox GenresDropDownMenu;
-    private javax.swing.JComboBox MPAARDropDownMenu;
+    private javax.swing.JComboBox MPAADropDownMenu;
     private javax.swing.JPanel blackBarPanel;
     private javax.swing.JToolBar deleteAccountToolBar;
     private javax.swing.JLabel divider1;

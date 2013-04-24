@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
+import videorentalstore.User.User;
 import videorentalstore.database.Database;
 
 /**
@@ -224,15 +225,16 @@ public class Account_SignIn extends javax.swing.JFrame {
         String p = new String(pw); // converts char array to string
         
         try {
-            if(db.isUser(email,p)) { //if username and password matches database take user to user profile
-                if(db.isEmloyee(email)) {
+            User user = db.isUser(email, p);
+            if(user != null) { //if username and password matches database, take user to respective profile
+                if(user.isEmployee()) {
                     dispose();
-                    EmployeeAccount f = new EmployeeAccount(db);
+                    EmployeeAccount f = new EmployeeAccount(db, user);
                     f.setVisible(true);
                 }
                 else {
                     dispose();
-                    CustomerAccount_Movies f = new CustomerAccount_Movies(db);
+                    CustomerAccount_Movies f = new CustomerAccount_Movies(db, user);
                     f.setVisible(true);
                 }
             }

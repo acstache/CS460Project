@@ -4,6 +4,7 @@
  */
 package videorentalstore.gui;
 
+import videorentalstore.User.User;
 import videorentalstore.database.Database;
 
 /**
@@ -12,12 +13,14 @@ import videorentalstore.database.Database;
  */
 public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
     private Database db;
+    private User currentUser;
     /**
      * Creates new form CustomerAccount_DeleteAccount
      */
-    public CustomerAccount_DeleteAccount(Database db) {
+    public CustomerAccount_DeleteAccount(Database db, User currentUser) {
         initComponents();
         this.db = db;
+        this.currentUser = currentUser;
     }
 
     /**
@@ -350,13 +353,13 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         dispose();
-        CustomerAccount_Movies f = new CustomerAccount_Movies(db);
+        CustomerAccount_Movies f = new CustomerAccount_Movies(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void myAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myAccountButtonActionPerformed
         dispose();
-        CustomerAccount_MyAccount f = new CustomerAccount_MyAccount(db);
+        CustomerAccount_MyAccount f = new CustomerAccount_MyAccount(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_myAccountButtonActionPerformed
 
@@ -374,19 +377,19 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
 
     private void ViewPaymentHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewPaymentHistoryButtonActionPerformed
         dispose();
-        CustomerAccount_PaymentHistory f = new CustomerAccount_PaymentHistory(db);
+        CustomerAccount_PaymentHistory f = new CustomerAccount_PaymentHistory(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_ViewPaymentHistoryButtonActionPerformed
 
     private void AccountInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountInfoButtonActionPerformed
         dispose();
-        CustomerAccount_MyAccount f = new CustomerAccount_MyAccount(db);
+        CustomerAccount_MyAccount f = new CustomerAccount_MyAccount(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_AccountInfoButtonActionPerformed
 
     private void viewRentalHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRentalHistoryButtonActionPerformed
         dispose();
-        CustomerAccount_RentalHistory f = new CustomerAccount_RentalHistory(db);
+        CustomerAccount_RentalHistory f = new CustomerAccount_RentalHistory(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_viewRentalHistoryButtonActionPerformed
 
@@ -420,7 +423,7 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomerAccount_DeleteAccount(db).setVisible(true);
+                new CustomerAccount_DeleteAccount(db, currentUser).setVisible(true);
             }
         });
     }

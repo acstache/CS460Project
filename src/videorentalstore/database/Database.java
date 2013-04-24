@@ -353,6 +353,24 @@ public class Database {
         }
     }
     
+    /*
+     * This method will return a result set of the Movie table which is to be used
+     * when displaying the table in a JTable
+     */
+    public ResultSet displayMovieTable() {
+        String fetchMovieTable = "SELECT * FROM movies";
+        ResultSet movieDisplay;
+        try {
+            movieDisplay = executeQuery(fetchMovieTable);
+            return movieDisplay;
+        }
+        catch(Exception e){
+            System.out.println(e);
+            movieDisplay = null;
+            return movieDisplay;
+        }
+    }
+    
     public void findMovieByID(int movieID) {
         String search = "SELECT * FROM movies WHERE movieId=" + movieID;
         try {
@@ -474,31 +492,14 @@ public class Database {
      * @param password password
      * @return returns true if the email/password combo is correct, false in all other cases
      */
-    public boolean isUser(String email, String password) throws Exception {
-        String search= " SELECT customerId FROM customer WHERE email='"+email+"' AND password='"+password+"'" ;
+    public User isUser(String email, String password) throws Exception {
+        String search= " SELECT * FROM customer WHERE email='"+email+"' AND password='"+password+"'" ;
         try {
             ResultSet searchUserEmail = executeQuery(search);
-            return (!searchUserEmail.next() ? false : true);
+            return (!searchUserEmail.next() ? null : new User(searchUserEmail.getString("firstName"), searchUserEmail.getString("lastName"), searchUserEmail.getString("email"), searchUserEmail.getString("password"), searchUserEmail.getString("birthday"), searchUserEmail.getString("creditCardNum"), searchUserEmail.getString("creditCardExpDate"), searchUserEmail.getString("address"), searchUserEmail.getString("city"), searchUserEmail.getString("state"), searchUserEmail.getString("zipcode"), searchUserEmail.getString("isEmployee").equalsIgnoreCase("true")));
         }
         catch (Exception e) {}
-        return false;
-    }
-    
-    /**
-     * isEmployee runs after a user successfully signs in and checks whether or not the Customer is also an Employee
-     * @param email username
-     * @return true/false
-     */
-    public boolean isEmloyee(String email) {
-        String search = "SELECT isEmployee FROM customer WHERE email='" + email + "'";
-        try {
-            ResultSet searchEmp = executeQuery(search);
-            return searchEmp.getString("isEmployee").equalsIgnoreCase("true");
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
-        return false;
+        return null;
     }
     
     

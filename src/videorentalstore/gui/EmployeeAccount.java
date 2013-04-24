@@ -5,6 +5,7 @@
 package videorentalstore.gui;
 
 import videorentalstore.movies.Movie;
+import videorentalstore.User.User;
 import videorentalstore.database.Database;
 /**
  *
@@ -12,12 +13,14 @@ import videorentalstore.database.Database;
  */
 public class EmployeeAccount extends javax.swing.JFrame {
     private Database db;
+    private User currentUser;
     /**
      * Creates new form EmployeeAccount
      */
-    public EmployeeAccount(Database db) {
+    public EmployeeAccount(Database db, User currentUser) {
         initComponents();
         this.db = db;
+        this.currentUser = currentUser;
     }
 
     /**
@@ -1827,25 +1830,25 @@ public class EmployeeAccount extends javax.swing.JFrame {
 
     private void deleteMyAcountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMyAcountButtonActionPerformed
         dispose();
-        CustomerAccount_DeleteAccount f = new CustomerAccount_DeleteAccount(db);
+        CustomerAccount_DeleteAccount f = new CustomerAccount_DeleteAccount(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_deleteMyAcountButtonActionPerformed
 
     private void viewPaymentHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPaymentHistoryButtonActionPerformed
         dispose();
-        CustomerAccount_PaymentHistory f = new CustomerAccount_PaymentHistory(db);
+        CustomerAccount_PaymentHistory f = new CustomerAccount_PaymentHistory(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_viewPaymentHistoryButtonActionPerformed
 
     private void makePaymentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makePaymentButtonActionPerformed
         dispose();
-        CustomerAccount_MakePayment f = new CustomerAccount_MakePayment(db);
+        CustomerAccount_MakePayment f = new CustomerAccount_MakePayment(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_makePaymentButtonActionPerformed
 
     private void viewRentalHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRentalHistoryButtonActionPerformed
         dispose();
-        CustomerAccount_RentalHistory f = new CustomerAccount_RentalHistory(db);
+        CustomerAccount_RentalHistory f = new CustomerAccount_RentalHistory(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_viewRentalHistoryButtonActionPerformed
 
@@ -1989,7 +1992,7 @@ public class EmployeeAccount extends javax.swing.JFrame {
 
     private void rentMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentMovieButtonActionPerformed
         dispose();
-        CustomerAccount_Rent f = new CustomerAccount_Rent(db);
+        CustomerAccount_Rent f = new CustomerAccount_Rent(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_rentMovieButtonActionPerformed
 
@@ -2001,13 +2004,13 @@ public class EmployeeAccount extends javax.swing.JFrame {
 
     private void myAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myAccountButtonActionPerformed
         dispose();
-        CustomerAccount_MyAccount f = new CustomerAccount_MyAccount(db);
+        CustomerAccount_MyAccount f = new CustomerAccount_MyAccount(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_myAccountButtonActionPerformed
 
     private void homeButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton2ActionPerformed
         dispose();
-        CustomerAccount_Movies f = new CustomerAccount_Movies(db);
+        CustomerAccount_Movies f = new CustomerAccount_Movies(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_homeButton2ActionPerformed
 
@@ -2047,7 +2050,7 @@ public class EmployeeAccount extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EmployeeAccount(db).setVisible(true);
+                new EmployeeAccount(db, currentUser).setVisible(true);
             }
         });
     }

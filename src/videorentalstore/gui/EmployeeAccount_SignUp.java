@@ -4,6 +4,7 @@
  */
 package videorentalstore.gui;
 
+import videorentalstore.User.User;
 import videorentalstore.database.Database;
 
 /**
@@ -426,8 +427,25 @@ public class EmployeeAccount_SignUp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerEmployeeAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerEmployeeAccountActionPerformed
+        char[] pw = newUserPasswordTxt1.getPassword();
+        String password = pw.toString();
+        String email = newUserEmailTxt1.getText();
+        String firstName = firstNameTxt2.getText();
+        String lastName = lastNameTxt2.getText();
+        String birthday = birthdayMonth.toString() + "/" +  birthdayDay.toString() + "/" +  birthdayYear.toString();
+        String city = cityTxt2.getText();
+        String state = stateTxt2.getText();
+        String zipCode = zipcodeTxt2.getText();
+        String address = addressTxt2.getText();
+        String creditCardNum = creditCardNumTxt2.getText();
+        String creditCardExpireDate = creditCardExpirationMonth.toString() + "/" + creditCardExpirationYear.toString();
+
+        User u = new User(firstName, lastName, email, password,  birthday , creditCardNum,  creditCardExpireDate,  address,  city,  state,  zipCode, true);
+        db.addUsertoDB(u);
+        System.out.println("user added");
+        
         dispose();
-        EmployeeAccount f = new EmployeeAccount(db);
+        EmployeeAccount f = new EmployeeAccount(db, u);
         f.setVisible(true);
     }//GEN-LAST:event_registerEmployeeAccountActionPerformed
 
