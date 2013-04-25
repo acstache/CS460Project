@@ -14,13 +14,15 @@ import videorentalstore.database.Database;
 public class CustomerAccount_Rent extends javax.swing.JFrame {
     private Database db;
     private User currentUser;
+    private int movieID;
     /**
      * Creates new form CustomerAccount_Rent
      */
-    public CustomerAccount_Rent(Database db, User currentUser) {
+    public CustomerAccount_Rent(Database db, User currentUser, int movieID) {
         initComponents();
         this.db = db;
         this.currentUser = currentUser;
+        this.movieID = movieID;
     }
 
     /**
@@ -543,6 +545,9 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
         dispose();
         CustomerAccount_MakePayment f = new CustomerAccount_MakePayment(db, currentUser);
         f.setVisible(true);
+        
+        int custID = db.getCustomerID(currentUser.getEmail());
+        db.addRental(custID, movieID);
     }//GEN-LAST:event_acceptRentAgreementButtonActionPerformed
 
     private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
@@ -593,7 +598,7 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomerAccount_Rent(db, currentUser).setVisible(true);
+                new CustomerAccount_Rent(db, currentUser, movieID).setVisible(true);
             }
         });
     }

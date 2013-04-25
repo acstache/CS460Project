@@ -311,7 +311,7 @@ public class CustomerAccount_SignUp extends javax.swing.JFrame {
 
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
         char[] pw = newUserPasswordTxt.getPassword();
-        String password = pw.toString();
+        String password = new String(pw);
         String email = newUserEmailTxt.getText();
         String firstName = firstNameTxt.getText();
         String lastName = lastNameTxt.getText();

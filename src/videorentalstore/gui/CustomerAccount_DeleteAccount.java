@@ -364,7 +364,8 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void deleteAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAccountButtonActionPerformed
-       dispose();
+        db.deleteUser(currentUser.getEmail());
+        dispose();
         CustomerAccount_Deleted f = new CustomerAccount_Deleted();
         f.setVisible(true);
     }//GEN-LAST:event_deleteAccountButtonActionPerformed

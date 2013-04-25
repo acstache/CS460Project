@@ -4,31 +4,20 @@
  */
 package videorentalstore.gui;
 
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import videorentalstore.database.Database;
 import videorentalstore.User.User;
+import videorentalstore.database.Database;
 
 /**
  *
  * @author ahurley
  */
-public class CustomerAccount_Movies extends javax.swing.JFrame {
+public class CustomerAccount_Movie extends javax.swing.JFrame {
     private Database db;
     private User currentUser;
-    private int selectedMovieID;
     /**
      * Creates new form CustomerAccount_Movie
      */
-    public CustomerAccount_Movies(Database db, User currentUser)  {
+    public CustomerAccount_Movie(Database db, User currentUser) {
         initComponents();
         this.db = db;
         this.currentUser = currentUser;
@@ -69,6 +58,7 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
         rentMovieButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1800, 1000));
 
         moviesPanel.setBackground(new java.awt.Color(255, 255, 255));
         moviesPanel.setName(""); // NOI18N
@@ -110,20 +100,10 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
         deleteAccountToolBar.setBorderPainted(false);
 
         GenresDropDownMenu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Genres", "Action", "Adventure", "Comedy", "Thriller" }));
-        GenresDropDownMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenresDropDownMenuActionPerformed(evt);
-            }
-        });
 
-        MPAARDropDownMenu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MPAA Rating", "G", "PG", "PG-13", "R", "NC-17" }));
+        MPAARDropDownMenu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MPAA Rating", "G", "PG", "PG13", "R", "NC-17" }));
         MPAARDropDownMenu.setMinimumSize(new java.awt.Dimension(1800, 1000));
         MPAARDropDownMenu.setPreferredSize(new java.awt.Dimension(1800, 1000));
-        MPAARDropDownMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MPAARDropDownMenuActionPerformed(evt);
-            }
-        });
 
         BrowseByLabel.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
         BrowseByLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,11 +117,6 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
         searchLabel.setText("Search by: Title, Actor, Director");
 
         searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_SearchIcon.png"))); // NOI18N
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout sideBarPanelLayout = new javax.swing.GroupLayout(sideBarPanel);
         sideBarPanel.setLayout(sideBarPanelLayout);
@@ -191,9 +166,9 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(searchLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(sideBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(searchButton)
-                    .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(sideBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(searchTxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewRentalHistoryToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
@@ -291,18 +266,19 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
             moviesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(moviesPanelLayout.createSequentialGroup()
                 .addComponent(sideBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(moviesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(moviesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(moviesPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(moviesLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, moviesPanelLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(movieBDScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1213, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(moviesPanelLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(moviesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(rentMovieButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(movieBDScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1322, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(16262, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rentMovieButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         moviesPanelLayout.setVerticalGroup(
             moviesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,16 +286,13 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
                 .addGroup(moviesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sideBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(moviesPanelLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
                         .addGroup(moviesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(moviesPanelLayout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(moviesLabel))
-                            .addGroup(moviesPanelLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(moviesLabel)
+                            .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(168, 168, 168)
                         .addComponent(movieBDScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGap(32, 32, 32)
                         .addComponent(rentMovieButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -328,12 +301,12 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18150, Short.MAX_VALUE)
+            .addGap(0, 1567, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 115, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(moviesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 116, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,7 +323,7 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         dispose();
-        CustomerAccount_Movies f = new CustomerAccount_Movies (db, currentUser);
+        CustomerAccount_Movie f = new CustomerAccount_Movie (db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -367,74 +340,8 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void rentMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentMovieButtonActionPerformed
-        dispose();
-        CustomerAccount_Rent  f = new CustomerAccount_Rent(db, currentUser, Integer.parseInt(movieDBTable.getModel().getValueAt(movieDBTable.getSelectedRow(), 0).toString()));
-        f.setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_rentMovieButtonActionPerformed
-
-    private void MPAARDropDownMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MPAARDropDownMenuActionPerformed
-        ResultSet rs = null;
-        
-        if (searchTxt.getText().isEmpty()) {
-            if(MPAARDropDownMenu.getSelectedItem().toString().equals("MPAA Rating")){
-                return;
-            }
-            rs = db.findMoviesWithMPAARating(MPAARDropDownMenu.getSelectedItem().toString());
-        }
-        else {
-            rs = db.findMoviesWithMPAARating(MPAARDropDownMenu.getSelectedItem().toString(), searchTxt.getText());
-        }
-        
-        try {
-           
-           movieDBTable.setModel(buildTableModel(rs));
-         }
-        catch (SQLException e){
-            System.out.println(e);
-        }
-    }//GEN-LAST:event_MPAARDropDownMenuActionPerformed
-
-    
-    
-    private void GenresDropDownMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenresDropDownMenuActionPerformed
-        ResultSet rs = null;
-        
-        if (searchTxt.getText().isEmpty()) {
-            if(GenresDropDownMenu.getSelectedItem().toString().equals("Genres")){
-            return;
-        }
-            rs = db.browseMoviesByGenre(GenresDropDownMenu.getSelectedItem().toString());
-        }
-        else {
-            rs = db.browseMoviesByGenre(GenresDropDownMenu.getSelectedItem().toString(), searchTxt.getText());
-        }
-        
-        try {
-           
-           movieDBTable.setModel(buildTableModel(rs));
-         }
-        catch (SQLException e){
-            System.out.println(e);
-        }
-    }//GEN-LAST:event_GenresDropDownMenuActionPerformed
-
-    
-    
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        ResultSet rs = null;
-        if(searchTxt.getText().isEmpty()){
-            rs = db.displayMovieTable();
-        }
-        else {
-            rs = db.generalSearch(searchTxt.getText());
-        }
-        try {
-           movieDBTable.setModel(buildTableModel(rs));
-         }
-        catch (SQLException e){
-            System.out.println(e);
-        }
-    }//GEN-LAST:event_searchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -453,58 +360,23 @@ public class CustomerAccount_Movies extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CustomerAccount_Movies.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerAccount_Movie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CustomerAccount_Movies.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerAccount_Movie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CustomerAccount_Movies.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerAccount_Movie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CustomerAccount_Movies.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerAccount_Movie.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
-                    new CustomerAccount_Movies(db, currentUser).setVisible(true);
-                 
+                new CustomerAccount_Movie(db, currentUser).setVisible(true);
             }
         });
-        
     }
-    
-    /*
-     * This method reads the result set data returned from SQL Queries and parses
-     * them so they can be displayed within a DefualtTableModel jTable
-     */
-    public static DefaultTableModel buildTableModel(ResultSet rs)
-        throws SQLException {
-        
-        ResultSetMetaData metaData = rs.getMetaData();
-
-        // names of columns
-        Vector<String> columnNames = new Vector<String>();
-        int columnCount = metaData.getColumnCount();
-        for (int column = 1; column <= columnCount; column++) {
-            columnNames.add(metaData.getColumnName(column));
-            }
-
-        // data of the table
-        Vector<Vector<Object>> data = new Vector<Vector<Object>>();
-        while (rs.next()) {
-            Vector<Object> vector = new Vector<Object>();
-            for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
-                vector.add(rs.getObject(columnIndex));
-        }
-        data.add(vector);
-    }
-
-    return new DefaultTableModel(data, columnNames);
-
-}
-	
-	
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BrowseByLabel;
     private javax.swing.JComboBox GenresDropDownMenu;

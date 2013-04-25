@@ -1367,6 +1367,11 @@ public class EmployeeAccount extends javax.swing.JFrame {
 
         addEmployeeInfoButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_AddButtonIcon.png"))); // NOI18N
         addEmployeeInfoButton1.setText(" Add");
+        addEmployeeInfoButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addEmployeeInfoButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout personalInfoPanel1Layout = new javax.swing.GroupLayout(personalInfoPanel1);
         personalInfoPanel1.setLayout(personalInfoPanel1Layout);
@@ -2109,6 +2114,7 @@ public class EmployeeAccount extends javax.swing.JFrame {
     private void moviesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moviesMouseClicked
         try {
             int row = movies.getSelectedRow();
+            String movieId = movies.getModel().getValueAt(row, 0).toString();
             String s = (movies.getModel().getValueAt(row,0).toString());
             String sql = "SELECT * FROM movies WHERE movieID=" + s;
             //            pst = conn.prepareStatement(sql);
@@ -2138,7 +2144,7 @@ public class EmployeeAccount extends javax.swing.JFrame {
 
     private void rentMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentMovieButtonActionPerformed
         dispose();
-        CustomerAccount_Rent f = new CustomerAccount_Rent(db, currentUser);
+        CustomerAccount_Rent f = new CustomerAccount_Rent(db, currentUser, Integer.parseInt(movieDBTable.getModel().getValueAt(movieDBTable.getSelectedRow(), 0).toString()));
         f.setVisible(true);
     }//GEN-LAST:event_rentMovieButtonActionPerformed
 
@@ -2190,6 +2196,23 @@ public class EmployeeAccount extends javax.swing.JFrame {
     private void creditCardExpirationMonth1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditCardExpirationMonth1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_creditCardExpirationMonth1ActionPerformed
+
+    private void addEmployeeInfoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeInfoButton1ActionPerformed
+        char[] pw = newUserPasswordTxt2.getPassword();
+        String password = new String(pw);
+        String email = newUserEmailTxt2.getText();
+        String firstName = firstNameTxt3.getText();
+        String lastName = lastNameTxt3.getText();
+        String birthday = birthdayMonth1.getSelectedItem().toString() + "/" + birthdayDay1.getSelectedItem().toString() + "/" + birthdayYear1.getSelectedItem().toString();  
+        String city = cityTxt3.getText();
+        String state = billingInformation_State_Combobox.getSelectedItem().toString();
+        String zipCode = zipcodeTxt3.getText();
+        String address = addressTxt3.getText();
+        String creditCardNum = creditCardNumTxt3.getText();
+        String creditCardExpireDate = creditCardExpirationMonth1.getSelectedItem().toString() + "/" + creditCardExpirationYear1.getSelectedItem().toString();
+        
+        db.addUsertoDB(lastName, firstName, email, password, birthday, creditCardNum, creditCardExpireDate, address, city, state, zipCode, true);
+    }//GEN-LAST:event_addEmployeeInfoButton1ActionPerformed
 
     /**
      * @param args the command line arguments

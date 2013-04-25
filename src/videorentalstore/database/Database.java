@@ -461,34 +461,26 @@ public class Database {
         
     }
     
-    /**
-     * 
-     * @param lastName
-     */
-    public void searchUserinDBbyLastName(String lastName) {
+    public int getCustomerID(String email) {
         try {
-            String search = "SELECT * FROM customer WHERE lastName = '" + lastName + "'" ;
-            ResultSet searchUserLastNameRES = executeQuery(search);
-            while (searchUserLastNameRES.next()) {
-                String user = "\nFirst Name: " + searchUserLastNameRES.getString("firstName") + "\nLast Name: " + searchUserLastNameRES.getString("lastName") + "\nEmail Address: " + searchUserLastNameRES.getString("email") + "\nPassword: " + searchUserLastNameRES.getString("password");
-            }
+            String search = "SELECT customerID FROM customer WHERE email='" + email + "'";
+            ResultSet custID = executeQuery(search);
+            return custID.getInt("customerID");
         }
         catch (Exception e) {
             System.out.println(e);
         }
+        return -1;
     }
     
     /**
      * 
-     * @param firstName
-     * @param lastName
+     * @param email
      */
-    //TODO can we do this based on the Customer ID instead of the first/last name combo? people may have the same name..
-    public void deleteUser(String firstName , String lastName) {
+    public void deleteUser(String email) {
         try {
-            String delete = "DELETE FROM customer WHERE lastName ='" + lastName + "' AND firstName='" + firstName + "'";
+            String delete = "DELETE FROM customer WHERE email ='" + email + "'";
             executeUpdate(delete);
-            System.out.println("User: " + firstName + " " + lastName + " was deleted from the database.");
         }
         catch (Exception e) {
             System.out.println("Error deleting user from Database: " + e.toString());
