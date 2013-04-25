@@ -329,7 +329,7 @@ public class CustomerAccount_SignUp extends javax.swing.JFrame {
 
         
         dispose();
-        CustomerAccount_Movie f = new CustomerAccount_Movie(db, u);
+        CustomerAccount_Movies f = new CustomerAccount_Movies(db, u);
         f.setVisible(true);
     }//GEN-LAST:event_signUpButtonActionPerformed
 

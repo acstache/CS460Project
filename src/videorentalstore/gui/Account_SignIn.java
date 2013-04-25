@@ -220,7 +220,7 @@ public class Account_SignIn extends javax.swing.JFrame {
                 }
                 else {
                     dispose();
-                    CustomerAccount_Movie f = new CustomerAccount_Movie(db, user);
+                    CustomerAccount_Movies f = new CustomerAccount_Movies(db, user);
                     f.setVisible(true);
                 }
             }

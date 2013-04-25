@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.HashSet;
+import java.util.Collection;
 
 import videorentalstore.User.User;
 import videorentalstore.movies.Movie;
@@ -15,6 +15,7 @@ public class Database {
     private String DbName, DbUrl;
     private String Jdbc = "jdbc:sqlite";
     private int timeout = 30;
+    private Collection<Movie> movies;
     
     /**
      * 
@@ -36,7 +37,7 @@ public class Database {
     
     //TODO do we need this?
     public void initDatabaseTables() throws Exception {
-        executeUpdate("CREATE TABLE \"customer\" (\"customerID\" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , \"firstName\" VARCHAR NOT NULL , \"lastName\" VARCHAR NOT NULL , \"email\" VARCHAR NOT NULL , \"password\" VARCHAR NOT NULL , \"birthday\" VARCHAR, \"CreditCardNum\" INTEGER, \"CreditCardExpDate\" VARCHAR, \"address\" VARCHAR, \"city\" VARCHAR, \"state\" VARCHAR, \"zipcode\" INTEGER)");
+        executeUpdate("CREATE TABLE \"customer\" (\"customerID\" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , \"firstName\" VARCHAR NOT NULL , \"lastName\" VARCHAR NOT NULL , \"email\" VARCHAR NOT NULL , \"password\" VARCHAR NOT NULL , \"birthday\" VARCHAR, \"CreditCardNum\" CHAR(16), \"CreditCardExpDate\" VARCHAR, \"address\" VARCHAR, \"city\" VARCHAR, \"state\" CHAR(2), \"zipcode\" CHAR(5))");
         executeUpdate("CREATE TABLE \"movies\" (\"movieId\" INTEGER PRIMARY KEY  NOT NULL  UNIQUE , \"title\" VARCHAR NOT NULL , \"genre\" VARCHAR NOT NULL , \"director\" VARCHAR NOT NULL , \"MPAA\" VARCHAR NOT NULL , \"userRating\" INTEGER NOT NULL , \"totalQuantity\" INTEGER NOT NULL  DEFAULT 1, \"leftInStock\" INTEGER NOT NULL  DEFAULT 1, \"actors\" VARCHAR)");
         executeUpdate("CREATE TABLE \"rentals\" (\"rentalID\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE ,\"customerID\" INTEGER NOT NULL ,\"movieID\" INTEGER NOT NULL ,\"timeRented\" DATETIME NOT NULL DEFAULT (CURRENT_DATE) ,\"timeDue\" DATETIME NOT NULL DEFAULT (CURRENT_DATE) )");
         executeUpdate("CREATE TABLE \"billings/payments\""); //TODO fill this in with the proper column names and properties
@@ -83,14 +84,12 @@ public class Database {
         try {
             ResultSet movies = executeQuery(findMovie);
             if (!movies.next()) {
-                String addMovie = "INSERT INTO \"movies\" (\"title\", \"genre\", \"director\", \"MPAA\", \"userRating\", \"actors\") VALUES (" + title + ", " + genre + ", " + director + ", " + MPAA + ", " + userRating + ", " + actors + ")";
+                String addMovie = "INSERT INTO \"movies\" (\"title\", \"genre\", \"director\", \"MPAA\", \"userRating\" , \"actors\" ) VALUES ('" + title + "', '" + genre + "', '" + director + "', '" + MPAA + "', " + userRating + ", '" + actors +  "')";
                 executeUpdate(addMovie);
             }
             else {
-                while (movies.next()) {
-                    String addMovie = "UPDATE movies SET totalQuantity=" + (movies.getInt("totalQuantity")+1) + ", leftInStock=" + (movies.getInt("leftInStock")+1) + " WHERE title='" + title + "'";
-                    executeUpdate(addMovie);
-                }
+                String addMovie = "UPDATE movies SET totalQuantity=" + (movies.getInt("totalQuantity")+1) + ", leftInStock=" + (movies.getInt("leftInStock")+1) + " WHERE title='" + title + "'";
+                executeUpdate(addMovie);
             }
             try {
                 movies.close();
@@ -141,7 +140,6 @@ public class Database {
      * @param movie
      */
     public void editMovieInDB(int movieID, Movie movie) {
-        //TODO find movie in database, compare "changes", if different, make changes
         String findMovie = "SELECT * FROM movies WHERE movieId=" + movieID;
         try {
             ResultSet movies = executeQuery(findMovie);
@@ -248,27 +246,42 @@ public class Database {
     }
     
     /**
-     * 
+     *
      * @param genre
      */
-    public void browseMoviesByGenre(String genre) {
-        String search = "SELECT DISTINCT title, genre FROM movies WHERE genre='" + genre + "'";
+    public ResultSet browseMoviesByGenre(String genre) {
+        String search = "SELECT * FROM movies WHERE genre='" + genre + "'";
+        ResultSet movies = null;
         try {
-            ResultSet movies = executeQuery(search);
+            movies = executeQuery(search);
             System.out.println("Movies tagged with genre: \"" + genre + "\"");
-            while (movies.next()) {
-                String movieName = movies.getString("title");
-                System.out.println(movieName);
-                //TODO make this tie into the GUI
-            }
-            try {
-                movies.close();
-            }
-            catch (Exception ignore) {}
+            
+            return movies;
         }
-        catch (Exception e) {
+            catch (Exception e) {
             System.out.println(e);
         }
+        return movies;
+    }
+    
+    /**
+     *
+     * @param genre
+     * @param string
+     */
+    public ResultSet browseMoviesByGenre(String genre, String string) {
+        String search = "SELECT * FROM movies WHERE genre='" + genre + "' AND (title LIKE '%" + string + "%' OR director LIKE '%" + string + "%' OR actors LIKE '%" + string + "%')";
+        ResultSet movies = null;
+        try {
+            movies = executeQuery(search);
+            System.out.println("Movies tagged with genre: \"" + genre + "\"");
+            
+            return movies;
+        }
+            catch (Exception e) {
+            System.out.println(e);
+        }
+        return movies;
     }
     
     public void browseActors() {
@@ -292,20 +305,17 @@ public class Database {
     }
     
     public void findMoviesWithActor(String actor) {
-        //TODO figure out how to send just a set of Movies back
         String search = "SELECT DISTINCT actors, title FROM movies WHERE actors LIKE '%" + actor + "%'";
-        HashSet<String> movieSet = new HashSet<String>();
         try {
-            ResultSet movies = executeQuery(search);
+            ResultSet actors = executeQuery(search);
             System.out.println("Actors with \"" + actor + "\" in their name");
-            while (movies.next()) {
-                String title = movies.getString("title");
-                movieSet.add(title);
+            while (actors.next()) {
+                String title = actors.getString("title");
                 System.out.println(actor + " played in " + title);
                 //TODO make this tie into the GUI
             }
             try {
-                movies.close();
+                actors.close();
             }
             catch (Exception ignore) {}
         }
@@ -330,54 +340,63 @@ public class Database {
         }
     }
     
-    public void findMoviesWithMPAARating(String rating) {
-        String search = "SELECT title, MPAA FROM movies WHERE MPAA='" + rating + "'";
+    public ResultSet findMoviesWithMPAARating(String rating) {
+        String search = "SELECT * FROM movies WHERE MPAA='" + rating + "'";
+        ResultSet movies = null;
         try {
-            ResultSet movies = executeQuery(search);
-            System.out.println("Movies with an MPAA rating of " + rating);
-            while (movies.next()) {
-                String MPAA = movies.getString("MPAA");
-                String title = movies.getString("title");
-                System.out.println(title + " is rated " + MPAA);
-            }
+            movies = executeQuery(search);
+            return movies;
         }
         catch (Exception e) {
             System.out.println(e);
         }
+        return movies;
+    }
+    
+    public ResultSet findMoviesWithMPAARating(String rating, String string) {
+        String search = "SELECT * FROM movies WHERE MPAA='" + rating + "' AND (title LIKE '%" + string + "%' OR director LIKE '%" + string + "%' OR actors LIKE '%" + string + "%')";
+        ResultSet movies = null;
+        try {
+            movies = executeQuery(search);
+            return movies;
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        return movies;
     }
     
     /*
      * This method will return a result set of the Movie table which is to be used
      * when displaying the table in a JTable
      */
-    public ResultSet displayMovieTable() {
-        String fetchMovieTable = "SELECT * FROM movies";
-        ResultSet movieDisplay;
+    public ResultSet displayMovieTable(){
+        String fetchMovieTable = "SELECT * FROM movies" ;
+        ResultSet movieDisplay = null;
         try {
             movieDisplay = executeQuery(fetchMovieTable);
             return movieDisplay;
         }
         catch(Exception e){
             System.out.println(e);
-            movieDisplay = null;
             return movieDisplay;
         }
     }
     
-    public void findMovieByID(int movieID) {
-        String search = "SELECT * FROM movies WHERE movieId=" + movieID;
+    
+    public ResultSet generalSearch(String search){
+        String generalSearch = "SELECT * FROM movies WHERE title LIKE '%" + search + "%' OR director LIKE '%" + search + "%' OR actors LIKE '%" + search + "%'";
+        System.out.println(generalSearch);
+        ResultSet generalMovies = null;
         try {
-            ResultSet movie = executeQuery(search);
-            while (movie.next()) {
-                String title = movie.getString("title");
-                System.out.println("Movie #" + movieID + " titled: " + title);
-            }
+            generalMovies = executeQuery(generalSearch);
+            return generalMovies;
         }
         catch (Exception e) {
             System.out.println(e);
+            return generalMovies;
         }
     }
-    
     
     
     /***************************************
@@ -434,10 +453,12 @@ public class Database {
             ResultSet searchUserRES = executeQuery(search);
             while (searchUserRES.next()) {
                 String user = "\nFirst Name: " + searchUserRES.getString("firstName") + "\nLast Name: " + searchUserRES.getString("lastName") + "\nEmail Address: " + searchUserRES.getString("email") + "\nPassword: " + searchUserRES.getString("password");
-                System.out.println("User Found at searched ID: " + ID + user);
             }
         }
-        catch (Exception e) {}
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        
     }
     
     /**
@@ -450,14 +471,10 @@ public class Database {
             ResultSet searchUserLastNameRES = executeQuery(search);
             while (searchUserLastNameRES.next()) {
                 String user = "\nFirst Name: " + searchUserLastNameRES.getString("firstName") + "\nLast Name: " + searchUserLastNameRES.getString("lastName") + "\nEmail Address: " + searchUserLastNameRES.getString("email") + "\nPassword: " + searchUserLastNameRES.getString("password");
-                System.out.println("User Found at Last Name: " + lastName + user);
             }
         }
         catch (Exception e) {
-            try {
-                conn.close();
-            }
-            catch (Exception e1) {}
+            System.out.println(e);
         }
     }
     
@@ -478,7 +495,6 @@ public class Database {
         }
     }
     
-
     /** Author Akua Duah
      * isUser checks user email and password against customer table in database
      * @param email username
@@ -514,7 +530,9 @@ public class Database {
         try {
             executeUpdate(addRental);
         }
-        catch (Exception e) {}
+        catch (Exception e) {
+           System.out.println(e);
+       }
     }
     
     /**
@@ -526,7 +544,7 @@ public class Database {
        try {
            ResultSet rentHist = executeQuery(search);
            while(rentHist.next()) {
-               System.out.println("Customer " + customerID + " rented Movie " + rentHist.getInt("movieID") + " on date " + rentHist.getDate("timeRented")); //TODO fix date, use String and parse
+               System.out.println("Customer " + customerID + " rented Movie " + rentHist.getInt("movieID") + " on date " + rentHist.getDate("timeRented"));
            }
        }
        catch (Exception e) {
@@ -542,10 +560,12 @@ public class Database {
         try {
             ResultSet rs = executeQuery(rentals);
             while(rs.next()) {
-                System.out.println("Customer ID: " + rs.getInt("customerID") + "\nMovie ID: " + rs.getInt("movieID") + "\nTime Rented: " + rs.getDate("timeRented") + "\nTime Due: " + rs.getDate("timeDue") + "\n"); //TODO fix date, use String and parse
+                System.out.println("Customer ID: " + rs.getInt("customerID") + "\nMovie ID: " + rs.getInt("movieID") + "\nTime Rented: " + rs.getDate("timeRented") + "\nTime Due: " + rs.getDate("timeDue") + "\n");
             }
         }
-        catch (Exception e) {}
+        catch (Exception e) {
+           System.out.println(e);
+       }
     }
     
     

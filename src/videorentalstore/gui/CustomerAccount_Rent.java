@@ -523,7 +523,7 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         dispose();
-        CustomerAccount_Movie f = new CustomerAccount_Movie(db, currentUser);
+        CustomerAccount_Movies f = new CustomerAccount_Movies(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -547,7 +547,7 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
 
     private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
         dispose();
-        CustomerAccount_Movie f = new CustomerAccount_Movie(db, currentUser);
+        CustomerAccount_Movies f = new CustomerAccount_Movies(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_homeButton1ActionPerformed
 
