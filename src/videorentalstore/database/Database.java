@@ -461,6 +461,11 @@ public class Database {
         
     }
     
+    /**
+     * 
+     * @param email
+     * @return
+     */
     public int getCustomerID(String email) {
         try {
             String search = "SELECT customerID FROM customer WHERE email='" + email + "'";
@@ -471,6 +476,21 @@ public class Database {
             System.out.println(e);
         }
         return -1;
+    }
+    
+    /**
+     * 
+     * @param customerID
+     * @param user
+     */
+    public void editUser(int customerID, User user) {
+        String updateInfo = "UPDATE customer SET firstName='" + user.getFirstName() + "', lastName='" + user.getLastName() + "', email='" + user.getEmail() + "', password='" + user.getPassword() + "', birthday='" + user.getBirthday() + "', CreditCardNum='" + user.getCCNum() + "', CreditCardExpDate='" + user.getCCExpDate() + "', address='" + user.getAddress() + "', city='" + user.getCity() + "', state='" + user.getState() + "', zipcode='" + user.getZipCode() + "' WHERE customerID=" + customerID;
+        try {
+            executeUpdate(updateInfo);
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
     }
     
     /**

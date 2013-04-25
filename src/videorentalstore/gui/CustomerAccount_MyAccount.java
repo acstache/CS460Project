@@ -774,7 +774,46 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void editBillingButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBillingButton1ActionPerformed
-        // TODO add your handling code here:
+        int customerID = db.getCustomerID(currentUser.getEmail());
+        if (!firstNameTxt2.getText().equals(currentUser.getFirstName()))
+            currentUser.setFirstName(firstNameTxt2.getText());
+        
+        if (!lastNameTxt2.getText().equals(currentUser.getLastName()))
+            currentUser.setFirstName(firstNameTxt2.getText());
+
+        if (!newUserEmailTxt1.getText().equals(currentUser.getEmail()))
+            currentUser.setEmail(newUserEmailTxt1.getText());
+        
+        String password = new String(newUserPasswordTxt1.getPassword());
+        if(!password.equals(currentUser.getPassword()))
+            currentUser.setPassword(password);
+        
+        String birthdayCheck = "";
+        birthdayCheck = birthdayMonth.getSelectedItem().toString() + "/" + birthdayDay3.getSelectedItem() + "/" + 
+                birthdayYear.getSelectedItem() ;
+        if (!birthdayCheck.equals(currentUser.getBirthday()))
+            currentUser.setBirthday(birthdayCheck);
+        
+        if(!addressTxt2.getText().equals(currentUser.getAddress()))
+            currentUser.setAddress(addressTxt2.getText());
+        
+        if(!cityTxt2.getText().equals(currentUser.getCity()))
+            currentUser.setCity(cityTxt2.getText());
+        
+        if(!creditCardNumTxt2.getText().equals(currentUser.getAddress()))
+            currentUser.setCreditCardNum(creditCardNumTxt2.getText());
+        
+        String ccExpDateCheck = creditCardExpirationMonth5.getSelectedItem().toString() + "/" + creditCardExpirationYear.getSelectedItem().toString();
+        if(!ccExpDateCheck.equals(currentUser.getCCExpDate()))
+            currentUser.setCreditCardExpireDate(ccExpDateCheck);
+        
+        if(!billingInformation_State_Combobox.getSelectedItem().toString().equals(currentUser.getState()))
+            currentUser.setState(billingInformation_State_Combobox.getSelectedItem().toString());
+        
+        if(!zipcodeTxt2.getText().equals(currentUser.getZipCode()))
+            currentUser.setZipCode(zipcodeTxt2.getText());
+        
+        db.editUser(customerID, currentUser);
     }//GEN-LAST:event_editBillingButton1ActionPerformed
 
     private void editBillingButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editBillingButton1KeyPressed
