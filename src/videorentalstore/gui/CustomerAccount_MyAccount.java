@@ -21,6 +21,31 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
         initComponents();
         this.db = db;
         this.currentUser = currentUser;
+        
+        String birthday = currentUser.getBirthday();
+        String ccExp = currentUser.getCCExpDate();
+       
+        String month = birthday.substring(0,3);
+        String day = birthday.substring(4,6);
+        String year = birthday.substring(7);
+       
+        String ccExpMonth = ccExp.substring(0, 2);
+        String ccExpYear = ccExp.substring(3);
+       
+        firstNameTxt2.setText(currentUser.getFirstName());
+        lastNameTxt2.setText(currentUser.getLastName());
+        newUserEmailTxt1.setText(currentUser.getEmail());
+        newUserPasswordTxt1.setText(currentUser.getPassword());
+        birthdayMonth.setSelectedItem(month);
+        birthdayDay3.setSelectedItem(day);
+        birthdayYear.setSelectedItem(year);
+        addressTxt2.setText(currentUser.getAddress());
+        cityTxt2.setText(currentUser.getCity());
+        creditCardNumTxt2.setText(currentUser.getCCNum());
+        creditCardExpirationMonth5.setSelectedItem(ccExpMonth);
+        creditCardExpirationYear.setSelectedItem(ccExpYear);
+        billingInformation_State_Combobox.setSelectedItem(currentUser.getState());
+        zipcodeTxt2.setText(currentUser.getZipCode());
     }
 
     /**
@@ -53,7 +78,7 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
         birthdayTxtPanel = new javax.swing.JPanel();
         birthdayMonth = new javax.swing.JComboBox();
         birthdayYear = new javax.swing.JComboBox();
-        birthdayDay = new javax.swing.JComboBox();
+        birthdayDay3 = new javax.swing.JComboBox();
         billingInfoPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -61,8 +86,6 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
         editBillingButton = new javax.swing.JButton();
         addressTxt2 = new javax.swing.JTextField();
         creditCardExpLabel1 = new javax.swing.JLabel();
-        submitBillingButton = new javax.swing.JButton();
-        creditCardExpirationMonth = new javax.swing.JComboBox();
         zipcodeTxt2 = new javax.swing.JTextField();
         creditCardImage = new javax.swing.JLabel();
         cityTxt2 = new javax.swing.JTextField();
@@ -74,6 +97,8 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
         zipcodeLabel2 = new javax.swing.JLabel();
         cityLabel2 = new javax.swing.JLabel();
         billingInformation_State_Combobox = new javax.swing.JComboBox();
+        creditCardExpirationMonth5 = new javax.swing.JComboBox();
+        submitBillingButton = new javax.swing.JButton();
         sideBarPanel = new javax.swing.JPanel();
         rentalsRULogoSmallLabel = new javax.swing.JLabel();
         blackBarPanel = new javax.swing.JPanel();
@@ -100,12 +125,11 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1800, 1000));
         setMinimumSize(new java.awt.Dimension(1800, 1000));
-        setPreferredSize(new java.awt.Dimension(1800, 1000));
 
         MyAccountPanel.setBackground(new java.awt.Color(255, 255, 255));
         MyAccountPanel.setMaximumSize(new java.awt.Dimension(1800, 100));
         MyAccountPanel.setName(""); // NOI18N
-        MyAccountPanel.setPreferredSize(new java.awt.Dimension(18000, 1000));
+        MyAccountPanel.setPreferredSize(new java.awt.Dimension(1800, 1000));
 
         personalInfoPanel4.setBackground(new java.awt.Color(255, 255, 255));
         personalInfoPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -132,8 +156,6 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
         );
 
         personalInfoTxtPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        newUserEmailTxt1.setForeground(new java.awt.Color(255, 255, 255));
 
         newUserEmailLabel1.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
         newUserEmailLabel1.setText("Email:");
@@ -173,9 +195,9 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
 
         birthdayMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }));
 
-        birthdayYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        birthdayYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940", "1939", "1938", "1937", "1936", "1935", "1934", "1933", "1932", "1931", "1930", "1929", "1928", "1927", "1926", "1925", "1924", "1923", "1922", "1921", "1920", "1919", "1918", "1917", "1916", "1915", "1914", "1913" }));
 
-        birthdayDay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        birthdayDay3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         javax.swing.GroupLayout birthdayTxtPanelLayout = new javax.swing.GroupLayout(birthdayTxtPanel);
         birthdayTxtPanel.setLayout(birthdayTxtPanelLayout);
@@ -184,11 +206,10 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
             .addGroup(birthdayTxtPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(birthdayMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(birthdayDay3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(birthdayDay, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(birthdayYear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(birthdayYear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         birthdayTxtPanelLayout.setVerticalGroup(
             birthdayTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,8 +217,8 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(birthdayTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(birthdayMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(birthdayDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(birthdayYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(birthdayYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(birthdayDay3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -256,9 +277,9 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
                     .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(newUserPasswordTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(newUserPasswordLabel1))
-                    .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(newUsernameTxt1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(newUsernameLabel1)))
+                    .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(newUsernameLabel1)
+                        .addComponent(newUsernameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(personalInfoTxtPanelLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
@@ -346,24 +367,12 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
             }
         });
 
-        addressTxt2.setForeground(new java.awt.Color(255, 255, 255));
-
         creditCardExpLabel1.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
         creditCardExpLabel1.setText("Credit Card Expiration Date:");
 
-        submitBillingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_AddButtonIcon.png"))); // NOI18N
-        submitBillingButton.setText("Submit");
-
-        creditCardExpirationMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-
         creditCardImage.setForeground(new java.awt.Color(255, 255, 255));
-        creditCardImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ashley\\Desktop\\movieprojectphotos\\Image_CreditCards.png")); // NOI18N
-
-        cityTxt2.setForeground(new java.awt.Color(255, 255, 255));
 
         creditCardExpirationYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
-
-        creditCardNumTxt2.setForeground(new java.awt.Color(255, 255, 255));
 
         creditCardNumLabel2.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
         creditCardNumLabel2.setText("Credit Card Number: ");
@@ -382,11 +391,8 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
         cityLabel2.setText("City:");
 
         billingInformation_State_Combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "AK - Alaska", "AL - Alabama", "AR - Arkansas", "AZ - Arizona", "CA - California", "CO - Colorado", "CT - Connecticut", "DE - Delaware", "FL - Florida", "GA - Georgia", "HI - Hawaii", "IA - Iowa", "ID - Idaho", "IL - Illinois", "IN -Indiana", "KS - Kansas", "KY - Kentucky", "LA - Louisiana", "MA - Massachusetts", "MD - Maryland", "ME - Maine", "MI - Michigan", "MN - Minnesota", "MO - Missouri", "MS - Mississippi", "MT - Montana", "NC - North Carolina", "ND - North Dakota", "NE - Nebraska", "NH - New Hampshire", "NJ - New Jersey", "NM - New Mexico", "NV - Nevada", "NY - New York", "OH - Ohio", "OK - Oklahoma", "OR - Oregon", "PA - Pennsylvania", "RI - Rhode Island", "SC - South Carolina", "SD - South Dakota", "TN - Tennessee", "TX - Texas", "UT - Utah", "VA - Virginia", "VT - Vermont", "WA - Washington", "WI - Wisconsin", "WV - West Virginia", "WY - Wyoming" }));
-        billingInformation_State_Combobox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                billingInformation_State_ComboboxActionPerformed(evt);
-            }
-        });
+
+        creditCardExpirationMonth5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
         javax.swing.GroupLayout billingInfoTxtPnelLayout = new javax.swing.GroupLayout(billingInfoTxtPnel);
         billingInfoTxtPnel.setLayout(billingInfoTxtPnelLayout);
@@ -395,7 +401,7 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingInfoTxtPnelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(submitBillingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editBillingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(billingInfoTxtPnelLayout.createSequentialGroup()
                         .addComponent(creditCardNumLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -404,7 +410,7 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
                                 .addComponent(creditCardImage)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(creditCardNumTxt2)))
-                    .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(billingInfoTxtPnelLayout.createSequentialGroup()
                             .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(addressLabel2)
@@ -425,11 +431,9 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
                         .addGroup(billingInfoTxtPnelLayout.createSequentialGroup()
                             .addComponent(creditCardExpLabel1)
                             .addGap(29, 29, 29)
-                            .addComponent(creditCardExpirationMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(creditCardExpirationYear, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(editBillingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(creditCardExpirationMonth5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(creditCardExpirationYear, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(24, 24, 24))
         );
         billingInfoTxtPnelLayout.setVerticalGroup(
@@ -454,31 +458,33 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
                         .addComponent(creditCardNumLabel2)
                         .addComponent(creditCardNumTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addComponent(creditCardImage)
-                .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(billingInfoTxtPnelLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(creditCardExpirationMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(creditCardExpirationYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(creditCardExpLabel1))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingInfoTxtPnelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editBillingButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(submitBillingButton)
-                        .addGap(23, 23, 23))))
+                .addGap(28, 28, 28)
+                .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(creditCardExpirationYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(creditCardExpLabel1)
+                    .addComponent(creditCardExpirationMonth5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(editBillingButton)
+                .addContainerGap())
         );
+
+        submitBillingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_AddButtonIcon.png"))); // NOI18N
+        submitBillingButton.setText("Submit");
 
         javax.swing.GroupLayout billingInfoPanel1Layout = new javax.swing.GroupLayout(billingInfoPanel1);
         billingInfoPanel1.setLayout(billingInfoPanel1Layout);
         billingInfoPanel1Layout.setHorizontalGroup(
             billingInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingInfoPanel1Layout.createSequentialGroup()
                 .addContainerGap(153, Short.MAX_VALUE)
-                .addComponent(billingInfoTxtPnel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(billingInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingInfoPanel1Layout.createSequentialGroup()
+                        .addComponent(billingInfoTxtPnel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingInfoPanel1Layout.createSequentialGroup()
+                        .addComponent(submitBillingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92))))
         );
         billingInfoPanel1Layout.setVerticalGroup(
             billingInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,6 +492,8 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(billingInfoTxtPnel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(submitBillingButton)
                 .addContainerGap())
         );
 
@@ -533,6 +541,7 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
         viewPaymentHistoryToolBar1.setRollover(true);
         viewPaymentHistoryToolBar1.setBorderPainted(false);
 
+        ViewPaymentHistoryButton.setBackground(new java.awt.Color(153, 0, 0));
         ViewPaymentHistoryButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ViewPaymentHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
         ViewPaymentHistoryButton.setText("View Payment History");
@@ -550,6 +559,7 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
         accountInfoToolBar.setRollover(true);
         accountInfoToolBar.setBorderPainted(false);
 
+        AccountInfoButton.setBackground(new java.awt.Color(153, 0, 0));
         AccountInfoButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         AccountInfoButton.setForeground(new java.awt.Color(255, 255, 255));
         AccountInfoButton.setText("Account Information");
@@ -561,12 +571,14 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
         });
         accountInfoToolBar.add(AccountInfoButton);
 
+        viewRentalHistoryToolBar1.setBackground(new java.awt.Color(153, 0, 0));
         viewRentalHistoryToolBar1.setBorder(null);
         viewRentalHistoryToolBar1.setFloatable(false);
         viewRentalHistoryToolBar1.setForeground(new java.awt.Color(255, 255, 255));
         viewRentalHistoryToolBar1.setRollover(true);
         viewRentalHistoryToolBar1.setBorderPainted(false);
 
+        viewRentalHistoryButton.setBackground(new java.awt.Color(153, 0, 0));
         viewRentalHistoryButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewRentalHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
         viewRentalHistoryButton.setText("View Rental History");
@@ -577,12 +589,14 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
         });
         viewRentalHistoryToolBar1.add(viewRentalHistoryButton);
 
+        deleteAccountToolBar1.setBackground(new java.awt.Color(153, 0, 0));
         deleteAccountToolBar1.setBorder(null);
         deleteAccountToolBar1.setFloatable(false);
         deleteAccountToolBar1.setForeground(new java.awt.Color(255, 255, 255));
         deleteAccountToolBar1.setRollover(true);
         deleteAccountToolBar1.setBorderPainted(false);
 
+        deleteMyAcountButton.setBackground(new java.awt.Color(153, 0, 0));
         deleteMyAcountButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         deleteMyAcountButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteMyAcountButton.setText("Delete My Account");
@@ -724,18 +738,18 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
             MyAccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MyAccountPanelLayout.createSequentialGroup()
                 .addComponent(sideBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(MyAccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MyAccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(MyAccountPanelLayout.createSequentialGroup()
-                        .addGap(153, 153, 153)
+                        .addGap(99, 99, 99)
                         .addGroup(MyAccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(billingInfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(personalInfoPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(MyAccountPanelLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(accountInfoLabel)
-                        .addGap(680, 680, 680)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(2047, Short.MAX_VALUE))
+                .addContainerGap(304, Short.MAX_VALUE))
         );
         MyAccountPanelLayout.setVerticalGroup(
             MyAccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -751,7 +765,7 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
                         .addComponent(personalInfoPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(billingInfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1829, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(MyAccountPanel, java.awt.BorderLayout.CENTER);
@@ -775,13 +789,9 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_editBillingButtonKeyPressed
 
-    private void billingInformation_State_ComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billingInformation_State_ComboboxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_billingInformation_State_ComboboxActionPerformed
-
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         dispose();
-        CustomerAccount_Movies f = new CustomerAccount_Movies(db, currentUser);
+        CustomerAccount_Movie f = new CustomerAccount_Movie(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -866,7 +876,7 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
     private javax.swing.JPanel billingInfoPanel1;
     private javax.swing.JPanel billingInfoTxtPnel;
     private javax.swing.JComboBox billingInformation_State_Combobox;
-    private javax.swing.JComboBox birthdayDay;
+    private javax.swing.JComboBox birthdayDay3;
     private javax.swing.JLabel birthdayLabel2;
     private javax.swing.JComboBox birthdayMonth;
     private javax.swing.JPanel birthdayTxtPanel;
@@ -875,7 +885,7 @@ public class CustomerAccount_MyAccount extends javax.swing.JFrame {
     private javax.swing.JLabel cityLabel2;
     private javax.swing.JTextField cityTxt2;
     private javax.swing.JLabel creditCardExpLabel1;
-    private javax.swing.JComboBox creditCardExpirationMonth;
+    private javax.swing.JComboBox creditCardExpirationMonth5;
     private javax.swing.JComboBox creditCardExpirationYear;
     private javax.swing.JLabel creditCardImage;
     private javax.swing.JLabel creditCardNumLabel2;

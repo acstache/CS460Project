@@ -43,7 +43,6 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
         AccountInfoButton = new javax.swing.JButton();
         viewRentalHistoryToolBar = new javax.swing.JToolBar();
         viewRentalHistoryButton = new javax.swing.JButton();
-        deleteAccountToolBar = new javax.swing.JToolBar();
         toolBar = new javax.swing.JToolBar();
         homeButton = new javax.swing.JButton();
         divider1 = new javax.swing.JLabel();
@@ -93,6 +92,7 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
         viewPaymentHistoryToolBar.setRollover(true);
         viewPaymentHistoryToolBar.setBorderPainted(false);
 
+        ViewPaymentHistoryButton.setBackground(new java.awt.Color(153, 0, 0));
         ViewPaymentHistoryButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ViewPaymentHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
         ViewPaymentHistoryButton.setText("View Payment History");
@@ -110,6 +110,7 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
         accountInfoToolBar.setRollover(true);
         accountInfoToolBar.setBorderPainted(false);
 
+        AccountInfoButton.setBackground(new java.awt.Color(153, 0, 0));
         AccountInfoButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         AccountInfoButton.setForeground(new java.awt.Color(255, 255, 255));
         AccountInfoButton.setText("Account Information");
@@ -121,12 +122,14 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
         });
         accountInfoToolBar.add(AccountInfoButton);
 
+        viewRentalHistoryToolBar.setBackground(new java.awt.Color(153, 0, 0));
         viewRentalHistoryToolBar.setBorder(null);
         viewRentalHistoryToolBar.setFloatable(false);
         viewRentalHistoryToolBar.setForeground(new java.awt.Color(255, 255, 255));
         viewRentalHistoryToolBar.setRollover(true);
         viewRentalHistoryToolBar.setBorderPainted(false);
 
+        viewRentalHistoryButton.setBackground(new java.awt.Color(153, 0, 0));
         viewRentalHistoryButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewRentalHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
         viewRentalHistoryButton.setText("View Rental History");
@@ -137,12 +140,6 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
         });
         viewRentalHistoryToolBar.add(viewRentalHistoryButton);
 
-        deleteAccountToolBar.setBorder(null);
-        deleteAccountToolBar.setFloatable(false);
-        deleteAccountToolBar.setForeground(new java.awt.Color(255, 255, 255));
-        deleteAccountToolBar.setRollover(true);
-        deleteAccountToolBar.setBorderPainted(false);
-
         javax.swing.GroupLayout sideTxtPanelLayout = new javax.swing.GroupLayout(sideTxtPanel);
         sideTxtPanel.setLayout(sideTxtPanelLayout);
         sideTxtPanelLayout.setHorizontalGroup(
@@ -152,9 +149,7 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
                 .addGroup(sideTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(accountInfoToolBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideTxtPanelLayout.createSequentialGroup()
-                        .addGroup(sideTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(deleteAccountToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(viewRentalHistoryToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(viewRentalHistoryToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8))
                     .addComponent(viewPaymentHistoryToolBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -168,9 +163,7 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
                 .addComponent(viewPaymentHistoryToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(viewRentalHistoryToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(deleteAccountToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout sideBarPanelLayout = new javax.swing.GroupLayout(sideBarPanel);
@@ -192,7 +185,7 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
                 .addComponent(rentalsRULogoSmallLabel)
                 .addGap(137, 137, 137)
                 .addComponent(sideTxtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addComponent(blackBarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -311,16 +304,17 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
                 .addComponent(sideBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(deleteAccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(deleteAccountPanelLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(areYouSureTxtLabel)
-                        .addGap(208, 208, 208)
-                        .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(deleteAccountPanelLayout.createSequentialGroup()
                         .addGap(397, 397, 397)
                         .addGroup(deleteAccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(deleteAccountButton)
-                            .addComponent(deleteAccountTxtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(1656, Short.MAX_VALUE))
+                            .addComponent(deleteAccountTxtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(391, Short.MAX_VALUE))
+                    .addGroup(deleteAccountPanelLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(areYouSureTxtLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37))))
         );
         deleteAccountPanelLayout.setVerticalGroup(
             deleteAccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,7 +327,7 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
                 .addComponent(deleteAccountTxtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(deleteAccountButton)
-                .addContainerGap(410, Short.MAX_VALUE))
+                .addContainerGap(414, Short.MAX_VALUE))
             .addComponent(sideBarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -341,7 +335,7 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(deleteAccountPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 3427, Short.MAX_VALUE)
+            .addComponent(deleteAccountPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,7 +347,7 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         dispose();
-        CustomerAccount_Movies f = new CustomerAccount_Movies(db, currentUser);
+        CustomerAccount_Movie f = new CustomerAccount_Movie(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -435,7 +429,6 @@ public class CustomerAccount_DeleteAccount extends javax.swing.JFrame {
     private javax.swing.JPanel blackBarPanel;
     private javax.swing.JButton deleteAccountButton;
     private javax.swing.JPanel deleteAccountPanel;
-    private javax.swing.JToolBar deleteAccountToolBar;
     private javax.swing.JPanel deleteAccountTxtPanel;
     private javax.swing.JLabel deleteTxt1;
     private javax.swing.JLabel deleteTxt2;

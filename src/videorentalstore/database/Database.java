@@ -163,24 +163,17 @@ public class Database {
      * Search the database of movies based on provided Movie Title
      * @param title the title (or part of) provided
      */
-    public void findMoviesByTitle(String title) {
-        String search = "SELECT title FROM movies WHERE title LIKE '%" + title + "%'";
+    public ResultSet findMoviesByTitle(String title) {
+        String search = "SELECT * FROM movies WHERE title LIKE '%" + title + "%'";
+        ResultSet movies = null;
         try {
-            ResultSet movies = executeQuery(search);
-            System.out.println("Movies with \"" + title + "\" in the title:");
-            while (movies.next()) {
-                String movie = movies.getString("title");
-                System.out.println(movie);
-                //TODO make this tie into the GUI
-            }
-            try {
-                movies.close();
-            }
-            catch (Exception ignore) {}
+            movies = executeQuery(search);
+            return movies;
         }
         catch (Exception e) {
             System.out.println(e);
         }
+        return movies;
     }
     
     /**

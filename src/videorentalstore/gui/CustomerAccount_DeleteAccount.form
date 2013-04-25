@@ -15,7 +15,6 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -32,7 +31,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="deleteAccountPanel" alignment="0" pref="3427" max="32767" attributes="0"/>
+          <Component id="deleteAccountPanel" alignment="0" pref="1800" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -63,20 +62,21 @@
                   <Component id="sideBarPanel" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="areYouSureTxtLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="208" max="-2" attributes="0"/>
-                          <Component id="toolBar" min="-2" pref="264" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="397" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="deleteAccountButton" min="-2" max="-2" attributes="0"/>
                               <Component id="deleteAccountTxtPanel" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace pref="391" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="areYouSureTxtLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="toolBar" min="-2" pref="264" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="1656" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -92,7 +92,7 @@
                   <Component id="deleteAccountTxtPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="deleteAccountButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="410" max="32767" attributes="0"/>
+                  <EmptySpace pref="414" max="32767" attributes="0"/>
               </Group>
               <Component id="sideBarPanel" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -179,10 +179,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="accountInfoToolBar" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="deleteAccountToolBar" alignment="1" min="-2" pref="158" max="-2" attributes="0"/>
-                                      <Component id="viewRentalHistoryToolBar" alignment="1" min="-2" pref="158" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="viewRentalHistoryToolBar" min="-2" pref="158" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               </Group>
                               <Component id="viewPaymentHistoryToolBar" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
@@ -200,9 +197,7 @@
                           <Component id="viewPaymentHistoryToolBar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="viewRentalHistoryToolBar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="deleteAccountToolBar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="51" max="32767" attributes="0"/>
+                          <EmptySpace pref="85" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -225,6 +220,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="ViewPaymentHistoryButton">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="99" type="rgb"/>
+                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="1"/>
                         </Property>
@@ -257,6 +255,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="AccountInfoButton">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="99" type="rgb"/>
+                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="1"/>
                         </Property>
@@ -274,6 +275,9 @@
                 </Container>
                 <Container class="javax.swing.JToolBar" name="viewRentalHistoryToolBar">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="99" type="rgb"/>
+                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -289,6 +293,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="viewRentalHistoryButton">
                       <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="99" type="rgb"/>
+                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="1"/>
                         </Property>
@@ -302,21 +309,6 @@
                       </Events>
                     </Component>
                   </SubComponents>
-                </Container>
-                <Container class="javax.swing.JToolBar" name="deleteAccountToolBar">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
-                    <Property name="floatable" type="boolean" value="false"/>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="rollover" type="boolean" value="true"/>
-                    <Property name="borderPainted" type="boolean" value="false"/>
-                  </Properties>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
                 </Container>
               </SubComponents>
             </Container>

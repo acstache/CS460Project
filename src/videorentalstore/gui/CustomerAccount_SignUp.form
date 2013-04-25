@@ -6,7 +6,6 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -18,7 +17,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,-2,0,0,7,-78"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,-102,0,0,5,28"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
@@ -37,9 +36,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="775" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="402" max="-2" attributes="0"/>
                   <Component id="signUpTxtPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="724" max="32767" attributes="0"/>
+                  <EmptySpace pref="397" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -69,13 +68,13 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="greetingLabel" min="-2" pref="425" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                       <Component id="signUpInfoPanel" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -86,9 +85,9 @@
                       <Component id="rentals4UlogoLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="greetingLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="signUpInfoPanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="156" max="32767" attributes="0"/>
+                      <EmptySpace pref="100" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -130,39 +129,13 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="creditCardNumLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="creditCardExpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="21" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="creditCardNumTxt" alignment="0" pref="170" max="32767" attributes="0"/>
-                                      <Component id="creditCardExpireDateTxt" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lastNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="birthdayLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="zipcodeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="addressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="stateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lastNameTxt" alignment="0" pref="175" max="32767" attributes="0"/>
-                                      <Component id="birthdayTxt" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="stateTxt" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="zipcodeTxt" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cityTxt" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="addressTxt" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="98" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lastNameLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lastNameTxt" min="-2" pref="175" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -173,19 +146,58 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="newUserPasswordTxt" alignment="0" pref="173" max="32767" attributes="0"/>
+                                      <Component id="newUserPasswordTxt" alignment="0" max="32767" attributes="0"/>
                                       <Component id="firstNameTxt" alignment="0" max="32767" attributes="0"/>
                                       <Component id="newUserEmailTxt" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="newUsernameTxt" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="newUsernameTxt" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Component id="signUpButton" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="creditCardNumLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="creditCardExpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="creditCardExpirationMonth" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="creditCardExpirationYear" min="-2" pref="72" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                              <Component id="creditCardNumTxt" min="-2" pref="184" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="birthdayLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="addressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="stateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="zipcodeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="zipcodeTxt" min="-2" pref="175" max="-2" attributes="0"/>
+                                      <Component id="stateTxt" min="-2" pref="175" max="-2" attributes="0"/>
+                                      <Component id="cityTxt" min="-2" pref="175" max="-2" attributes="0"/>
+                                      <Component id="addressTxt" min="-2" pref="175" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="birthdayMonth" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="birthdayDay" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="birthdayYear" min="-2" pref="64" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace pref="35" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -193,70 +205,76 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="newUsernameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="newUsernameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="newUserPasswordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="newUserPasswordTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="newUserEmailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="newUserEmailTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="firstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="firstNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lastNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="birthdayLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="birthdayTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="addressTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="addressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="cityTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="stateTxt" min="-2" max="-2" attributes="0"/>
-                                      <Component id="stateLabel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="zipcodeTxt" min="-2" max="-2" attributes="0"/>
-                                      <Component id="zipcodeLabel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="creditCardNumTxt" min="-2" max="-2" attributes="0"/>
-                                      <Component id="creditCardNumLabel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="creditCardExpireDateTxt" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="creditCardExpLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="newUsernameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="newUsernameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="newUserPasswordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="newUserPasswordTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="newUserEmailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="newUserEmailTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="firstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="firstNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lastNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="birthdayLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="birthdayMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="birthdayYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="birthdayDay" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="addressTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="addressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="cityTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="stateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="stateTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="zipcodeTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="zipcodeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="creditCardNumTxt" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="creditCardNumLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="creditCardExpLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="creditCardExpirationMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="creditCardExpirationYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="signUpButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="39" max="32767" attributes="0"/>
+                          <EmptySpace pref="48" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -322,8 +340,6 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="cityTxt">
                 </Component>
-                <Component class="javax.swing.JTextField" name="stateTxt">
-                </Component>
                 <Component class="javax.swing.JLabel" name="zipcodeLabel">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -350,8 +366,6 @@
                     <Property name="text" type="java.lang.String" value="Birthday:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="birthdayTxt">
-                </Component>
                 <Component class="javax.swing.JLabel" name="creditCardNumLabel">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -370,8 +384,6 @@
                     <Property name="text" type="java.lang.String" value="Credit Card Expiration Date:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="creditCardExpireDateTxt">
-                </Component>
                 <Component class="javax.swing.JButton" name="signUpButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Sign Up"/>
@@ -389,6 +401,259 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="State:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="birthdayMonth">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="13">
+                        <StringItem index="0" value="Month"/>
+                        <StringItem index="1" value="Jan"/>
+                        <StringItem index="2" value="Feb"/>
+                        <StringItem index="3" value="Mar"/>
+                        <StringItem index="4" value="Apr"/>
+                        <StringItem index="5" value="May"/>
+                        <StringItem index="6" value="Jun"/>
+                        <StringItem index="7" value="Jul"/>
+                        <StringItem index="8" value="Aug"/>
+                        <StringItem index="9" value="Sep"/>
+                        <StringItem index="10" value="Oct"/>
+                        <StringItem index="11" value="Nov"/>
+                        <StringItem index="12" value="Dec"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="birthdayDay">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="32">
+                        <StringItem index="0" value="Day"/>
+                        <StringItem index="1" value="01"/>
+                        <StringItem index="2" value="02"/>
+                        <StringItem index="3" value="03"/>
+                        <StringItem index="4" value="04"/>
+                        <StringItem index="5" value="05"/>
+                        <StringItem index="6" value="06"/>
+                        <StringItem index="7" value="07"/>
+                        <StringItem index="8" value="08"/>
+                        <StringItem index="9" value="09"/>
+                        <StringItem index="10" value="10"/>
+                        <StringItem index="11" value="11"/>
+                        <StringItem index="12" value="12"/>
+                        <StringItem index="13" value="13"/>
+                        <StringItem index="14" value="14"/>
+                        <StringItem index="15" value="15"/>
+                        <StringItem index="16" value="16"/>
+                        <StringItem index="17" value="17"/>
+                        <StringItem index="18" value="18"/>
+                        <StringItem index="19" value="19"/>
+                        <StringItem index="20" value="20"/>
+                        <StringItem index="21" value="21"/>
+                        <StringItem index="22" value="22"/>
+                        <StringItem index="23" value="23"/>
+                        <StringItem index="24" value="24"/>
+                        <StringItem index="25" value="25"/>
+                        <StringItem index="26" value="26"/>
+                        <StringItem index="27" value="27"/>
+                        <StringItem index="28" value="28"/>
+                        <StringItem index="29" value="29"/>
+                        <StringItem index="30" value="30"/>
+                        <StringItem index="31" value="31"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="birthdayYear">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="84">
+                        <StringItem index="0" value="Year"/>
+                        <StringItem index="1" value="1995"/>
+                        <StringItem index="2" value="1994"/>
+                        <StringItem index="3" value="1993"/>
+                        <StringItem index="4" value="1992"/>
+                        <StringItem index="5" value="1991"/>
+                        <StringItem index="6" value="1990"/>
+                        <StringItem index="7" value="1989"/>
+                        <StringItem index="8" value="1988"/>
+                        <StringItem index="9" value="1987"/>
+                        <StringItem index="10" value="1986"/>
+                        <StringItem index="11" value="1985"/>
+                        <StringItem index="12" value="1984"/>
+                        <StringItem index="13" value="1983"/>
+                        <StringItem index="14" value="1982"/>
+                        <StringItem index="15" value="1981"/>
+                        <StringItem index="16" value="1980"/>
+                        <StringItem index="17" value="1979"/>
+                        <StringItem index="18" value="1978"/>
+                        <StringItem index="19" value="1977"/>
+                        <StringItem index="20" value="1976"/>
+                        <StringItem index="21" value="1975"/>
+                        <StringItem index="22" value="1974"/>
+                        <StringItem index="23" value="1973"/>
+                        <StringItem index="24" value="1972"/>
+                        <StringItem index="25" value="1971"/>
+                        <StringItem index="26" value="1970"/>
+                        <StringItem index="27" value="1969"/>
+                        <StringItem index="28" value="1968"/>
+                        <StringItem index="29" value="1967"/>
+                        <StringItem index="30" value="1966"/>
+                        <StringItem index="31" value="1965"/>
+                        <StringItem index="32" value="1964"/>
+                        <StringItem index="33" value="1963"/>
+                        <StringItem index="34" value="1962"/>
+                        <StringItem index="35" value="1961"/>
+                        <StringItem index="36" value="1960"/>
+                        <StringItem index="37" value="1959"/>
+                        <StringItem index="38" value="1958"/>
+                        <StringItem index="39" value="1957"/>
+                        <StringItem index="40" value="1956"/>
+                        <StringItem index="41" value="1955"/>
+                        <StringItem index="42" value="1954"/>
+                        <StringItem index="43" value="1953"/>
+                        <StringItem index="44" value="1952"/>
+                        <StringItem index="45" value="1951"/>
+                        <StringItem index="46" value="1950"/>
+                        <StringItem index="47" value="1949"/>
+                        <StringItem index="48" value="1948"/>
+                        <StringItem index="49" value="1947"/>
+                        <StringItem index="50" value="1946"/>
+                        <StringItem index="51" value="1945"/>
+                        <StringItem index="52" value="1944"/>
+                        <StringItem index="53" value="1943"/>
+                        <StringItem index="54" value="1942"/>
+                        <StringItem index="55" value="1941"/>
+                        <StringItem index="56" value="1940"/>
+                        <StringItem index="57" value="1939"/>
+                        <StringItem index="58" value="1938"/>
+                        <StringItem index="59" value="1937"/>
+                        <StringItem index="60" value="1936"/>
+                        <StringItem index="61" value="1935"/>
+                        <StringItem index="62" value="1934"/>
+                        <StringItem index="63" value="1933"/>
+                        <StringItem index="64" value="1932"/>
+                        <StringItem index="65" value="1931"/>
+                        <StringItem index="66" value="1930"/>
+                        <StringItem index="67" value="1929"/>
+                        <StringItem index="68" value="1928"/>
+                        <StringItem index="69" value="1927"/>
+                        <StringItem index="70" value="1926"/>
+                        <StringItem index="71" value="1925"/>
+                        <StringItem index="72" value="1924"/>
+                        <StringItem index="73" value="1923"/>
+                        <StringItem index="74" value="1922"/>
+                        <StringItem index="75" value="1921"/>
+                        <StringItem index="76" value="1920"/>
+                        <StringItem index="77" value="1919"/>
+                        <StringItem index="78" value="1918"/>
+                        <StringItem index="79" value="1917"/>
+                        <StringItem index="80" value="1916"/>
+                        <StringItem index="81" value="1915"/>
+                        <StringItem index="82" value="1914"/>
+                        <StringItem index="83" value="1913"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="stateTxt">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="51">
+                        <StringItem index="0" value=""/>
+                        <StringItem index="1" value="AK - Alaska"/>
+                        <StringItem index="2" value="AL - Alabama"/>
+                        <StringItem index="3" value="AR - Arkansas"/>
+                        <StringItem index="4" value="AZ - Arizona"/>
+                        <StringItem index="5" value="CA - California"/>
+                        <StringItem index="6" value="CO - Colorado"/>
+                        <StringItem index="7" value="CT - Connecticut"/>
+                        <StringItem index="8" value="DE - Delaware"/>
+                        <StringItem index="9" value="FL - Florida"/>
+                        <StringItem index="10" value="GA - Georgia"/>
+                        <StringItem index="11" value="HI - Hawaii"/>
+                        <StringItem index="12" value="IA - Iowa"/>
+                        <StringItem index="13" value="ID - Idaho"/>
+                        <StringItem index="14" value="IL - Illinois"/>
+                        <StringItem index="15" value="IN -Indiana"/>
+                        <StringItem index="16" value="KS - Kansas"/>
+                        <StringItem index="17" value="KY - Kentucky"/>
+                        <StringItem index="18" value="LA - Louisiana"/>
+                        <StringItem index="19" value="MA - Massachusetts"/>
+                        <StringItem index="20" value="MD - Maryland"/>
+                        <StringItem index="21" value="ME - Maine"/>
+                        <StringItem index="22" value="MI - Michigan"/>
+                        <StringItem index="23" value="MN - Minnesota"/>
+                        <StringItem index="24" value="MO - Missouri"/>
+                        <StringItem index="25" value="MS - Mississippi"/>
+                        <StringItem index="26" value="MT - Montana"/>
+                        <StringItem index="27" value="NC - North Carolina"/>
+                        <StringItem index="28" value="ND - North Dakota"/>
+                        <StringItem index="29" value="NE - Nebraska"/>
+                        <StringItem index="30" value="NH - New Hampshire"/>
+                        <StringItem index="31" value="NJ - New Jersey"/>
+                        <StringItem index="32" value="NM - New Mexico"/>
+                        <StringItem index="33" value="NV - Nevada"/>
+                        <StringItem index="34" value="NY - New York"/>
+                        <StringItem index="35" value="OH - Ohio"/>
+                        <StringItem index="36" value="OK - Oklahoma"/>
+                        <StringItem index="37" value="OR - Oregon"/>
+                        <StringItem index="38" value="PA - Pennsylvania"/>
+                        <StringItem index="39" value="RI - Rhode Island"/>
+                        <StringItem index="40" value="SC - South Carolina"/>
+                        <StringItem index="41" value="SD - South Dakota"/>
+                        <StringItem index="42" value="TN - Tennessee"/>
+                        <StringItem index="43" value="TX - Texas"/>
+                        <StringItem index="44" value="UT - Utah"/>
+                        <StringItem index="45" value="VA - Virginia"/>
+                        <StringItem index="46" value="VT - Vermont"/>
+                        <StringItem index="47" value="WA - Washington"/>
+                        <StringItem index="48" value="WI - Wisconsin"/>
+                        <StringItem index="49" value="WV - West Virginia"/>
+                        <StringItem index="50" value="WY - Wyoming"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="creditCardExpirationMonth">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="13">
+                        <StringItem index="0" value="Month"/>
+                        <StringItem index="1" value="01"/>
+                        <StringItem index="2" value="02"/>
+                        <StringItem index="3" value="03"/>
+                        <StringItem index="4" value="04"/>
+                        <StringItem index="5" value="05"/>
+                        <StringItem index="6" value="06"/>
+                        <StringItem index="7" value="07"/>
+                        <StringItem index="8" value="08"/>
+                        <StringItem index="9" value="09"/>
+                        <StringItem index="10" value="10"/>
+                        <StringItem index="11" value="11"/>
+                        <StringItem index="12" value="12"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="creditCardExpirationYear">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="12">
+                        <StringItem index="0" value="Year"/>
+                        <StringItem index="1" value="2012"/>
+                        <StringItem index="2" value="2013"/>
+                        <StringItem index="3" value="2014"/>
+                        <StringItem index="4" value="2015"/>
+                        <StringItem index="5" value="2016"/>
+                        <StringItem index="6" value="2017"/>
+                        <StringItem index="7" value="2018"/>
+                        <StringItem index="8" value="2019"/>
+                        <StringItem index="9" value="2020"/>
+                        <StringItem index="10" value="2021"/>
+                        <StringItem index="11" value="2022"/>
+                      </StringArray>
+                    </Property>
                   </Properties>
                 </Component>
               </SubComponents>

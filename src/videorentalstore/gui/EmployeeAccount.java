@@ -21,6 +21,31 @@ public class EmployeeAccount extends javax.swing.JFrame {
         initComponents();
         this.db = db;
         this.currentUser = currentUser;
+        
+        String birthday = currentUser.getBirthday();
+        String ccExp = currentUser.getCCExpDate();
+       
+        String month = birthday.substring(0,3);
+        String day = birthday.substring(4,6);
+        String year = birthday.substring(7);
+       
+        String ccExpMonth = ccExp.substring(0, 2);
+        String ccExpYear = ccExp.substring(3);
+       
+        firstNameTxt5.setText(currentUser.getFirstName());
+        lastNameTxt5.setText(currentUser.getLastName());
+        newUserEmailTxt4.setText(currentUser.getEmail());
+        newUserPasswordTxt4.setText(currentUser.getPassword());
+        birthdayMonth4.setSelectedItem(month);
+        birthdayDay3.setSelectedItem(day);
+        birthdayYear4.setSelectedItem(year);
+        addressTxt4.setText(currentUser.getAddress());
+        cityTxt4.setText(currentUser.getCity());
+        creditCardNumTxt4.setText(currentUser.getCCNum());
+        creditCardExpirationMonth2.setSelectedItem(ccExpMonth);
+        creditCardExpirationYear2.setSelectedItem(ccExpYear);
+        billingInformation_State_Combobox2.setSelectedItem(currentUser.getState());
+        zipcodeTxt4.setText(currentUser.getZipCode());
     }
 
     /**
@@ -79,12 +104,12 @@ public class EmployeeAccount extends javax.swing.JFrame {
         directorLabel = new javax.swing.JLabel();
         actorLabel = new javax.swing.JLabel();
         userRatingLabel = new javax.swing.JLabel();
-        mpaarRatingLabel = new javax.swing.JLabel();
+        mpaaRatingLabel = new javax.swing.JLabel();
         titleTxt = new javax.swing.JTextField();
         directorTxt = new javax.swing.JTextField();
         actorTxt = new javax.swing.JTextField();
         userRatingTxt = new javax.swing.JTextField();
-        mpaarRatingTxt = new javax.swing.JTextField();
+        mpaaRatingTxt = new javax.swing.JTextField();
         addMovieToDBButton = new javax.swing.JButton();
         movieClearnButton = new javax.swing.JButton();
         movieInfoLabel = new javax.swing.JLabel();
@@ -105,7 +130,6 @@ public class EmployeeAccount extends javax.swing.JFrame {
         passwordLabel = new javax.swing.JLabel();
         passwordTxt = new javax.swing.JTextField();
         birthdayLabel = new javax.swing.JLabel();
-        birthdayTxt = new javax.swing.JTextField();
         lastNameLabel = new javax.swing.JLabel();
         lastNameTxt = new javax.swing.JTextField();
         zipcodeLabel = new javax.swing.JLabel();
@@ -115,11 +139,9 @@ public class EmployeeAccount extends javax.swing.JFrame {
         creditCardNumLabel = new javax.swing.JLabel();
         creditCardNumTxt = new javax.swing.JTextField();
         stateLabel = new javax.swing.JLabel();
-        stateTxt = new javax.swing.JTextField();
         emailLabel = new javax.swing.JLabel();
         emailTxt = new javax.swing.JTextField();
         creditCardExpireLabel = new javax.swing.JLabel();
-        creditCardExpireDateTxt = new javax.swing.JTextField();
         cityLabel = new javax.swing.JLabel();
         cityTxt = new javax.swing.JTextField();
         usernameLabel = new javax.swing.JLabel();
@@ -128,58 +150,62 @@ public class EmployeeAccount extends javax.swing.JFrame {
         firstNameTxt = new javax.swing.JTextField();
         customerClearButton = new javax.swing.JButton();
         addCustomerButton = new javax.swing.JButton();
+        stateTxt = new javax.swing.JComboBox();
+        birthdayMonth = new javax.swing.JComboBox();
+        birthdayYear = new javax.swing.JComboBox();
+        birthdayDay = new javax.swing.JComboBox();
+        creditCardExpirationYear = new javax.swing.JComboBox();
+        creditCardExpirationMonth = new javax.swing.JComboBox();
         removeCustomerButton = new javax.swing.JButton();
         editCustomerButton = new javax.swing.JButton();
         editCustomerAccountLogoutButton = new javax.swing.JButton();
         editCustomerInformationLabel = new javax.swing.JLabel();
-        myEmployeeAccount = new javax.swing.JPanel();
-        billingInfoPanel = new javax.swing.JPanel();
-        MyEmployeeAccount = new javax.swing.JPanel();
-        billingInfoLabel = new javax.swing.JLabel();
-        billingInfoTxtPnel = new javax.swing.JPanel();
-        editBillingButton = new javax.swing.JButton();
-        addressTxt2 = new javax.swing.JTextField();
-        creditCardExpLabel1 = new javax.swing.JLabel();
-        submitBillingButton = new javax.swing.JButton();
-        creditCardExpirationMonth = new javax.swing.JComboBox();
-        zipcodeTxt2 = new javax.swing.JTextField();
-        creditCardImage = new javax.swing.JLabel();
-        cityTxt2 = new javax.swing.JTextField();
-        stateTxt2 = new javax.swing.JTextField();
-        creditCardExpirationYear = new javax.swing.JComboBox();
-        creditCardNumTxt2 = new javax.swing.JTextField();
-        creditCardNumLabel2 = new javax.swing.JLabel();
-        addressLabel2 = new javax.swing.JLabel();
-        stateLabel2 = new javax.swing.JLabel();
-        zipcodeLabel2 = new javax.swing.JLabel();
-        cityLabel2 = new javax.swing.JLabel();
-        personalInfoPanel = new javax.swing.JPanel();
-        personalInfoLabelPanel = new javax.swing.JPanel();
-        personalInfoLabel = new javax.swing.JLabel();
-        personalInfoTxtPanel = new javax.swing.JPanel();
-        newUserEmailTxt1 = new javax.swing.JTextField();
-        newUserEmailLabel1 = new javax.swing.JLabel();
-        birthdayDay = new javax.swing.JComboBox();
-        lastNameLabel2 = new javax.swing.JLabel();
-        firstNameTxt2 = new javax.swing.JTextField();
-        birthdayLabel2 = new javax.swing.JLabel();
-        newUserPasswordLabel1 = new javax.swing.JLabel();
-        newUserPasswordTxt1 = new javax.swing.JPasswordField();
-        newUsernameLabel1 = new javax.swing.JLabel();
-        birthdayMonth = new javax.swing.JComboBox();
-        birthdayYear = new javax.swing.JComboBox();
-        firstNameLabel2 = new javax.swing.JLabel();
-        newUsernameTxt1 = new javax.swing.JTextField();
-        lastNameTxt2 = new javax.swing.JTextField();
-        editBillingButton1 = new javax.swing.JButton();
-        submitBillingButton1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        editCustomerAccountLogoutButton1 = new javax.swing.JButton();
+        employeeRegistrationTab = new javax.swing.JPanel();
+        billingInfoPanel1 = new javax.swing.JPanel();
+        MyEmployeeAccount1 = new javax.swing.JPanel();
+        billingInfoLabel1 = new javax.swing.JLabel();
+        billingInfoTxtPnel1 = new javax.swing.JPanel();
+        addressTxt3 = new javax.swing.JTextField();
+        creditCardExpLabel2 = new javax.swing.JLabel();
+        zipcodeTxt3 = new javax.swing.JTextField();
+        creditCardImage1 = new javax.swing.JLabel();
+        cityTxt3 = new javax.swing.JTextField();
+        creditCardExpirationYear1 = new javax.swing.JComboBox();
+        creditCardNumTxt3 = new javax.swing.JTextField();
+        creditCardNumLabel3 = new javax.swing.JLabel();
+        addressLabel3 = new javax.swing.JLabel();
+        stateLabel3 = new javax.swing.JLabel();
+        zipcodeLabel3 = new javax.swing.JLabel();
+        cityLabel3 = new javax.swing.JLabel();
+        billingInformation_State_Combobox = new javax.swing.JComboBox();
+        addEmployeeInfoButton2 = new javax.swing.JButton();
+        creditCardExpirationMonth1 = new javax.swing.JComboBox();
+        personalInfoPanel1 = new javax.swing.JPanel();
+        personalInfoLabelPanel1 = new javax.swing.JPanel();
+        personalInfoLabel1 = new javax.swing.JLabel();
+        personalInfoTxtPanel1 = new javax.swing.JPanel();
+        newUserEmailTxt2 = new javax.swing.JTextField();
+        newUserEmailLabel2 = new javax.swing.JLabel();
+        birthdayDay1 = new javax.swing.JComboBox();
+        lastNameLabel3 = new javax.swing.JLabel();
+        firstNameTxt3 = new javax.swing.JTextField();
+        birthdayLabel3 = new javax.swing.JLabel();
+        newUserPasswordLabel2 = new javax.swing.JLabel();
+        newUserPasswordTxt2 = new javax.swing.JPasswordField();
+        newUsernameLabel2 = new javax.swing.JLabel();
+        birthdayMonth1 = new javax.swing.JComboBox();
+        firstNameLabel3 = new javax.swing.JLabel();
+        newUsernameTxt2 = new javax.swing.JTextField();
+        lastNameTxt3 = new javax.swing.JTextField();
+        birthdayYear1 = new javax.swing.JComboBox();
+        addEmployeeInfoButton1 = new javax.swing.JButton();
+        employeeRegistrationPanel = new javax.swing.JPanel();
+        employeeRegistrationLabel = new javax.swing.JLabel();
+        editCustomerAccountLogoutButton2 = new javax.swing.JButton();
         rentMovieTab = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         moviesPanel2 = new javax.swing.JPanel();
         sideBarPanel2 = new javax.swing.JPanel();
-        rentalsRULogoSmallLabel2 = new javax.swing.JLabel();
         blackBarPanel2 = new javax.swing.JPanel();
         viewPaymentHistoryToolBar2 = new javax.swing.JToolBar();
         viewRentalHistoryToolBar2 = new javax.swing.JToolBar();
@@ -191,26 +217,51 @@ public class EmployeeAccount extends javax.swing.JFrame {
         findAMovieLabel2 = new javax.swing.JLabel();
         searchLabel2 = new javax.swing.JLabel();
         searchButton2 = new javax.swing.JButton();
-        toolBar2 = new javax.swing.JToolBar();
-        homeButton2 = new javax.swing.JButton();
-        divider1 = new javax.swing.JLabel();
-        myAccountButton = new javax.swing.JButton();
-        divider2 = new javax.swing.JLabel();
-        logoutButton = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         movieBDScrollPanel = new javax.swing.JScrollPane();
         movieDBTable = new javax.swing.JTable();
-        moviesLabel = new javax.swing.JLabel();
         rentMovieButton = new javax.swing.JButton();
-        PaymentTab = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        PaymentTab1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        paymentHistoryPanel = new javax.swing.JPanel();
-        toolBar3 = new javax.swing.JToolBar();
-        logoutButton1 = new javax.swing.JButton();
-        paymentHistorSycollPane = new javax.swing.JScrollPane();
-        paymentHistoryTable = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
+        editCustomerAccountLogoutButton4 = new javax.swing.JButton();
+        myEmployeeAccountTab = new javax.swing.JPanel();
+        billingInfoPanel2 = new javax.swing.JPanel();
+        MyEmployeeAccount2 = new javax.swing.JPanel();
+        billingInfoLabel2 = new javax.swing.JLabel();
+        billingInfoTxtPnel2 = new javax.swing.JPanel();
+        addressTxt4 = new javax.swing.JTextField();
+        creditCardExpLabel3 = new javax.swing.JLabel();
+        creditCardExpirationMonth2 = new javax.swing.JComboBox();
+        zipcodeTxt4 = new javax.swing.JTextField();
+        creditCardImage2 = new javax.swing.JLabel();
+        cityTxt4 = new javax.swing.JTextField();
+        creditCardExpirationYear2 = new javax.swing.JComboBox();
+        creditCardNumTxt4 = new javax.swing.JTextField();
+        creditCardNumLabel4 = new javax.swing.JLabel();
+        addressLabel4 = new javax.swing.JLabel();
+        stateLabel4 = new javax.swing.JLabel();
+        zipcodeLabel4 = new javax.swing.JLabel();
+        cityLabel4 = new javax.swing.JLabel();
+        billingInformation_State_Combobox2 = new javax.swing.JComboBox();
+        personalInfoPanel3 = new javax.swing.JPanel();
+        personalInfoLabelPanel3 = new javax.swing.JPanel();
+        personalInfoLabel3 = new javax.swing.JLabel();
+        personalInfoTxtPanel3 = new javax.swing.JPanel();
+        newUserEmailTxt4 = new javax.swing.JTextField();
+        newUserEmailLabel4 = new javax.swing.JLabel();
+        lastNameLabel5 = new javax.swing.JLabel();
+        firstNameTxt5 = new javax.swing.JTextField();
+        birthdayLabel5 = new javax.swing.JLabel();
+        newUserPasswordLabel4 = new javax.swing.JLabel();
+        newUserPasswordTxt4 = new javax.swing.JPasswordField();
+        newUsernameLabel4 = new javax.swing.JLabel();
+        birthdayMonth4 = new javax.swing.JComboBox();
+        firstNameLabel5 = new javax.swing.JLabel();
+        newUsernameTxt4 = new javax.swing.JTextField();
+        lastNameTxt5 = new javax.swing.JTextField();
+        birthdayYear4 = new javax.swing.JComboBox();
+        birthdayDay3 = new javax.swing.JComboBox();
+        employeeRegistrationPanel1 = new javax.swing.JPanel();
+        myEmployeeLabel = new javax.swing.JLabel();
+        editCustomerAccountLogoutButton3 = new javax.swing.JButton();
 
         MyAccountPanel.setBackground(new java.awt.Color(43, 45, 44));
 
@@ -527,18 +578,26 @@ public class EmployeeAccount extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTabbedPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        editDBTab.setBackground(new java.awt.Color(255, 255, 255));
+
         editBDPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        titleLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         titleLabel.setText("Title:");
 
-        directorLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        directorLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         directorLabel.setText("Director:");
 
+        actorLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         actorLabel.setText("Actor:");
 
+        userRatingLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         userRatingLabel.setText("User Rating:");
 
-        mpaarRatingLabel.setText("MPAAR Rating:");
+        mpaaRatingLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
+        mpaaRatingLabel.setText("MPAA Rating:");
 
         addMovieToDBButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_AddButtonIcon.png"))); // NOI18N
         addMovieToDBButton.setText(" Add");
@@ -556,10 +615,10 @@ public class EmployeeAccount extends javax.swing.JFrame {
             }
         });
 
-        movieInfoLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        movieInfoLabel.setFont(new java.awt.Font("Vani", 1, 18)); // NOI18N
         movieInfoLabel.setText("Movie Information");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         jLabel7.setText("Genre");
 
         javax.swing.GroupLayout editBDPanelLayout = new javax.swing.GroupLayout(editBDPanel);
@@ -568,31 +627,35 @@ public class EmployeeAccount extends javax.swing.JFrame {
             editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editBDPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(movieInfoLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(actorLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editBDPanelLayout.createSequentialGroup()
-                        .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(titleLabel)
-                            .addComponent(userRatingLabel))
-                        .addGap(33, 33, 33)
-                        .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(userRatingTxt)
-                            .addComponent(actorTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                            .addComponent(titleTxt, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editBDPanelLayout.createSequentialGroup()
-                        .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(directorLabel)
-                            .addComponent(jLabel7)
-                            .addComponent(mpaarRatingLabel))
-                        .addGap(20, 20, 20)
-                        .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(genreTxt)
-                            .addComponent(directorTxt)
-                            .addComponent(mpaarRatingTxt)))
-                    .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(movieClearnButton)
-                        .addComponent(addMovieToDBButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(movieClearnButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addMovieToDBButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editBDPanelLayout.createSequentialGroup()
+                            .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editBDPanelLayout.createSequentialGroup()
+                                    .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7)
+                                        .addComponent(mpaaRatingLabel))
+                                    .addGap(12, 12, 12)
+                                    .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(directorTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                                        .addComponent(genreTxt)
+                                        .addComponent(mpaaRatingTxt)))
+                                .addComponent(movieInfoLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, editBDPanelLayout.createSequentialGroup()
+                                    .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(titleLabel)
+                                        .addComponent(userRatingLabel)
+                                        .addComponent(actorLabel))
+                                    .addGap(21, 21, 21)
+                                    .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(actorTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(userRatingTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(titleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)))
+                    .addComponent(directorLabel))
                 .addGap(0, 72, Short.MAX_VALUE))
         );
         editBDPanelLayout.setVerticalGroup(
@@ -604,27 +667,27 @@ public class EmployeeAccount extends javax.swing.JFrame {
                 .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(titleLabel))
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(actorLabel)
                     .addComponent(actorTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(19, 19, 19)
                 .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userRatingLabel)
-                    .addComponent(userRatingTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                    .addComponent(userRatingTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userRatingLabel))
+                .addGap(18, 18, 18)
                 .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mpaarRatingLabel)
-                    .addComponent(mpaarRatingTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mpaaRatingLabel)
+                    .addComponent(mpaaRatingTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(directorLabel)
+                    .addComponent(directorTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(genreTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(directorLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(directorTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(editBDPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(genreTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
                 .addComponent(addMovieToDBButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(movieClearnButton)
@@ -632,6 +695,7 @@ public class EmployeeAccount extends javax.swing.JFrame {
         );
 
         movies.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        movies.setFont(new java.awt.Font("Vani", 0, 11)); // NOI18N
         movies.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 { new Integer(1), "Some Movie", "Some Guy", "75", "PG-13", "Some Other Guy", "Yes"},
@@ -641,7 +705,7 @@ public class EmployeeAccount extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "MovieId", "title", "Actor", "User Rating", "MPAAR Rating", "Director", "Available"
+                "MovieId", "Title", "Actor", "User Rating", "MPAA Rating", "Director", "Available"
             }
         ) {
             Class[] types = new Class [] {
@@ -668,7 +732,7 @@ public class EmployeeAccount extends javax.swing.JFrame {
         movies.getColumnModel().getColumn(5).setResizable(false);
         movies.getColumnModel().getColumn(6).setResizable(false);
 
-        editBDLabel.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        editBDLabel.setFont(new java.awt.Font("Vani", 1, 25)); // NOI18N
         editBDLabel.setText("Edit Database");
 
         removeMovieFromDBButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_RemoveButtonIcon.png"))); // NOI18N
@@ -709,22 +773,22 @@ public class EmployeeAccount extends javax.swing.JFrame {
                                 .addComponent(editMovieInBDButon, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(22, 22, 22)
                                 .addComponent(removeMovieFromDBButton))
-                            .addComponent(movieDBTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1348, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(editBDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1054, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editDBTabLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editDBLogoutButon)
-                .addGap(974, 974, 974))
+                            .addComponent(movieDBTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(226, Short.MAX_VALUE))
+                    .addGroup(editDBTabLayout.createSequentialGroup()
+                        .addComponent(editBDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editDBLogoutButon)
+                        .addGap(160, 160, 160))))
         );
         editDBTabLayout.setVerticalGroup(
             editDBTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editDBTabLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(editDBLogoutButon)
-                .addGap(18, 18, 18)
-                .addComponent(editBDLabel)
-                .addGap(61, 61, 61)
+                .addGap(19, 19, 19)
+                .addGroup(editDBTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editBDLabel)
+                    .addComponent(editDBLogoutButon))
+                .addGap(94, 94, 94)
                 .addGroup(editDBTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(movieDBTableScrollPane)
                     .addComponent(editBDPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -732,11 +796,14 @@ public class EmployeeAccount extends javax.swing.JFrame {
                 .addGroup(editDBTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(removeMovieFromDBButton)
                     .addComponent(editMovieInBDButon))
-                .addContainerGap(1257, Short.MAX_VALUE))
+                .addContainerGap(1251, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Edit Database", editDBTab);
 
+        editCustomerInfoTab.setBackground(new java.awt.Color(255, 255, 255));
+
+        customerDBTable.setFont(new java.awt.Font("Vani", 0, 11)); // NOI18N
         customerDBTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -760,31 +827,43 @@ public class EmployeeAccount extends javax.swing.JFrame {
 
         customerInfoPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        customerInfoLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        customerInfoLabel.setFont(new java.awt.Font("Vani", 1, 18)); // NOI18N
         customerInfoLabel.setText("Customer Information");
 
+        passwordLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         passwordLabel.setText("Password:");
 
+        birthdayLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         birthdayLabel.setText("Birthday:");
 
+        lastNameLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         lastNameLabel.setText("Last Name:");
 
+        zipcodeLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         zipcodeLabel.setText("Zipcode:");
 
+        addressLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         addressLabel.setText("Address:");
 
+        creditCardNumLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         creditCardNumLabel.setText("Credit Card Number:");
 
+        stateLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         stateLabel.setText("State:");
 
+        emailLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         emailLabel.setText("Email:");
 
+        creditCardExpireLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         creditCardExpireLabel.setText("Credit Card Exipration Date:");
 
+        cityLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         cityLabel.setText("City:");
 
+        usernameLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         usernameLabel.setText("Username:");
 
+        firstNameLabel.setFont(new java.awt.Font("Vani", 0, 12)); // NOI18N
         firstNameLabel.setText("First Name:");
 
         customerClearButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_ClearButtonIcon.png"))); // NOI18N
@@ -803,6 +882,18 @@ public class EmployeeAccount extends javax.swing.JFrame {
             }
         });
 
+        stateTxt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "AK - Alaska", "AL - Alabama", "AR - Arkansas", "AZ - Arizona", "CA - California", "CO - Colorado", "CT - Connecticut", "DE - Delaware", "FL - Florida", "GA - Georgia", "HI - Hawaii", "IA - Iowa", "ID - Idaho", "IL - Illinois", "IN -Indiana", "KS - Kansas", "KY - Kentucky", "LA - Louisiana", "MA - Massachusetts", "MD - Maryland", "ME - Maine", "MI - Michigan", "MN - Minnesota", "MO - Missouri", "MS - Mississippi", "MT - Montana", "NC - North Carolina", "ND - North Dakota", "NE - Nebraska", "NH - New Hampshire", "NJ - New Jersey", "NM - New Mexico", "NV - Nevada", "NY - New York", "OH - Ohio", "OK - Oklahoma", "OR - Oregon", "PA - Pennsylvania", "RI - Rhode Island", "SC - South Carolina", "SD - South Dakota", "TN - Tennessee", "TX - Texas", "UT - Utah", "VA - Virginia", "VT - Vermont", "WA - Washington", "WI - Wisconsin", "WV - West Virginia", "WY - Wyoming" }));
+
+        birthdayMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }));
+
+        birthdayYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940", "1939", "1938", "1937", "1936", "1935", "1934", "1933", "1932", "1931", "1930", "1929", "1928", "1927", "1926", "1925", "1924", "1923", "1922", "1921", "1920", "1919", "1918", "1917", "1916", "1915", "1914", "1913" }));
+
+        birthdayDay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        creditCardExpirationYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+
+        creditCardExpirationMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
         infoPanelLayout.setHorizontalGroup(
@@ -810,44 +901,53 @@ public class EmployeeAccount extends javax.swing.JFrame {
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addComponent(creditCardExpireLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(creditCardExpireDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addCustomerButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(customerClearButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
-                        .addComponent(creditCardNumLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(creditCardNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(customerClearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firstNameLabel)
-                            .addComponent(lastNameLabel)
-                            .addComponent(zipcodeLabel)
-                            .addComponent(birthdayLabel)
-                            .addComponent(emailLabel)
-                            .addComponent(passwordLabel)
-                            .addComponent(usernameLabel)
-                            .addComponent(stateLabel)
-                            .addComponent(cityLabel)
-                            .addComponent(addressLabel))
-                        .addGap(28, 28, 28)
-                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(stateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(addCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(emailTxt)
-                                .addComponent(birthdayTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(zipcodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(passwordTxt)
-                                .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(infoPanelLayout.createSequentialGroup()
+                                    .addComponent(creditCardNumLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(creditCardNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(infoPanelLayout.createSequentialGroup()
+                                    .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(firstNameLabel)
+                                        .addComponent(lastNameLabel)
+                                        .addComponent(zipcodeLabel)
+                                        .addComponent(birthdayLabel)
+                                        .addComponent(emailLabel)
+                                        .addComponent(passwordLabel)
+                                        .addComponent(usernameLabel)
+                                        .addComponent(stateLabel)
+                                        .addComponent(cityLabel)
+                                        .addComponent(addressLabel))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(infoPanelLayout.createSequentialGroup()
+                                            .addComponent(birthdayMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(birthdayDay, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(birthdayYear, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(stateTxt, 0, 190, Short.MAX_VALUE)
+                                            .addComponent(lastNameTxt)
+                                            .addComponent(firstNameTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(emailTxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(addressTxt)
+                                            .addComponent(cityTxt)
+                                            .addComponent(passwordTxt)
+                                            .addComponent(usernameTxt)
+                                            .addComponent(zipcodeTxt))))
+                                .addGroup(infoPanelLayout.createSequentialGroup()
+                                    .addComponent(creditCardExpireLabel)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(creditCardExpirationMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(creditCardExpirationYear, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -876,14 +976,16 @@ public class EmployeeAccount extends javax.swing.JFrame {
                     .addComponent(lastNameLabel))
                 .addGap(18, 18, 18)
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(birthdayTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(birthdayLabel))
-                .addGap(18, 18, 18)
-                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(birthdayLabel)
+                    .addComponent(birthdayMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(birthdayYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(birthdayDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addressLabel)
                     .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(21, 21, 21)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cityLabel)
                     .addComponent(cityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -899,9 +1001,10 @@ public class EmployeeAccount extends javax.swing.JFrame {
                     .addComponent(creditCardNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(creditCardNumLabel))
                 .addGap(18, 18, 18)
-                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(creditCardExpireLabel)
-                    .addComponent(creditCardExpireDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(creditCardExpirationYear, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(creditCardExpirationMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(addCustomerButton)
                 .addGap(18, 18, 18)
@@ -915,17 +1018,20 @@ public class EmployeeAccount extends javax.swing.JFrame {
             customerInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(customerInfoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(customerInfoLabel)
-                .addContainerGap(154, Short.MAX_VALUE))
-            .addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(customerInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(customerInfoPanelLayout.createSequentialGroup()
+                        .addComponent(customerInfoLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         customerInfoPanelLayout.setVerticalGroup(
             customerInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(customerInfoPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(customerInfoLabel)
-                .addGap(18, 18, 18)
-                .addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(infoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
                 .addGap(27, 27, 27))
         );
 
@@ -942,435 +1048,404 @@ public class EmployeeAccount extends javax.swing.JFrame {
             }
         });
 
-        editCustomerInformationLabel.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        editCustomerInformationLabel.setFont(new java.awt.Font("Vani", 1, 25)); // NOI18N
         editCustomerInformationLabel.setText("Edit Customer Information");
 
         javax.swing.GroupLayout editCustomerInfoTabLayout = new javax.swing.GroupLayout(editCustomerInfoTab);
         editCustomerInfoTab.setLayout(editCustomerInfoTabLayout);
         editCustomerInfoTabLayout.setHorizontalGroup(
             editCustomerInfoTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editCustomerInfoTabLayout.createSequentialGroup()
+                .addComponent(editCustomerInformationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(editCustomerAccountLogoutButton)
+                .addGap(123, 123, 123))
             .addGroup(editCustomerInfoTabLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(customerInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(editCustomerInfoTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(editCustomerInformationLabel)
+                    .addComponent(editCustomerInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1176, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(editCustomerInfoTabLayout.createSequentialGroup()
-                        .addComponent(customerInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(editCustomerInfoTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(editCustomerInfoTabLayout.createSequentialGroup()
-                                .addComponent(editCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(removeCustomerButton))
-                            .addComponent(editCustomerInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1436, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(954, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editCustomerInfoTabLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editCustomerAccountLogoutButton)
-                .addGap(877, 877, 877))
+                        .addComponent(editCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(removeCustomerButton)))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         editCustomerInfoTabLayout.setVerticalGroup(
             editCustomerInfoTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editCustomerInfoTabLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(editCustomerAccountLogoutButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editCustomerInformationLabel)
-                .addGap(61, 61, 61)
+                .addGap(30, 30, 30)
+                .addGroup(editCustomerInfoTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editCustomerInformationLabel)
+                    .addComponent(editCustomerAccountLogoutButton))
+                .addGap(81, 81, 81)
                 .addGroup(editCustomerInfoTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(customerInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editCustomerInfoPanel))
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addGroup(editCustomerInfoTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editCustomerButton)
                     .addComponent(removeCustomerButton))
-                .addContainerGap(1039, Short.MAX_VALUE))
+                .addContainerGap(993, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Edit Customer Account", editCustomerInfoTab);
 
-        billingInfoPanel.setBackground(new java.awt.Color(214, 214, 213));
-        billingInfoPanel.setForeground(new java.awt.Color(51, 51, 51));
-        billingInfoPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        employeeRegistrationTab.setBackground(new java.awt.Color(255, 255, 255));
 
-        MyEmployeeAccount.setBackground(new java.awt.Color(196, 194, 194));
+        billingInfoPanel1.setForeground(new java.awt.Color(51, 51, 51));
+        billingInfoPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        billingInfoLabel.setFont(new java.awt.Font("Vani", 1, 18)); // NOI18N
-        billingInfoLabel.setText("Billing Information");
+        MyEmployeeAccount1.setBackground(new java.awt.Color(204, 204, 204));
 
-        javax.swing.GroupLayout MyEmployeeAccountLayout = new javax.swing.GroupLayout(MyEmployeeAccount);
-        MyEmployeeAccount.setLayout(MyEmployeeAccountLayout);
-        MyEmployeeAccountLayout.setHorizontalGroup(
-            MyEmployeeAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MyEmployeeAccountLayout.createSequentialGroup()
+        billingInfoLabel1.setFont(new java.awt.Font("Vani", 1, 18)); // NOI18N
+        billingInfoLabel1.setText("Payment & Billing Information");
+
+        javax.swing.GroupLayout MyEmployeeAccount1Layout = new javax.swing.GroupLayout(MyEmployeeAccount1);
+        MyEmployeeAccount1.setLayout(MyEmployeeAccount1Layout);
+        MyEmployeeAccount1Layout.setHorizontalGroup(
+            MyEmployeeAccount1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MyEmployeeAccount1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(billingInfoLabel)
+                .addComponent(billingInfoLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        MyEmployeeAccountLayout.setVerticalGroup(
-            MyEmployeeAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MyEmployeeAccountLayout.createSequentialGroup()
+        MyEmployeeAccount1Layout.setVerticalGroup(
+            MyEmployeeAccount1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MyEmployeeAccount1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(billingInfoLabel)
+                .addComponent(billingInfoLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        billingInfoTxtPnel.setBackground(new java.awt.Color(214, 214, 213));
+        creditCardExpLabel2.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        creditCardExpLabel2.setText("Credit Card Expiration Date:");
 
-        editBillingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_EditButtonIcon.png"))); // NOI18N
-        editBillingButton.setText("Edit");
-        editBillingButton.addActionListener(new java.awt.event.ActionListener() {
+        creditCardExpirationYear1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+
+        creditCardNumLabel3.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        creditCardNumLabel3.setText("Credit Card Number: ");
+
+        addressLabel3.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        addressLabel3.setText("Address:");
+
+        stateLabel3.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        stateLabel3.setText("State:");
+
+        zipcodeLabel3.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        zipcodeLabel3.setText("Zipcode:");
+
+        cityLabel3.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        cityLabel3.setText("City:");
+
+        billingInformation_State_Combobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "AK - Alaska", "AL - Alabama", "AR - Arkansas", "AZ - Arizona", "CA - California", "CO - Colorado", "CT - Connecticut", "DE - Delaware", "FL - Florida", "GA - Georgia", "HI - Hawaii", "IA - Iowa", "ID - Idaho", "IL - Illinois", "IN -Indiana", "KS - Kansas", "KY - Kentucky", "LA - Louisiana", "MA - Massachusetts", "MD - Maryland", "ME - Maine", "MI - Michigan", "MN - Minnesota", "MO - Missouri", "MS - Mississippi", "MT - Montana", "NC - North Carolina", "ND - North Dakota", "NE - Nebraska", "NH - New Hampshire", "NJ - New Jersey", "NM - New Mexico", "NV - Nevada", "NY - New York", "OH - Ohio", "OK - Oklahoma", "OR - Oregon", "PA - Pennsylvania", "RI - Rhode Island", "SC - South Carolina", "SD - South Dakota", "TN - Tennessee", "TX - Texas", "UT - Utah", "VA - Virginia", "VT - Vermont", "WA - Washington", "WI - Wisconsin", "WV - West Virginia", "WY - Wyoming" }));
+
+        addEmployeeInfoButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_AddButtonIcon.png"))); // NOI18N
+        addEmployeeInfoButton2.setText(" Add");
+
+        creditCardExpirationMonth1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        creditCardExpirationMonth1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editBillingButtonActionPerformed(evt);
-            }
-        });
-        editBillingButton.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                editBillingButtonKeyPressed(evt);
+                creditCardExpirationMonth1ActionPerformed(evt);
             }
         });
 
-        creditCardExpLabel1.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
-        creditCardExpLabel1.setText("Credit Card Expiration Date:");
-
-        submitBillingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_AddButtonIcon.png"))); // NOI18N
-        submitBillingButton.setText("Submit");
-
-        creditCardExpirationMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-
-        creditCardExpirationYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
-
-        creditCardNumLabel2.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
-        creditCardNumLabel2.setText("Credit Card Number: ");
-
-        addressLabel2.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
-        addressLabel2.setText("Address:");
-
-        stateLabel2.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
-        stateLabel2.setText("State:");
-
-        zipcodeLabel2.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
-        zipcodeLabel2.setText("Zipcode:");
-
-        cityLabel2.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
-        cityLabel2.setText("City:");
-
-        javax.swing.GroupLayout billingInfoTxtPnelLayout = new javax.swing.GroupLayout(billingInfoTxtPnel);
-        billingInfoTxtPnel.setLayout(billingInfoTxtPnelLayout);
-        billingInfoTxtPnelLayout.setHorizontalGroup(
-            billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingInfoTxtPnelLayout.createSequentialGroup()
+        javax.swing.GroupLayout billingInfoTxtPnel1Layout = new javax.swing.GroupLayout(billingInfoTxtPnel1);
+        billingInfoTxtPnel1.setLayout(billingInfoTxtPnel1Layout);
+        billingInfoTxtPnel1Layout.setHorizontalGroup(
+            billingInfoTxtPnel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingInfoTxtPnel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(billingInfoTxtPnelLayout.createSequentialGroup()
-                        .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(submitBillingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(billingInfoTxtPnelLayout.createSequentialGroup()
-                                .addComponent(creditCardNumLabel2)
+                .addGroup(billingInfoTxtPnel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(billingInfoTxtPnel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(addEmployeeInfoButton2))
+                    .addGroup(billingInfoTxtPnel1Layout.createSequentialGroup()
+                        .addComponent(creditCardNumLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(billingInfoTxtPnel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(billingInfoTxtPnel1Layout.createSequentialGroup()
+                                .addComponent(creditCardImage1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(creditCardNumTxt3)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, billingInfoTxtPnel1Layout.createSequentialGroup()
+                        .addGroup(billingInfoTxtPnel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addressLabel3)
+                            .addComponent(cityLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(billingInfoTxtPnel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(billingInfoTxtPnel1Layout.createSequentialGroup()
+                                .addComponent(cityTxt3)
+                                .addGap(18, 18, 18)
+                                .addComponent(stateLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(billingInfoTxtPnelLayout.createSequentialGroup()
-                                        .addComponent(creditCardImage)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(creditCardNumTxt2)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingInfoTxtPnelLayout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(editBillingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(billingInfoTxtPnelLayout.createSequentialGroup()
-                                .addComponent(creditCardExpLabel1)
-                                .addGap(29, 29, 29)
-                                .addComponent(creditCardExpirationMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(billingInformation_State_Combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(zipcodeLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(creditCardExpirationYear, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(24, 24, 24))
-                    .addGroup(billingInfoTxtPnelLayout.createSequentialGroup()
-                        .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addressLabel2)
-                            .addComponent(cityLabel2))
-                        .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(billingInfoTxtPnelLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(cityTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(stateLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(stateTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(zipcodeLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(zipcodeTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingInfoTxtPnelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                                .addComponent(addressTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))))
-        );
-        billingInfoTxtPnelLayout.setVerticalGroup(
-            billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(billingInfoTxtPnelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(billingInfoTxtPnelLayout.createSequentialGroup()
-                        .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(addressTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addressLabel2))
+                                .addComponent(zipcodeTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(addressTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, billingInfoTxtPnel1Layout.createSequentialGroup()
+                        .addComponent(creditCardExpLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(creditCardExpirationMonth1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cityTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(stateLabel2)
-                            .addComponent(stateTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(zipcodeLabel2)
-                            .addComponent(zipcodeTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cityLabel2))
-                        .addGap(61, 61, 61))
-                    .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(creditCardNumLabel2)
-                        .addComponent(creditCardNumTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addComponent(creditCardImage)
+                        .addComponent(creditCardExpirationYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24))
+        );
+        billingInfoTxtPnel1Layout.setVerticalGroup(
+            billingInfoTxtPnel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(billingInfoTxtPnel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(billingInfoTxtPnel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addressTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addressLabel3))
+                .addGap(29, 29, 29)
+                .addGroup(billingInfoTxtPnel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cityTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stateLabel3)
+                    .addComponent(zipcodeLabel3)
+                    .addComponent(zipcodeTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cityLabel3)
+                    .addComponent(billingInformation_State_Combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(billingInfoTxtPnel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(creditCardNumLabel3)
+                    .addComponent(creditCardNumTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(creditCardImage1)
                 .addGap(28, 28, 28)
-                .addGroup(billingInfoTxtPnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(creditCardExpirationMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(creditCardExpirationYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(creditCardExpLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addComponent(editBillingButton)
+                .addGroup(billingInfoTxtPnel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(creditCardExpirationYear1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(creditCardExpLabel2)
+                    .addComponent(creditCardExpirationMonth1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(submitBillingButton)
-                .addGap(5, 5, 5))
-        );
-
-        javax.swing.GroupLayout billingInfoPanelLayout = new javax.swing.GroupLayout(billingInfoPanel);
-        billingInfoPanel.setLayout(billingInfoPanelLayout);
-        billingInfoPanelLayout.setHorizontalGroup(
-            billingInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MyEmployeeAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(billingInfoPanelLayout.createSequentialGroup()
-                .addGap(245, 245, 245)
-                .addComponent(billingInfoTxtPnel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        billingInfoPanelLayout.setVerticalGroup(
-            billingInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(billingInfoPanelLayout.createSequentialGroup()
-                .addComponent(MyEmployeeAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(billingInfoTxtPnel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(49, 49, 49))
-        );
-
-        personalInfoPanel.setBackground(new java.awt.Color(214, 214, 213));
-
-        personalInfoLabelPanel.setBackground(new java.awt.Color(196, 194, 194));
-
-        personalInfoLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        personalInfoLabel.setText("Personal Information");
-
-        javax.swing.GroupLayout personalInfoLabelPanelLayout = new javax.swing.GroupLayout(personalInfoLabelPanel);
-        personalInfoLabelPanel.setLayout(personalInfoLabelPanelLayout);
-        personalInfoLabelPanelLayout.setHorizontalGroup(
-            personalInfoLabelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(personalInfoLabelPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(personalInfoLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        personalInfoLabelPanelLayout.setVerticalGroup(
-            personalInfoLabelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personalInfoLabelPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(personalInfoLabel)
-                .addContainerGap())
-        );
-
-        personalInfoTxtPanel.setBackground(new java.awt.Color(214, 214, 213));
-
-        newUserEmailLabel1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        newUserEmailLabel1.setText("Email:");
-
-        birthdayDay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-
-        lastNameLabel2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        lastNameLabel2.setText("Last Name:");
-
-        birthdayLabel2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        birthdayLabel2.setText("Birthday:");
-
-        newUserPasswordLabel1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        newUserPasswordLabel1.setText("Password:");
-
-        newUsernameLabel1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        newUsernameLabel1.setText("Username:");
-
-        birthdayMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }));
-
-        birthdayYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        firstNameLabel2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        firstNameLabel2.setText("First Name:");
-
-        editBillingButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_EditButtonIcon.png"))); // NOI18N
-        editBillingButton1.setText("Edit");
-        editBillingButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editBillingButton1ActionPerformed(evt);
-            }
-        });
-        editBillingButton1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                editBillingButton1KeyPressed(evt);
-            }
-        });
-
-        submitBillingButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_AddButtonIcon.png"))); // NOI18N
-        submitBillingButton1.setText("Submit");
-
-        javax.swing.GroupLayout personalInfoTxtPanelLayout = new javax.swing.GroupLayout(personalInfoTxtPanel);
-        personalInfoTxtPanel.setLayout(personalInfoTxtPanelLayout);
-        personalInfoTxtPanelLayout.setHorizontalGroup(
-            personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(personalInfoTxtPanelLayout.createSequentialGroup()
-                .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(personalInfoTxtPanelLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(birthdayLabel2)
-                        .addGap(50, 50, 50)
-                        .addComponent(birthdayMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(birthdayDay, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(birthdayYear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(editBillingButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(submitBillingButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(personalInfoTxtPanelLayout.createSequentialGroup()
-                        .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(personalInfoTxtPanelLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(newUserEmailLabel1)
-                                    .addComponent(newUsernameLabel1)))
-                            .addGroup(personalInfoTxtPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(firstNameLabel2)))
-                        .addGap(25, 25, 25)
-                        .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(personalInfoTxtPanelLayout.createSequentialGroup()
-                                .addComponent(firstNameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lastNameLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(lastNameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(personalInfoTxtPanelLayout.createSequentialGroup()
-                                .addComponent(newUsernameTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50)
-                                .addComponent(newUserPasswordLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(newUserPasswordTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(newUserEmailTxt1))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        personalInfoTxtPanelLayout.setVerticalGroup(
-            personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(personalInfoTxtPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(newUserPasswordTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(newUserPasswordLabel1))
-                    .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(newUsernameTxt1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(newUsernameLabel1)))
-                .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(personalInfoTxtPanelLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(newUserEmailLabel1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personalInfoTxtPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(newUserEmailTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
-                .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameLabel2)
-                    .addComponent(firstNameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lastNameLabel2)
-                    .addComponent(lastNameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(personalInfoTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(birthdayLabel2)
-                        .addComponent(birthdayMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(birthdayDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(birthdayYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(personalInfoTxtPanelLayout.createSequentialGroup()
-                        .addComponent(editBillingButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(submitBillingButton1)))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout personalInfoPanelLayout = new javax.swing.GroupLayout(personalInfoPanel);
-        personalInfoPanel.setLayout(personalInfoPanelLayout);
-        personalInfoPanelLayout.setHorizontalGroup(
-            personalInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(personalInfoLabelPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(personalInfoPanelLayout.createSequentialGroup()
-                .addGap(240, 240, 240)
-                .addComponent(personalInfoTxtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(270, Short.MAX_VALUE))
-        );
-        personalInfoPanelLayout.setVerticalGroup(
-            personalInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(personalInfoPanelLayout.createSequentialGroup()
-                .addComponent(personalInfoLabelPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(personalInfoTxtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addEmployeeInfoButton2)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        jLabel4.setText("My Employee Account");
+        javax.swing.GroupLayout billingInfoPanel1Layout = new javax.swing.GroupLayout(billingInfoPanel1);
+        billingInfoPanel1.setLayout(billingInfoPanel1Layout);
+        billingInfoPanel1Layout.setHorizontalGroup(
+            billingInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(MyEmployeeAccount1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(billingInfoPanel1Layout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addComponent(billingInfoTxtPnel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        billingInfoPanel1Layout.setVerticalGroup(
+            billingInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(billingInfoPanel1Layout.createSequentialGroup()
+                .addComponent(MyEmployeeAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(billingInfoTxtPnel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+        );
 
-        editCustomerAccountLogoutButton1.setText("Logout");
-        editCustomerAccountLogoutButton1.addActionListener(new java.awt.event.ActionListener() {
+        personalInfoLabelPanel1.setBackground(new java.awt.Color(204, 204, 204));
+
+        personalInfoLabel1.setFont(new java.awt.Font("Vani", 1, 18)); // NOI18N
+        personalInfoLabel1.setText("Personal Information");
+
+        javax.swing.GroupLayout personalInfoLabelPanel1Layout = new javax.swing.GroupLayout(personalInfoLabelPanel1);
+        personalInfoLabelPanel1.setLayout(personalInfoLabelPanel1Layout);
+        personalInfoLabelPanel1Layout.setHorizontalGroup(
+            personalInfoLabelPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(personalInfoLabelPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(personalInfoLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        personalInfoLabelPanel1Layout.setVerticalGroup(
+            personalInfoLabelPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personalInfoLabelPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(personalInfoLabel1)
+                .addContainerGap())
+        );
+
+        newUserEmailLabel2.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        newUserEmailLabel2.setText("Email:");
+
+        birthdayDay1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        lastNameLabel3.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        lastNameLabel3.setText("Last Name:");
+
+        birthdayLabel3.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        birthdayLabel3.setText("Birthday:");
+
+        newUserPasswordLabel2.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        newUserPasswordLabel2.setText("Password:");
+
+        newUsernameLabel2.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        newUsernameLabel2.setText("Username:");
+
+        birthdayMonth1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }));
+
+        firstNameLabel3.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        firstNameLabel3.setText("First Name:");
+
+        birthdayYear1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940", "1939", "1938", "1937", "1936", "1935", "1934", "1933", "1932", "1931", "1930", "1929", "1928", "1927", "1926", "1925", "1924", "1923", "1922", "1921", "1920", "1919", "1918", "1917", "1916", "1915", "1914", "1913" }));
+
+        javax.swing.GroupLayout personalInfoTxtPanel1Layout = new javax.swing.GroupLayout(personalInfoTxtPanel1);
+        personalInfoTxtPanel1.setLayout(personalInfoTxtPanel1Layout);
+        personalInfoTxtPanel1Layout.setHorizontalGroup(
+            personalInfoTxtPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(personalInfoTxtPanel1Layout.createSequentialGroup()
+                .addGroup(personalInfoTxtPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(personalInfoTxtPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(birthdayLabel3)
+                        .addGap(50, 50, 50)
+                        .addComponent(birthdayMonth1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(birthdayDay1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(birthdayYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(personalInfoTxtPanel1Layout.createSequentialGroup()
+                        .addGroup(personalInfoTxtPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(personalInfoTxtPanel1Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(personalInfoTxtPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(newUserEmailLabel2)
+                                    .addComponent(newUsernameLabel2))
+                                .addGap(25, 25, 25))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personalInfoTxtPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(firstNameLabel3)
+                                .addGap(18, 18, 18)))
+                        .addGroup(personalInfoTxtPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(personalInfoTxtPanel1Layout.createSequentialGroup()
+                                .addComponent(firstNameTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lastNameLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(lastNameTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(personalInfoTxtPanel1Layout.createSequentialGroup()
+                                .addComponent(newUsernameTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(newUserPasswordLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(newUserPasswordTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(newUserEmailTxt2))))
+                .addContainerGap())
+        );
+        personalInfoTxtPanel1Layout.setVerticalGroup(
+            personalInfoTxtPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(personalInfoTxtPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(personalInfoTxtPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(personalInfoTxtPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(newUserPasswordTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(newUserPasswordLabel2))
+                    .addGroup(personalInfoTxtPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(newUsernameTxt2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(newUsernameLabel2)))
+                .addGroup(personalInfoTxtPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(personalInfoTxtPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(newUserEmailLabel2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personalInfoTxtPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(newUserEmailTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
+                .addGroup(personalInfoTxtPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameLabel3)
+                    .addComponent(firstNameTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastNameLabel3)
+                    .addComponent(lastNameTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(personalInfoTxtPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(birthdayLabel3)
+                    .addComponent(birthdayMonth1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(birthdayDay1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(birthdayYear1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        addEmployeeInfoButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_AddButtonIcon.png"))); // NOI18N
+        addEmployeeInfoButton1.setText(" Add");
+
+        javax.swing.GroupLayout personalInfoPanel1Layout = new javax.swing.GroupLayout(personalInfoPanel1);
+        personalInfoPanel1.setLayout(personalInfoPanel1Layout);
+        personalInfoPanel1Layout.setHorizontalGroup(
+            personalInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(personalInfoLabelPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(personalInfoPanel1Layout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addGroup(personalInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(addEmployeeInfoButton1)
+                    .addComponent(personalInfoTxtPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(162, Short.MAX_VALUE))
+        );
+        personalInfoPanel1Layout.setVerticalGroup(
+            personalInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(personalInfoPanel1Layout.createSequentialGroup()
+                .addComponent(personalInfoLabelPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(personalInfoTxtPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addEmployeeInfoButton1)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+
+        employeeRegistrationLabel.setFont(new java.awt.Font("Vani", 1, 24)); // NOI18N
+        employeeRegistrationLabel.setText("Employee Registration ");
+
+        editCustomerAccountLogoutButton2.setText("Logout");
+        editCustomerAccountLogoutButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editCustomerAccountLogoutButton1ActionPerformed(evt);
+                editCustomerAccountLogoutButton2ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout myEmployeeAccountLayout = new javax.swing.GroupLayout(myEmployeeAccount);
-        myEmployeeAccount.setLayout(myEmployeeAccountLayout);
-        myEmployeeAccountLayout.setHorizontalGroup(
-            myEmployeeAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(myEmployeeAccountLayout.createSequentialGroup()
-                .addGap(596, 596, 596)
-                .addGroup(myEmployeeAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(personalInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(billingInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(776, Short.MAX_VALUE))
-            .addGroup(myEmployeeAccountLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel4)
+        javax.swing.GroupLayout employeeRegistrationPanelLayout = new javax.swing.GroupLayout(employeeRegistrationPanel);
+        employeeRegistrationPanel.setLayout(employeeRegistrationPanelLayout);
+        employeeRegistrationPanelLayout.setHorizontalGroup(
+            employeeRegistrationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(employeeRegistrationPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(employeeRegistrationLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editCustomerAccountLogoutButton1)
-                .addGap(938, 938, 938))
+                .addComponent(editCustomerAccountLogoutButton2)
+                .addGap(151, 151, 151))
         );
-        myEmployeeAccountLayout.setVerticalGroup(
-            myEmployeeAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(myEmployeeAccountLayout.createSequentialGroup()
-                .addGroup(myEmployeeAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(myEmployeeAccountLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel4))
-                    .addGroup(myEmployeeAccountLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(editCustomerAccountLogoutButton1)))
-                .addGap(34, 34, 34)
-                .addComponent(personalInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(billingInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(942, Short.MAX_VALUE))
+        employeeRegistrationPanelLayout.setVerticalGroup(
+            employeeRegistrationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(employeeRegistrationPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(employeeRegistrationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(employeeRegistrationLabel)
+                    .addComponent(editCustomerAccountLogoutButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane.addTab("MyEmployeeAccount", myEmployeeAccount);
+        javax.swing.GroupLayout employeeRegistrationTabLayout = new javax.swing.GroupLayout(employeeRegistrationTab);
+        employeeRegistrationTab.setLayout(employeeRegistrationTabLayout);
+        employeeRegistrationTabLayout.setHorizontalGroup(
+            employeeRegistrationTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(employeeRegistrationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(employeeRegistrationTabLayout.createSequentialGroup()
+                .addGap(294, 294, 294)
+                .addGroup(employeeRegistrationTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(personalInfoPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(billingInfoPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(231, Short.MAX_VALUE))
+        );
+        employeeRegistrationTabLayout.setVerticalGroup(
+            employeeRegistrationTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(employeeRegistrationTabLayout.createSequentialGroup()
+                .addComponent(employeeRegistrationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(personalInfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(billingInfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1009, Short.MAX_VALUE))
+        );
+
+        jTabbedPane.addTab("Employee Registration", employeeRegistrationTab);
 
         moviesPanel2.setBackground(new java.awt.Color(255, 255, 255));
         moviesPanel2.setMaximumSize(new java.awt.Dimension(1800, 100));
@@ -1378,10 +1453,7 @@ public class EmployeeAccount extends javax.swing.JFrame {
         moviesPanel2.setName(""); // NOI18N
         moviesPanel2.setPreferredSize(new java.awt.Dimension(18000, 1000));
 
-        sideBarPanel2.setBackground(new java.awt.Color(153, 0, 0));
-
-        rentalsRULogoSmallLabel2.setBackground(new java.awt.Color(153, 0, 0));
-        rentalsRULogoSmallLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_Rent4ULogoSmall.jpg"))); // NOI18N
+        sideBarPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
         blackBarPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -1389,7 +1461,7 @@ public class EmployeeAccount extends javax.swing.JFrame {
         blackBarPanel2.setLayout(blackBarPanel2Layout);
         blackBarPanel2Layout.setHorizontalGroup(
             blackBarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 25, Short.MAX_VALUE)
+            .addGap(0, 15, Short.MAX_VALUE)
         );
         blackBarPanel2Layout.setVerticalGroup(
             blackBarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1421,17 +1493,18 @@ public class EmployeeAccount extends javax.swing.JFrame {
         MPAARDropDownMenu2.setPreferredSize(new java.awt.Dimension(1800, 1000));
 
         BrowseByLabel2.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        BrowseByLabel2.setForeground(new java.awt.Color(255, 255, 255));
         BrowseByLabel2.setText("Browse By:");
 
         findAMovieLabel2.setFont(new java.awt.Font("Vani", 1, 24)); // NOI18N
         findAMovieLabel2.setText("Find A Movie");
 
         searchLabel2.setFont(new java.awt.Font("Vani", 0, 14)); // NOI18N
-        searchLabel2.setForeground(new java.awt.Color(255, 255, 255));
         searchLabel2.setText("Search by: Title, Actor, Director");
 
         searchButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_SearchIcon.png"))); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Vani", 1, 38)); // NOI18N
+        jLabel8.setText("Movies");
 
         javax.swing.GroupLayout sideBarPanel2Layout = new javax.swing.GroupLayout(sideBarPanel2);
         sideBarPanel2.setLayout(sideBarPanel2Layout);
@@ -1442,13 +1515,14 @@ public class EmployeeAccount extends javax.swing.JFrame {
                     .addGroup(sideBarPanel2Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(sideBarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rentalsRULogoSmallLabel2)
                             .addGroup(sideBarPanel2Layout.createSequentialGroup()
                                 .addGap(74, 74, 74)
                                 .addComponent(viewRentalHistoryToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(sideBarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(findAMovieLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(viewPaymentHistoryToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(viewPaymentHistoryToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(sideBarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(findAMovieLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(sideBarPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(sideBarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1467,23 +1541,24 @@ public class EmployeeAccount extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(searchLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(blackBarPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(blackBarPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         sideBarPanel2Layout.setVerticalGroup(
             sideBarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideBarPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(rentalsRULogoSmallLabel2)
-                .addGap(148, 148, 148)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel8)
+                .addGap(146, 146, 146)
                 .addComponent(findAMovieLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewPaymentHistoryToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
                 .addComponent(searchLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(sideBarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(searchButton2)
-                    .addComponent(searchTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(sideBarPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(searchButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(searchTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(viewRentalHistoryToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
@@ -1498,61 +1573,6 @@ public class EmployeeAccount extends javax.swing.JFrame {
             .addComponent(blackBarPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        toolBar2.setBackground(new java.awt.Color(255, 255, 255));
-        toolBar2.setBorder(null);
-        toolBar2.setFloatable(false);
-        toolBar2.setRollover(true);
-        toolBar2.setBorderPainted(false);
-
-        homeButton2.setBackground(new java.awt.Color(255, 255, 255));
-        homeButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        homeButton2.setText("Home");
-        homeButton2.setBorderPainted(false);
-        homeButton2.setFocusable(false);
-        homeButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        homeButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        homeButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeButton2ActionPerformed(evt);
-            }
-        });
-        toolBar2.add(homeButton2);
-
-        divider1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        divider1.setText("  |  ");
-        toolBar2.add(divider1);
-
-        myAccountButton.setBackground(new java.awt.Color(255, 255, 255));
-        myAccountButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        myAccountButton.setText("My Account");
-        myAccountButton.setFocusable(false);
-        myAccountButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        myAccountButton.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        myAccountButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                myAccountButtonActionPerformed(evt);
-            }
-        });
-        toolBar2.add(myAccountButton);
-
-        divider2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        divider2.setText("  |  ");
-        toolBar2.add(divider2);
-
-        logoutButton.setBackground(new java.awt.Color(255, 255, 255));
-        logoutButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        logoutButton.setText("Logout");
-        logoutButton.setFocusable(false);
-        logoutButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        logoutButton.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        logoutButton.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        logoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButtonActionPerformed(evt);
-            }
-        });
-        toolBar2.add(logoutButton);
-
         movieDBTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1566,8 +1586,6 @@ public class EmployeeAccount extends javax.swing.JFrame {
         ));
         movieBDScrollPanel.setViewportView(movieDBTable);
 
-        moviesLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_MovieLabel.png"))); // NOI18N
-
         rentMovieButton.setText("Rent");
         rentMovieButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1575,24 +1593,24 @@ public class EmployeeAccount extends javax.swing.JFrame {
             }
         });
 
+        editCustomerAccountLogoutButton4.setText("Logout");
+
         javax.swing.GroupLayout moviesPanel2Layout = new javax.swing.GroupLayout(moviesPanel2);
         moviesPanel2.setLayout(moviesPanel2Layout);
         moviesPanel2Layout.setHorizontalGroup(
             moviesPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(moviesPanel2Layout.createSequentialGroup()
-                .addComponent(sideBarPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sideBarPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(moviesPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(moviesPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(moviesLabel)
-                        .addGap(1112, 1112, 1112)
-                        .addComponent(toolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(moviesPanel2Layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
+                        .addGap(121, 121, 121)
                         .addGroup(moviesPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(rentMovieButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(movieBDScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1322, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(16114, Short.MAX_VALUE))
+                            .addComponent(movieBDScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(moviesPanel2Layout.createSequentialGroup()
+                        .addGap(1278, 1278, 1278)
+                        .addComponent(editCustomerAccountLogoutButton4)))
+                .addContainerGap(16362, Short.MAX_VALUE))
         );
         moviesPanel2Layout.setVerticalGroup(
             moviesPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1600,16 +1618,11 @@ public class EmployeeAccount extends javax.swing.JFrame {
                 .addGroup(moviesPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sideBarPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(moviesPanel2Layout.createSequentialGroup()
-                        .addGroup(moviesPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(moviesPanel2Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(moviesLabel))
-                            .addGroup(moviesPanel2Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(toolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(168, 168, 168)
+                        .addGap(29, 29, 29)
+                        .addComponent(editCustomerAccountLogoutButton4)
+                        .addGap(207, 207, 207)
                         .addComponent(movieBDScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGap(35, 35, 35)
                         .addComponent(rentMovieButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1652,171 +1665,353 @@ public class EmployeeAccount extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Rent Movies", rentMovieTab);
 
-        paymentHistoryPanel.setMaximumSize(new java.awt.Dimension(1800, 100));
-        paymentHistoryPanel.setName(""); // NOI18N
-        paymentHistoryPanel.setPreferredSize(new java.awt.Dimension(18000, 1000));
+        myEmployeeAccountTab.setBackground(new java.awt.Color(255, 255, 255));
 
-        toolBar3.setBackground(new java.awt.Color(255, 255, 255));
-        toolBar3.setBorder(null);
-        toolBar3.setFloatable(false);
-        toolBar3.setRollover(true);
-        toolBar3.setBorderPainted(false);
+        billingInfoPanel2.setForeground(new java.awt.Color(51, 51, 51));
+        billingInfoPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        logoutButton1.setBackground(new java.awt.Color(255, 255, 255));
-        logoutButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        logoutButton1.setText("Logout");
-        logoutButton1.setFocusable(false);
-        logoutButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        logoutButton1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        logoutButton1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        logoutButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButton1ActionPerformed(evt);
-            }
-        });
-        toolBar3.add(logoutButton1);
+        MyEmployeeAccount2.setBackground(new java.awt.Color(204, 204, 204));
 
-        paymentHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Movie", "Rental Price", "Late Fee", "Rented", "Returned", "Paid On"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
+        billingInfoLabel2.setFont(new java.awt.Font("Vani", 1, 18)); // NOI18N
+        billingInfoLabel2.setText("Payment & Billing Information");
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        paymentHistoryTable.getTableHeader().setReorderingAllowed(false);
-        paymentHistorSycollPane.setViewportView(paymentHistoryTable);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 40)); // NOI18N
-        jLabel6.setText("Payment History");
-
-        javax.swing.GroupLayout paymentHistoryPanelLayout = new javax.swing.GroupLayout(paymentHistoryPanel);
-        paymentHistoryPanel.setLayout(paymentHistoryPanelLayout);
-        paymentHistoryPanelLayout.setHorizontalGroup(
-            paymentHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paymentHistoryPanelLayout.createSequentialGroup()
-                .addGroup(paymentHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paymentHistoryPanelLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel6)
-                        .addGap(1680, 1680, 1680)
-                        .addComponent(toolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(paymentHistoryPanelLayout.createSequentialGroup()
-                        .addGap(229, 229, 229)
-                        .addComponent(paymentHistorSycollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1919, Short.MAX_VALUE))
-        );
-        paymentHistoryPanelLayout.setVerticalGroup(
-            paymentHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paymentHistoryPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout MyEmployeeAccount2Layout = new javax.swing.GroupLayout(MyEmployeeAccount2);
+        MyEmployeeAccount2.setLayout(MyEmployeeAccount2Layout);
+        MyEmployeeAccount2Layout.setHorizontalGroup(
+            MyEmployeeAccount2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MyEmployeeAccount2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(paymentHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(toolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(126, 126, 126)
-                .addComponent(paymentHistorSycollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(2875, Short.MAX_VALUE))
+                .addComponent(billingInfoLabel2)
+                .addContainerGap(963, Short.MAX_VALUE))
+        );
+        MyEmployeeAccount2Layout.setVerticalGroup(
+            MyEmployeeAccount2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MyEmployeeAccount2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(billingInfoLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3768, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(paymentHistoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 3768, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        creditCardExpLabel3.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        creditCardExpLabel3.setText("Credit Card Expiration Date:");
+
+        creditCardExpirationMonth2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+
+        creditCardExpirationYear2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+
+        creditCardNumLabel4.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        creditCardNumLabel4.setText("Credit Card Number: ");
+
+        addressLabel4.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        addressLabel4.setText("Address:");
+
+        stateLabel4.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        stateLabel4.setText("State:");
+
+        zipcodeLabel4.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        zipcodeLabel4.setText("Zipcode:");
+
+        cityLabel4.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        cityLabel4.setText("City:");
+
+        billingInformation_State_Combobox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "AK - Alaska", "AL - Alabama", "AR - Arkansas", "AZ - Arizona", "CA - California", "CO - Colorado", "CT - Connecticut", "DE - Delaware", "FL - Florida", "GA - Georgia", "HI - Hawaii", "IA - Iowa", "ID - Idaho", "IL - Illinois", "IN -Indiana", "KS - Kansas", "KY - Kentucky", "LA - Louisiana", "MA - Massachusetts", "MD - Maryland", "ME - Maine", "MI - Michigan", "MN - Minnesota", "MO - Missouri", "MS - Mississippi", "MT - Montana", "NC - North Carolina", "ND - North Dakota", "NE - Nebraska", "NH - New Hampshire", "NJ - New Jersey", "NM - New Mexico", "NV - Nevada", "NY - New York", "OH - Ohio", "OK - Oklahoma", "OR - Oregon", "PA - Pennsylvania", "RI - Rhode Island", "SC - South Carolina", "SD - South Dakota", "TN - Tennessee", "TX - Texas", "UT - Utah", "VA - Virginia", "VT - Vermont", "WA - Washington", "WI - Wisconsin", "WV - West Virginia", "WY - Wyoming" }));
+
+        javax.swing.GroupLayout billingInfoTxtPnel2Layout = new javax.swing.GroupLayout(billingInfoTxtPnel2);
+        billingInfoTxtPnel2.setLayout(billingInfoTxtPnel2Layout);
+        billingInfoTxtPnel2Layout.setHorizontalGroup(
+            billingInfoTxtPnel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingInfoTxtPnel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(billingInfoTxtPnel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingInfoTxtPnel2Layout.createSequentialGroup()
+                        .addComponent(creditCardNumLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(billingInfoTxtPnel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(billingInfoTxtPnel2Layout.createSequentialGroup()
+                                .addComponent(creditCardImage2)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(creditCardNumTxt4)))
+                    .addGroup(billingInfoTxtPnel2Layout.createSequentialGroup()
+                        .addGroup(billingInfoTxtPnel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addressLabel4)
+                            .addComponent(cityLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(billingInfoTxtPnel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(billingInfoTxtPnel2Layout.createSequentialGroup()
+                                .addComponent(cityTxt4)
+                                .addGap(18, 18, 18)
+                                .addComponent(stateLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(billingInformation_State_Combobox2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(zipcodeLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(zipcodeTxt4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(addressTxt4, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(billingInfoTxtPnel2Layout.createSequentialGroup()
+                        .addComponent(creditCardExpLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(creditCardExpirationMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(creditCardExpirationYear2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3495, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(paymentHistoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 3495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        billingInfoTxtPnel2Layout.setVerticalGroup(
+            billingInfoTxtPnel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(billingInfoTxtPnel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(billingInfoTxtPnel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addressTxt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addressLabel4))
+                .addGap(29, 29, 29)
+                .addGroup(billingInfoTxtPnel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cityTxt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stateLabel4)
+                    .addComponent(zipcodeLabel4)
+                    .addComponent(zipcodeTxt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cityLabel4)
+                    .addComponent(billingInformation_State_Combobox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(billingInfoTxtPnel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(creditCardNumLabel4)
+                    .addComponent(creditCardNumTxt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(creditCardImage2)
+                .addGap(28, 28, 28)
+                .addGroup(billingInfoTxtPnel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(creditCardExpirationMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(creditCardExpirationYear2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(creditCardExpLabel3))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout PaymentTab1Layout = new javax.swing.GroupLayout(PaymentTab1);
-        PaymentTab1.setLayout(PaymentTab1Layout);
-        PaymentTab1Layout.setHorizontalGroup(
-            PaymentTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PaymentTab1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2683, Short.MAX_VALUE))
+        javax.swing.GroupLayout billingInfoPanel2Layout = new javax.swing.GroupLayout(billingInfoPanel2);
+        billingInfoPanel2.setLayout(billingInfoPanel2Layout);
+        billingInfoPanel2Layout.setHorizontalGroup(
+            billingInfoPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(MyEmployeeAccount2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, billingInfoPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(billingInfoTxtPnel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180))
         );
-        PaymentTab1Layout.setVerticalGroup(
-            PaymentTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PaymentTab1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1775, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 6451, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(PaymentTab1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5270, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(PaymentTab1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        billingInfoPanel2Layout.setVerticalGroup(
+            billingInfoPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(billingInfoPanel2Layout.createSequentialGroup()
+                .addComponent(MyEmployeeAccount2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(billingInfoTxtPnel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout PaymentTabLayout = new javax.swing.GroupLayout(PaymentTab);
-        PaymentTab.setLayout(PaymentTabLayout);
-        PaymentTabLayout.setHorizontalGroup(
-            PaymentTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PaymentTabLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        personalInfoLabelPanel3.setBackground(new java.awt.Color(204, 204, 204));
+
+        personalInfoLabel3.setFont(new java.awt.Font("Vani", 1, 18)); // NOI18N
+        personalInfoLabel3.setText("Personal Information");
+
+        javax.swing.GroupLayout personalInfoLabelPanel3Layout = new javax.swing.GroupLayout(personalInfoLabelPanel3);
+        personalInfoLabelPanel3.setLayout(personalInfoLabelPanel3Layout);
+        personalInfoLabelPanel3Layout.setHorizontalGroup(
+            personalInfoLabelPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(personalInfoLabelPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(personalInfoLabel3)
+                .addContainerGap(1047, Short.MAX_VALUE))
         );
-        PaymentTabLayout.setVerticalGroup(
-            PaymentTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PaymentTabLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        personalInfoLabelPanel3Layout.setVerticalGroup(
+            personalInfoLabelPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personalInfoLabelPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(personalInfoLabel3)
+                .addContainerGap())
         );
 
-        jTabbedPane.addTab("Payment History", PaymentTab);
+        newUserEmailLabel4.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        newUserEmailLabel4.setText("Email:");
+
+        lastNameLabel5.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        lastNameLabel5.setText("Last Name:");
+
+        birthdayLabel5.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        birthdayLabel5.setText("Birthday:");
+
+        newUserPasswordLabel4.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        newUserPasswordLabel4.setText("Password:");
+
+        newUsernameLabel4.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        newUsernameLabel4.setText("Username:");
+
+        birthdayMonth4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }));
+
+        firstNameLabel5.setFont(new java.awt.Font("Vani", 0, 15)); // NOI18N
+        firstNameLabel5.setText("First Name:");
+
+        birthdayYear4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940", "1939", "1938", "1937", "1936", "1935", "1934", "1933", "1932", "1931", "1930", "1929", "1928", "1927", "1926", "1925", "1924", "1923", "1922", "1921", "1920", "1919", "1918", "1917", "1916", "1915", "1914", "1913" }));
+
+        birthdayDay3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        birthdayDay3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                birthdayDay3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout personalInfoTxtPanel3Layout = new javax.swing.GroupLayout(personalInfoTxtPanel3);
+        personalInfoTxtPanel3.setLayout(personalInfoTxtPanel3Layout);
+        personalInfoTxtPanel3Layout.setHorizontalGroup(
+            personalInfoTxtPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(personalInfoTxtPanel3Layout.createSequentialGroup()
+                .addGroup(personalInfoTxtPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(personalInfoTxtPanel3Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(birthdayLabel5)
+                        .addGap(50, 50, 50)
+                        .addComponent(birthdayMonth4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(birthdayDay3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(birthdayYear4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(personalInfoTxtPanel3Layout.createSequentialGroup()
+                        .addGroup(personalInfoTxtPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(personalInfoTxtPanel3Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(personalInfoTxtPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(newUserEmailLabel4)
+                                    .addComponent(newUsernameLabel4))
+                                .addGap(25, 25, 25))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personalInfoTxtPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(firstNameLabel5)
+                                .addGap(18, 18, 18)))
+                        .addGroup(personalInfoTxtPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(personalInfoTxtPanel3Layout.createSequentialGroup()
+                                .addComponent(firstNameTxt5, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lastNameLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(lastNameTxt5, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(personalInfoTxtPanel3Layout.createSequentialGroup()
+                                .addComponent(newUsernameTxt4, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(newUserPasswordLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(newUserPasswordTxt4, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(newUserEmailTxt4))))
+                .addContainerGap())
+        );
+        personalInfoTxtPanel3Layout.setVerticalGroup(
+            personalInfoTxtPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(personalInfoTxtPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(personalInfoTxtPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(personalInfoTxtPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(newUserPasswordTxt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(newUserPasswordLabel4))
+                    .addGroup(personalInfoTxtPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(newUsernameTxt4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(newUsernameLabel4)))
+                .addGroup(personalInfoTxtPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(personalInfoTxtPanel3Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(newUserEmailLabel4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, personalInfoTxtPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(newUserEmailTxt4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
+                .addGroup(personalInfoTxtPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameLabel5)
+                    .addComponent(firstNameTxt5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastNameLabel5)
+                    .addComponent(lastNameTxt5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(personalInfoTxtPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(birthdayLabel5)
+                    .addComponent(birthdayMonth4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(birthdayYear4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(birthdayDay3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout personalInfoPanel3Layout = new javax.swing.GroupLayout(personalInfoPanel3);
+        personalInfoPanel3.setLayout(personalInfoPanel3Layout);
+        personalInfoPanel3Layout.setHorizontalGroup(
+            personalInfoPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(personalInfoLabelPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(personalInfoPanel3Layout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(personalInfoTxtPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        personalInfoPanel3Layout.setVerticalGroup(
+            personalInfoPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(personalInfoPanel3Layout.createSequentialGroup()
+                .addComponent(personalInfoLabelPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(personalInfoTxtPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+
+        myEmployeeLabel.setFont(new java.awt.Font("Vani", 1, 24)); // NOI18N
+        myEmployeeLabel.setText("MyEmployeeAccount");
+
+        editCustomerAccountLogoutButton3.setText("Logout");
+        editCustomerAccountLogoutButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editCustomerAccountLogoutButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout employeeRegistrationPanel1Layout = new javax.swing.GroupLayout(employeeRegistrationPanel1);
+        employeeRegistrationPanel1.setLayout(employeeRegistrationPanel1Layout);
+        employeeRegistrationPanel1Layout.setHorizontalGroup(
+            employeeRegistrationPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(employeeRegistrationPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(myEmployeeLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(editCustomerAccountLogoutButton3)
+                .addGap(147, 147, 147))
+        );
+        employeeRegistrationPanel1Layout.setVerticalGroup(
+            employeeRegistrationPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(employeeRegistrationPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(employeeRegistrationPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(myEmployeeLabel)
+                    .addComponent(editCustomerAccountLogoutButton3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout myEmployeeAccountTabLayout = new javax.swing.GroupLayout(myEmployeeAccountTab);
+        myEmployeeAccountTab.setLayout(myEmployeeAccountTabLayout);
+        myEmployeeAccountTabLayout.setHorizontalGroup(
+            myEmployeeAccountTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(employeeRegistrationPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(myEmployeeAccountTabLayout.createSequentialGroup()
+                .addGap(294, 294, 294)
+                .addGroup(myEmployeeAccountTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(personalInfoPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(billingInfoPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(231, Short.MAX_VALUE))
+        );
+        myEmployeeAccountTabLayout.setVerticalGroup(
+            myEmployeeAccountTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(myEmployeeAccountTabLayout.createSequentialGroup()
+                .addComponent(employeeRegistrationPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(personalInfoPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addComponent(billingInfoPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(998, Short.MAX_VALUE))
+        );
+
+        jTabbedPane.addTab("MyEmployeeAccount", myEmployeeAccountTab);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 2788, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1785, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1863,13 +2058,13 @@ public class EmployeeAccount extends javax.swing.JFrame {
         String email = emailTxt.getText();
         String firstName = firstNameTxt.getText();
         String lastName = lastNameTxt.getText();
-        String birthday = birthdayTxt.getText();
+        String birthday = birthdayMonth.getSelectedItem().toString() + "/" + birthdayDay.getSelectedItem().toString() + "/" + birthdayYear.getSelectedItem().toString();  
         String city = cityTxt.getText();
-        String state = stateTxt.getText();
+        String state = stateTxt.getSelectedItem().toString();
         String zipCode = zipcodeTxt.getText();
         String address = addressTxt.getText();
         String creditCardNum = creditCardNumTxt.getText();
-        String creditCardExpireDate = creditCardExpireDateTxt.getText();
+        String creditCardExpireDate = creditCardExpirationMonth.getSelectedItem().toString() + "/" + creditCardExpirationYear.getSelectedItem().toString();
         
         db.addUsertoDB(lastName, firstName, email, password, birthday, creditCardNum, creditCardExpireDate, address, city, state, zipCode, false);
     }//GEN-LAST:event_addCustomerButtonActionPerformed
@@ -1880,26 +2075,22 @@ public class EmployeeAccount extends javax.swing.JFrame {
         emailTxt.setText("");
         firstNameTxt.setText("");
         lastNameTxt.setText("");
-        birthdayTxt.setText("");
+        birthdayMonth.setSelectedIndex(0);
+        birthdayDay.setSelectedIndex(0);
+        birthdayYear.setSelectedIndex(0);  
         cityTxt.setText("");
-        stateTxt.setText("");
+        stateTxt.setSelectedIndex(0);
         zipcodeTxt.setText("");
         addressTxt.setText("");
         creditCardNumTxt.setText("");
-        creditCardExpireDateTxt.setText("");
+        creditCardExpireDateTxt1.setText("");
     }//GEN-LAST:event_customerClearButtonActionPerformed
-
-    private void editDBLogoutButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDBLogoutButonActionPerformed
-        dispose();
-        Account_SignIn f = new Account_SignIn(db);
-        f.setVisible(true);
-    }//GEN-LAST:event_editDBLogoutButonActionPerformed
 
     private void editMovieInBDButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editMovieInBDButonActionPerformed
         try {
             int row = movies.getSelectedRow();
             int movieID = (Integer) movies.getModel().getValueAt(row, 0); 
-            db.editMovieInDB(movieID, new Movie(titleTxt.getText(), genreTxt.getText(), directorTxt.getText(), actorTxt.getText(), Integer.parseInt(userRatingTxt.getText()), mpaarRatingTxt.getText()));
+            db.editMovieInDB(movieID, new Movie(titleTxt.getText(), genreTxt.getText(), directorTxt.getText(), actorTxt.getText(), Integer.parseInt(userRatingTxt.getText()), mpaaRatingTxt.getText()));
         }
         catch (Exception e) {
             System.out.println(e);
@@ -1908,8 +2099,7 @@ public class EmployeeAccount extends javax.swing.JFrame {
 
     private void removeMovieFromDBButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeMovieFromDBButtonActionPerformed
         try {
-            //TODO perhaps allow for removal of more than 1 at a time? check box for all, text box for specific quantity?
-            db.remMovieFromDB(new Movie(titleTxt.getText(), genreTxt.getText(), directorTxt.getText(), actorTxt.getText(), Integer.parseInt(userRatingTxt.getText()), mpaarRatingTxt.getText()), 1, false);
+            db.remMovieFromDB(new Movie(titleTxt.getText(), genreTxt.getText(), directorTxt.getText(), actorTxt.getText(), Integer.parseInt(userRatingTxt.getText()), mpaaRatingTxt.getText()), 1, false);
         }
         catch (Exception e) {
             System.out.println(e);
@@ -1946,79 +2136,60 @@ public class EmployeeAccount extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_moviesMouseClicked
 
-    private void movieClearnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieClearnButtonActionPerformed
-        titleTxt.setText("");
-        actorTxt.setText("");
-        userRatingTxt.setText("");
-        mpaarRatingTxt.setText("");
-        directorTxt.setText("");
-    }//GEN-LAST:event_movieClearnButtonActionPerformed
-
-    private void addMovieToDBButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMovieToDBButtonActionPerformed
-        String title = titleTxt.getText(); 
-        String actors = actorTxt.getText();
-        
-        String userRatingStr = userRatingTxt.getText();
-        int userRating = Integer.parseInt(userRatingStr);
-        
-        String mpaaRating = mpaarRatingTxt.getText();
-        String director = directorTxt.getText();
-        String genre = genreTxt.getText();
-        
-        Movie m = new Movie(title, genre, director, actors, userRating, mpaaRating);
-        db.addMovieToDB(m);
-        System.out.println("attemted to add movie to database");
-    }//GEN-LAST:event_addMovieToDBButtonActionPerformed
-
-    private void editBillingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBillingButtonActionPerformed
-       // TODO add your handling code here:
-    }//GEN-LAST:event_editBillingButtonActionPerformed
-
-    private void editBillingButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editBillingButtonKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editBillingButtonKeyPressed
-
-    private void editBillingButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBillingButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editBillingButton1ActionPerformed
-
-    private void editBillingButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editBillingButton1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editBillingButton1KeyPressed
-
-    private void editCustomerAccountLogoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerAccountLogoutButton1ActionPerformed
-        dispose();   
-    }//GEN-LAST:event_editCustomerAccountLogoutButton1ActionPerformed
-
     private void rentMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentMovieButtonActionPerformed
         dispose();
         CustomerAccount_Rent f = new CustomerAccount_Rent(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_rentMovieButtonActionPerformed
 
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+    private void editCustomerAccountLogoutButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerAccountLogoutButton2ActionPerformed
         dispose();
         Account_SignIn f = new Account_SignIn(db);
         f.setVisible(true);
-    }//GEN-LAST:event_logoutButtonActionPerformed
+    }//GEN-LAST:event_editCustomerAccountLogoutButton2ActionPerformed
 
-    private void myAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myAccountButtonActionPerformed
-        dispose();
-        CustomerAccount_MyAccount f = new CustomerAccount_MyAccount(db, currentUser);
-        f.setVisible(true);
-    }//GEN-LAST:event_myAccountButtonActionPerformed
+    private void movieClearnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieClearnButtonActionPerformed
+        titleTxt.setText("");
+        actorTxt.setText("");
+        userRatingTxt.setText("");
+        mpaaRatingTxt.setText("");
+        directorTxt.setText("");
+    }//GEN-LAST:event_movieClearnButtonActionPerformed
 
-    private void homeButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton2ActionPerformed
-        dispose();
-        CustomerAccount_Movies f = new CustomerAccount_Movies(db, currentUser);
-        f.setVisible(true);
-    }//GEN-LAST:event_homeButton2ActionPerformed
+    private void addMovieToDBButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMovieToDBButtonActionPerformed
+        String title = titleTxt.getText();
+        String actors = actorTxt.getText();
 
-    private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
+        String userRatingStr = userRatingTxt.getText();
+        int userRating = Integer.parseInt(userRatingStr);
+
+        String mpaaRating = mpaaRatingTxt.getText();
+        String director = directorTxt.getText();
+        String genre = genreTxt.getText();
+
+        Movie m = new Movie(title, genre, director, actors, userRating, mpaaRating);
+        db.addMovieToDB(m);
+    }//GEN-LAST:event_addMovieToDBButtonActionPerformed
+
+    private void editCustomerAccountLogoutButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerAccountLogoutButton3ActionPerformed
         dispose();
         Account_SignIn f = new Account_SignIn(db);
         f.setVisible(true);
-    }//GEN-LAST:event_logoutButton1ActionPerformed
+    }//GEN-LAST:event_editCustomerAccountLogoutButton3ActionPerformed
+
+    private void editDBLogoutButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDBLogoutButonActionPerformed
+        dispose();
+        Account_SignIn f = new Account_SignIn(db);
+        f.setVisible(true);
+    }//GEN-LAST:event_editDBLogoutButonActionPerformed
+
+    private void birthdayDay3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdayDay3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_birthdayDay3ActionPerformed
+
+    private void creditCardExpirationMonth1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditCardExpirationMonth1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_creditCardExpirationMonth1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2062,52 +2233,75 @@ public class EmployeeAccount extends javax.swing.JFrame {
     private javax.swing.JPanel MyAccountLabelPanel;
     private javax.swing.JPanel MyAccountPanel;
     private javax.swing.JPanel MyAccountSidePanel;
-    private javax.swing.JPanel MyEmployeeAccount;
-    private javax.swing.JPanel PaymentTab;
-    private javax.swing.JPanel PaymentTab1;
+    private javax.swing.JPanel MyEmployeeAccount1;
+    private javax.swing.JPanel MyEmployeeAccount2;
     private javax.swing.JPanel UserInfoPanel;
     private javax.swing.JLabel actorLabel;
     private javax.swing.JTextField actorTxt;
     private javax.swing.JButton addCustomerButton;
+    private javax.swing.JButton addEmployeeInfoButton1;
+    private javax.swing.JButton addEmployeeInfoButton2;
     private javax.swing.JButton addMovieToDBButton;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel addressLabel1;
-    private javax.swing.JLabel addressLabel2;
+    private javax.swing.JLabel addressLabel3;
+    private javax.swing.JLabel addressLabel4;
     private javax.swing.JTextField addressTxt;
     private javax.swing.JTextField addressTxt1;
-    private javax.swing.JTextField addressTxt2;
-    private javax.swing.JLabel billingInfoLabel;
-    private javax.swing.JPanel billingInfoPanel;
-    private javax.swing.JPanel billingInfoTxtPnel;
+    private javax.swing.JTextField addressTxt3;
+    private javax.swing.JTextField addressTxt4;
+    private javax.swing.JLabel billingInfoLabel1;
+    private javax.swing.JLabel billingInfoLabel2;
+    private javax.swing.JPanel billingInfoPanel1;
+    private javax.swing.JPanel billingInfoPanel2;
+    private javax.swing.JPanel billingInfoTxtPnel1;
+    private javax.swing.JPanel billingInfoTxtPnel2;
+    private javax.swing.JComboBox billingInformation_State_Combobox;
+    private javax.swing.JComboBox billingInformation_State_Combobox2;
     private javax.swing.JComboBox birthdayDay;
+    private javax.swing.JComboBox birthdayDay1;
+    private javax.swing.JComboBox birthdayDay3;
     private javax.swing.JLabel birthdayLabel;
     private javax.swing.JLabel birthdayLabel1;
-    private javax.swing.JLabel birthdayLabel2;
+    private javax.swing.JLabel birthdayLabel3;
+    private javax.swing.JLabel birthdayLabel5;
     private javax.swing.JComboBox birthdayMonth;
-    private javax.swing.JTextField birthdayTxt;
+    private javax.swing.JComboBox birthdayMonth1;
+    private javax.swing.JComboBox birthdayMonth4;
     private javax.swing.JTextField birthdayTxt1;
     private javax.swing.JComboBox birthdayYear;
+    private javax.swing.JComboBox birthdayYear1;
+    private javax.swing.JComboBox birthdayYear4;
     private javax.swing.JPanel blackBarPanel2;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JLabel cityLabel1;
-    private javax.swing.JLabel cityLabel2;
+    private javax.swing.JLabel cityLabel3;
+    private javax.swing.JLabel cityLabel4;
     private javax.swing.JTextField cityTxt;
     private javax.swing.JTextField cityTxt1;
-    private javax.swing.JTextField cityTxt2;
+    private javax.swing.JTextField cityTxt3;
+    private javax.swing.JTextField cityTxt4;
     private javax.swing.JLabel creditCardExpLabel;
-    private javax.swing.JLabel creditCardExpLabel1;
+    private javax.swing.JLabel creditCardExpLabel2;
+    private javax.swing.JLabel creditCardExpLabel3;
     private javax.swing.JComboBox creditCardExpirationMonth;
+    private javax.swing.JComboBox creditCardExpirationMonth1;
+    private javax.swing.JComboBox creditCardExpirationMonth2;
     private javax.swing.JComboBox creditCardExpirationYear;
-    private javax.swing.JTextField creditCardExpireDateTxt;
+    private javax.swing.JComboBox creditCardExpirationYear1;
+    private javax.swing.JComboBox creditCardExpirationYear2;
     private javax.swing.JTextField creditCardExpireDateTxt1;
     private javax.swing.JLabel creditCardExpireLabel;
-    private javax.swing.JLabel creditCardImage;
+    private javax.swing.JLabel creditCardImage1;
+    private javax.swing.JLabel creditCardImage2;
     private javax.swing.JLabel creditCardNumLabel;
     private javax.swing.JLabel creditCardNumLabel1;
-    private javax.swing.JLabel creditCardNumLabel2;
+    private javax.swing.JLabel creditCardNumLabel3;
+    private javax.swing.JLabel creditCardNumLabel4;
     private javax.swing.JTextField creditCardNumTxt;
     private javax.swing.JTextField creditCardNumTxt1;
-    private javax.swing.JTextField creditCardNumTxt2;
+    private javax.swing.JTextField creditCardNumTxt3;
+    private javax.swing.JTextField creditCardNumTxt4;
     private javax.swing.JButton customerClearButton;
     private javax.swing.JTable customerDBTable;
     private javax.swing.JLabel customerInfoLabel;
@@ -2116,14 +2310,12 @@ public class EmployeeAccount extends javax.swing.JFrame {
     private javax.swing.JButton deleteMyAcountButton;
     private javax.swing.JLabel directorLabel;
     private javax.swing.JTextField directorTxt;
-    private javax.swing.JLabel divider1;
-    private javax.swing.JLabel divider2;
     private javax.swing.JLabel editBDLabel;
     private javax.swing.JPanel editBDPanel;
-    private javax.swing.JButton editBillingButton;
-    private javax.swing.JButton editBillingButton1;
     private javax.swing.JButton editCustomerAccountLogoutButton;
-    private javax.swing.JButton editCustomerAccountLogoutButton1;
+    private javax.swing.JButton editCustomerAccountLogoutButton2;
+    private javax.swing.JButton editCustomerAccountLogoutButton3;
+    private javax.swing.JButton editCustomerAccountLogoutButton4;
     private javax.swing.JButton editCustomerButton;
     private javax.swing.JScrollPane editCustomerInfoPanel;
     private javax.swing.JPanel editCustomerInfoTab;
@@ -2133,37 +2325,39 @@ public class EmployeeAccount extends javax.swing.JFrame {
     private javax.swing.JButton editMovieInBDButon;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTxt;
+    private javax.swing.JLabel employeeRegistrationLabel;
+    private javax.swing.JPanel employeeRegistrationPanel;
+    private javax.swing.JPanel employeeRegistrationPanel1;
+    private javax.swing.JPanel employeeRegistrationTab;
     private javax.swing.JLabel findAMovieLabel2;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JLabel firstNameLabel1;
-    private javax.swing.JLabel firstNameLabel2;
+    private javax.swing.JLabel firstNameLabel3;
+    private javax.swing.JLabel firstNameLabel5;
     private javax.swing.JTextField firstNameTxt;
     private javax.swing.JTextField firstNameTxt1;
-    private javax.swing.JTextField firstNameTxt2;
+    private javax.swing.JTextField firstNameTxt3;
+    private javax.swing.JTextField firstNameTxt5;
     private javax.swing.JTextField genreTxt;
-    private javax.swing.JButton homeButton2;
     private javax.swing.JPanel infoPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JLabel lastNameLabel1;
-    private javax.swing.JLabel lastNameLabel2;
+    private javax.swing.JLabel lastNameLabel3;
+    private javax.swing.JLabel lastNameLabel5;
     private javax.swing.JTextField lastNameTxt;
     private javax.swing.JTextField lastNameTxt1;
-    private javax.swing.JTextField lastNameTxt2;
-    private javax.swing.JButton logoutButton;
-    private javax.swing.JButton logoutButton1;
+    private javax.swing.JTextField lastNameTxt3;
+    private javax.swing.JTextField lastNameTxt5;
     private javax.swing.JButton makePaymentButton;
     private javax.swing.JScrollPane movieBDScrollPanel;
     private javax.swing.JButton movieClearnButton;
@@ -2171,55 +2365,56 @@ public class EmployeeAccount extends javax.swing.JFrame {
     private javax.swing.JScrollPane movieDBTableScrollPane;
     private javax.swing.JLabel movieInfoLabel;
     private javax.swing.JTable movies;
-    private javax.swing.JLabel moviesLabel;
     private javax.swing.JPanel moviesPanel2;
-    private javax.swing.JLabel mpaarRatingLabel;
-    private javax.swing.JTextField mpaarRatingTxt;
-    private javax.swing.JButton myAccountButton;
+    private javax.swing.JLabel mpaaRatingLabel;
+    private javax.swing.JTextField mpaaRatingTxt;
     private javax.swing.JLabel myAccountLabel;
-    private javax.swing.JPanel myEmployeeAccount;
+    private javax.swing.JPanel myEmployeeAccountTab;
+    private javax.swing.JLabel myEmployeeLabel;
     private javax.swing.JLabel newUserEmailLabel;
-    private javax.swing.JLabel newUserEmailLabel1;
+    private javax.swing.JLabel newUserEmailLabel2;
+    private javax.swing.JLabel newUserEmailLabel4;
     private javax.swing.JTextField newUserEmailTxt;
-    private javax.swing.JTextField newUserEmailTxt1;
+    private javax.swing.JTextField newUserEmailTxt2;
+    private javax.swing.JTextField newUserEmailTxt4;
     private javax.swing.JLabel newUserPasswordLabel;
-    private javax.swing.JLabel newUserPasswordLabel1;
+    private javax.swing.JLabel newUserPasswordLabel2;
+    private javax.swing.JLabel newUserPasswordLabel4;
     private javax.swing.JPasswordField newUserPasswordTxt;
-    private javax.swing.JPasswordField newUserPasswordTxt1;
+    private javax.swing.JPasswordField newUserPasswordTxt2;
+    private javax.swing.JPasswordField newUserPasswordTxt4;
     private javax.swing.JLabel newUsernameLabel;
-    private javax.swing.JLabel newUsernameLabel1;
+    private javax.swing.JLabel newUsernameLabel2;
+    private javax.swing.JLabel newUsernameLabel4;
     private javax.swing.JTextField newUsernameTxt;
-    private javax.swing.JTextField newUsernameTxt1;
+    private javax.swing.JTextField newUsernameTxt2;
+    private javax.swing.JTextField newUsernameTxt4;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JTextField passwordTxt;
-    private javax.swing.JScrollPane paymentHistorSycollPane;
-    private javax.swing.JPanel paymentHistoryPanel;
-    private javax.swing.JTable paymentHistoryTable;
-    private javax.swing.JLabel personalInfoLabel;
-    private javax.swing.JPanel personalInfoLabelPanel;
-    private javax.swing.JPanel personalInfoPanel;
-    private javax.swing.JPanel personalInfoTxtPanel;
+    private javax.swing.JLabel personalInfoLabel1;
+    private javax.swing.JLabel personalInfoLabel3;
+    private javax.swing.JPanel personalInfoLabelPanel1;
+    private javax.swing.JPanel personalInfoLabelPanel3;
+    private javax.swing.JPanel personalInfoPanel1;
+    private javax.swing.JPanel personalInfoPanel3;
+    private javax.swing.JPanel personalInfoTxtPanel1;
+    private javax.swing.JPanel personalInfoTxtPanel3;
     private javax.swing.JButton removeCustomerButton;
     private javax.swing.JButton removeMovieFromDBButton;
     private javax.swing.JButton rentMovieButton;
     private javax.swing.JPanel rentMovieTab;
-    private javax.swing.JLabel rentalsRULogoSmallLabel2;
     private javax.swing.JButton searchButton2;
     private javax.swing.JLabel searchLabel2;
     private javax.swing.JTextField searchTxt2;
     private javax.swing.JPanel sideBarPanel2;
     private javax.swing.JLabel stateLabel;
     private javax.swing.JLabel stateLabel1;
-    private javax.swing.JLabel stateLabel2;
-    private javax.swing.JTextField stateTxt;
+    private javax.swing.JLabel stateLabel3;
+    private javax.swing.JLabel stateLabel4;
+    private javax.swing.JComboBox stateTxt;
     private javax.swing.JTextField stateTxt1;
-    private javax.swing.JTextField stateTxt2;
-    private javax.swing.JButton submitBillingButton;
-    private javax.swing.JButton submitBillingButton1;
     private javax.swing.JLabel titleLabel;
     private javax.swing.JTextField titleTxt;
-    private javax.swing.JToolBar toolBar2;
-    private javax.swing.JToolBar toolBar3;
     private javax.swing.JLabel userRatingLabel;
     private javax.swing.JTextField userRatingTxt;
     private javax.swing.JLabel usernameLabel;
@@ -2230,9 +2425,11 @@ public class EmployeeAccount extends javax.swing.JFrame {
     private javax.swing.JToolBar viewRentalHistoryToolBar2;
     private javax.swing.JLabel zipcodeLabel;
     private javax.swing.JLabel zipcodeLabel1;
-    private javax.swing.JLabel zipcodeLabel2;
+    private javax.swing.JLabel zipcodeLabel3;
+    private javax.swing.JLabel zipcodeLabel4;
     private javax.swing.JTextField zipcodeTxt;
     private javax.swing.JTextField zipcodeTxt1;
-    private javax.swing.JTextField zipcodeTxt2;
+    private javax.swing.JTextField zipcodeTxt3;
+    private javax.swing.JTextField zipcodeTxt4;
     // End of variables declaration//GEN-END:variables
 }

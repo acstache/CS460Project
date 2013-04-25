@@ -47,19 +47,22 @@ public class CustomerAccount_SignUp extends javax.swing.JFrame {
         lastNameTxt = new javax.swing.JTextField();
         cityLabel = new javax.swing.JLabel();
         cityTxt = new javax.swing.JTextField();
-        stateTxt = new javax.swing.JTextField();
         zipcodeLabel = new javax.swing.JLabel();
         zipcodeTxt = new javax.swing.JTextField();
         addressLabel = new javax.swing.JLabel();
         birthdayLabel = new javax.swing.JLabel();
-        birthdayTxt = new javax.swing.JTextField();
         creditCardNumLabel = new javax.swing.JLabel();
         creditCardNumTxt = new javax.swing.JTextField();
         creditCardExpLabel = new javax.swing.JLabel();
-        creditCardExpireDateTxt = new javax.swing.JTextField();
         signUpButton = new javax.swing.JButton();
         addressTxt = new javax.swing.JTextField();
         stateLabel = new javax.swing.JLabel();
+        birthdayMonth = new javax.swing.JComboBox();
+        birthdayDay = new javax.swing.JComboBox();
+        birthdayYear = new javax.swing.JComboBox();
+        stateTxt = new javax.swing.JComboBox();
+        creditCardExpirationMonth = new javax.swing.JComboBox();
+        creditCardExpirationYear = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
@@ -125,38 +128,29 @@ public class CustomerAccount_SignUp extends javax.swing.JFrame {
         stateLabel.setForeground(new java.awt.Color(255, 255, 255));
         stateLabel.setText("State:");
 
+        birthdayMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }));
+
+        birthdayDay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        birthdayYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940", "1939", "1938", "1937", "1936", "1935", "1934", "1933", "1932", "1931", "1930", "1929", "1928", "1927", "1926", "1925", "1924", "1923", "1922", "1921", "1920", "1919", "1918", "1917", "1916", "1915", "1914", "1913" }));
+
+        stateTxt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "AK - Alaska", "AL - Alabama", "AR - Arkansas", "AZ - Arizona", "CA - California", "CO - Colorado", "CT - Connecticut", "DE - Delaware", "FL - Florida", "GA - Georgia", "HI - Hawaii", "IA - Iowa", "ID - Idaho", "IL - Illinois", "IN -Indiana", "KS - Kansas", "KY - Kentucky", "LA - Louisiana", "MA - Massachusetts", "MD - Maryland", "ME - Maine", "MI - Michigan", "MN - Minnesota", "MO - Missouri", "MS - Mississippi", "MT - Montana", "NC - North Carolina", "ND - North Dakota", "NE - Nebraska", "NH - New Hampshire", "NJ - New Jersey", "NM - New Mexico", "NV - Nevada", "NY - New York", "OH - Ohio", "OK - Oklahoma", "OR - Oregon", "PA - Pennsylvania", "RI - Rhode Island", "SC - South Carolina", "SD - South Dakota", "TN - Tennessee", "TX - Texas", "UT - Utah", "VA - Virginia", "VT - Vermont", "WA - Washington", "WI - Wisconsin", "WV - West Virginia", "WY - Wyoming" }));
+
+        creditCardExpirationMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+
+        creditCardExpirationYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+
         javax.swing.GroupLayout signUpInfoPanelLayout = new javax.swing.GroupLayout(signUpInfoPanel);
         signUpInfoPanel.setLayout(signUpInfoPanelLayout);
         signUpInfoPanelLayout.setHorizontalGroup(
             signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(signUpInfoPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signUpInfoPanelLayout.createSequentialGroup()
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(creditCardNumLabel)
-                            .addComponent(creditCardExpLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(creditCardNumTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(creditCardExpireDateTxt)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signUpInfoPanelLayout.createSequentialGroup()
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lastNameLabel)
-                            .addComponent(birthdayLabel)
-                            .addComponent(zipcodeLabel)
-                            .addComponent(cityLabel)
-                            .addComponent(addressLabel)
-                            .addComponent(stateLabel))
-                        .addGap(13, 13, 13)
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lastNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                            .addComponent(birthdayTxt)
-                            .addComponent(stateTxt)
-                            .addComponent(zipcodeTxt)
-                            .addComponent(cityTxt)
-                            .addComponent(addressTxt))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE))
+                    .addGroup(signUpInfoPanelLayout.createSequentialGroup()
+                        .addComponent(lastNameLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(signUpInfoPanelLayout.createSequentialGroup()
                         .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(firstNameLabel)
@@ -165,71 +159,106 @@ public class CustomerAccount_SignUp extends javax.swing.JFrame {
                             .addComponent(newUsernameLabel))
                         .addGap(11, 11, 11)
                         .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(newUserPasswordTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(newUserPasswordTxt, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(firstNameTxt, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(newUserEmailTxt, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(newUsernameTxt, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signUpInfoPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(signUpButton)))
-                .addContainerGap())
+                            .addComponent(newUsernameTxt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(signUpButton)
+                        .addGroup(signUpInfoPanelLayout.createSequentialGroup()
+                            .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(creditCardNumLabel)
+                                .addComponent(creditCardExpLabel))
+                            .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(signUpInfoPanelLayout.createSequentialGroup()
+                                    .addGap(18, 18, 18)
+                                    .addComponent(creditCardExpirationMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(creditCardExpirationYear, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(signUpInfoPanelLayout.createSequentialGroup()
+                                    .addGap(4, 4, 4)
+                                    .addComponent(creditCardNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(signUpInfoPanelLayout.createSequentialGroup()
+                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(birthdayLabel)
+                            .addComponent(addressLabel)
+                            .addComponent(cityLabel)
+                            .addComponent(stateLabel)
+                            .addComponent(zipcodeLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(zipcodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(stateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(signUpInfoPanelLayout.createSequentialGroup()
+                                .addComponent(birthdayMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(birthdayDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(birthdayYear, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         signUpInfoPanelLayout.setVerticalGroup(
             signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(signUpInfoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(newUsernameLabel)
+                    .addComponent(newUsernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(newUserPasswordLabel)
+                    .addComponent(newUserPasswordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(newUserEmailLabel)
+                    .addComponent(newUserEmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameLabel)
+                    .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lastNameLabel)
+                    .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(birthdayLabel)
+                    .addComponent(birthdayMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(birthdayYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(birthdayDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addressLabel))
+                .addGap(18, 18, 18)
+                .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cityLabel))
+                .addGap(21, 21, 21)
+                .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(stateLabel)
+                    .addComponent(stateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(zipcodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zipcodeLabel))
+                .addGap(18, 18, 18)
+                .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(signUpInfoPanelLayout.createSequentialGroup()
+                        .addComponent(creditCardNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))
+                    .addGroup(signUpInfoPanelLayout.createSequentialGroup()
+                        .addComponent(creditCardNumLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(newUsernameLabel)
-                            .addComponent(newUsernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(newUserPasswordLabel)
-                            .addComponent(newUserPasswordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(newUserEmailLabel)
-                            .addComponent(newUserEmailTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(firstNameLabel)
-                            .addComponent(firstNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lastNameLabel)
-                            .addComponent(lastNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(birthdayLabel)
-                            .addComponent(birthdayTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addressLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cityLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(stateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(stateLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(zipcodeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(zipcodeLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(signUpInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(creditCardNumTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(creditCardNumLabel))
-                        .addGap(18, 18, 18)
-                        .addComponent(creditCardExpireDateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(creditCardExpLabel))
-                .addGap(30, 30, 30)
+                            .addComponent(creditCardExpLabel)
+                            .addComponent(creditCardExpirationMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(creditCardExpirationYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
                 .addComponent(signUpButton)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout signUpTxtPanelLayout = new javax.swing.GroupLayout(signUpTxtPanel);
@@ -245,9 +274,9 @@ public class CustomerAccount_SignUp extends javax.swing.JFrame {
                         .addGroup(signUpTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(greetingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(signUpTxtPanelLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
+                                .addGap(15, 15, 15)
                                 .addComponent(signUpInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                .addGap(52, 52, 52))
         );
         signUpTxtPanelLayout.setVerticalGroup(
             signUpTxtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,9 +285,9 @@ public class CustomerAccount_SignUp extends javax.swing.JFrame {
                 .addComponent(rentals4UlogoLabel)
                 .addGap(18, 18, 18)
                 .addComponent(greetingLabel)
-                .addGap(36, 36, 36)
+                .addGap(29, 29, 29)
                 .addComponent(signUpInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout signUpPanelLayout = new javax.swing.GroupLayout(signUpPanel);
@@ -266,9 +295,9 @@ public class CustomerAccount_SignUp extends javax.swing.JFrame {
         signUpPanelLayout.setHorizontalGroup(
             signUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(signUpPanelLayout.createSequentialGroup()
-                .addGap(775, 775, 775)
+                .addGap(402, 402, 402)
                 .addComponent(signUpTxtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(724, Short.MAX_VALUE))
+                .addContainerGap(397, Short.MAX_VALUE))
         );
         signUpPanelLayout.setVerticalGroup(
             signUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,20 +315,21 @@ public class CustomerAccount_SignUp extends javax.swing.JFrame {
         String email = newUserEmailTxt.getText();
         String firstName = firstNameTxt.getText();
         String lastName = lastNameTxt.getText();
-        String birthday = birthdayTxt.getText();
+        String birthday = birthdayMonth.getSelectedItem().toString() + "/" + birthdayDay.getSelectedItem().toString() + "/" + birthdayYear.getSelectedItem().toString();  
         String city = cityTxt.getText();
-        String state = stateTxt.getText();
+        String state = stateTxt.getSelectedItem().toString();
         String zipCode = zipcodeTxt.getText();
         String address = addressTxt.getText();
         String creditCardNum = creditCardNumTxt.getText();
-        String creditCardExpireDate = creditCardExpireDateTxt.getText();
+        String creditCardExpireDate = creditCardExpirationMonth.getSelectedItem().toString() + "/" + creditCardExpirationYear.getSelectedItem().toString();
 
         User u = new User(firstName, lastName, email, password,  birthday , creditCardNum,  creditCardExpireDate,  address,  city,  state,  zipCode, false);
         db.addUsertoDB(u);
         System.out.println("user added");
 
+        
         dispose();
-        CustomerAccount_Movies f = new CustomerAccount_Movies(db, u);
+        CustomerAccount_Movie f = new CustomerAccount_Movie(db, u);
         f.setVisible(true);
     }//GEN-LAST:event_signUpButtonActionPerformed
 
@@ -344,12 +374,15 @@ public class CustomerAccount_SignUp extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField addressTxt;
+    private javax.swing.JComboBox birthdayDay;
     private javax.swing.JLabel birthdayLabel;
-    private javax.swing.JTextField birthdayTxt;
+    private javax.swing.JComboBox birthdayMonth;
+    private javax.swing.JComboBox birthdayYear;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JTextField cityTxt;
     private javax.swing.JLabel creditCardExpLabel;
-    private javax.swing.JTextField creditCardExpireDateTxt;
+    private javax.swing.JComboBox creditCardExpirationMonth;
+    private javax.swing.JComboBox creditCardExpirationYear;
     private javax.swing.JLabel creditCardNumLabel;
     private javax.swing.JTextField creditCardNumTxt;
     private javax.swing.JLabel firstNameLabel;
@@ -369,7 +402,7 @@ public class CustomerAccount_SignUp extends javax.swing.JFrame {
     private javax.swing.JPanel signUpPanel;
     private javax.swing.JPanel signUpTxtPanel;
     private javax.swing.JLabel stateLabel;
-    private javax.swing.JTextField stateTxt;
+    private javax.swing.JComboBox stateTxt;
     private javax.swing.JLabel zipcodeLabel;
     private javax.swing.JTextField zipcodeTxt;
     // End of variables declaration//GEN-END:variables

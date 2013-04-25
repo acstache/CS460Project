@@ -19,7 +19,7 @@ public class User {
         setPassword(password);
         setBirthday(birthday);
         setCreditCardNum(creditCardNum);
-        setCreditCardExpireDate(creditCardNum);
+        setCreditCardExpireDate(creditCardExpireDate);
         setAddress(address);
         setCity(city);
         setState(state);

@@ -88,6 +88,7 @@ public class CustomerAccount_PaymentHistory extends javax.swing.JFrame {
         accountInfoToolBar.setRollover(true);
         accountInfoToolBar.setBorderPainted(false);
 
+        AccountInfoButton.setBackground(new java.awt.Color(153, 0, 0));
         AccountInfoButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         AccountInfoButton.setForeground(new java.awt.Color(255, 255, 255));
         AccountInfoButton.setText("Account Information");
@@ -99,12 +100,14 @@ public class CustomerAccount_PaymentHistory extends javax.swing.JFrame {
         });
         accountInfoToolBar.add(AccountInfoButton);
 
+        viewRentalHistoryToolBar.setBackground(new java.awt.Color(153, 0, 0));
         viewRentalHistoryToolBar.setBorder(null);
         viewRentalHistoryToolBar.setFloatable(false);
         viewRentalHistoryToolBar.setForeground(new java.awt.Color(255, 255, 255));
         viewRentalHistoryToolBar.setRollover(true);
         viewRentalHistoryToolBar.setBorderPainted(false);
 
+        viewRentalHistoryButton.setBackground(new java.awt.Color(153, 0, 0));
         viewRentalHistoryButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewRentalHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
         viewRentalHistoryButton.setText("View Rental History");
@@ -115,12 +118,14 @@ public class CustomerAccount_PaymentHistory extends javax.swing.JFrame {
         });
         viewRentalHistoryToolBar.add(viewRentalHistoryButton);
 
+        deleteAccountToolBar.setBackground(new java.awt.Color(153, 0, 0));
         deleteAccountToolBar.setBorder(null);
         deleteAccountToolBar.setFloatable(false);
         deleteAccountToolBar.setForeground(new java.awt.Color(255, 255, 255));
         deleteAccountToolBar.setRollover(true);
         deleteAccountToolBar.setBorderPainted(false);
 
+        deleteMyAcountButton.setBackground(new java.awt.Color(153, 0, 0));
         deleteMyAcountButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         deleteMyAcountButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteMyAcountButton.setText("Delete My Account");
@@ -280,14 +285,14 @@ public class CustomerAccount_PaymentHistory extends javax.swing.JFrame {
                 .addComponent(sideBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(paymentHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(paymentHistoryPanelLayout.createSequentialGroup()
-                        .addGap(176, 176, 176)
-                        .addComponent(paymentHistorSycollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(paymentHistoryPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(paymentHistoryLabel)
-                        .addGap(758, 758, 758)
-                        .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(2036, Short.MAX_VALUE))
+                        .addGap(692, 692, 692)
+                        .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(paymentHistoryPanelLayout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(paymentHistorSycollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1025, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         paymentHistoryPanelLayout.setVerticalGroup(
             paymentHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,28 +306,20 @@ public class CustomerAccount_PaymentHistory extends javax.swing.JFrame {
                             .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(164, 164, 164)
                         .addComponent(paymentHistorSycollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(2271, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3768, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(paymentHistoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 3768, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(paymentHistoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3495, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(paymentHistoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 3495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(paymentHistoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1001, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -342,7 +339,7 @@ public class CustomerAccount_PaymentHistory extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         dispose();
-        CustomerAccount_Movies f = new CustomerAccount_Movies(db, currentUser);
+        CustomerAccount_Movie f = new CustomerAccount_Movie(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 

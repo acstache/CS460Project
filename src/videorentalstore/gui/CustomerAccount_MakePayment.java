@@ -39,15 +39,6 @@ public class CustomerAccount_MakePayment extends javax.swing.JFrame {
         viewPaymentHistoryToolBar = new javax.swing.JToolBar();
         viewRentalHistoryToolBar = new javax.swing.JToolBar();
         deleteAccountToolBar = new javax.swing.JToolBar();
-        sideBarInfoPanel = new javax.swing.JPanel();
-        viewPaymentHistoryToolBar1 = new javax.swing.JToolBar();
-        ViewPaymentHistoryButton = new javax.swing.JButton();
-        accountInfoToolBar = new javax.swing.JToolBar();
-        AccountInfoButton = new javax.swing.JButton();
-        viewRentalHistoryToolBar1 = new javax.swing.JToolBar();
-        viewRentalHistoryButton = new javax.swing.JButton();
-        deleteAccountToolBar1 = new javax.swing.JToolBar();
-        deleteMyAcountButton = new javax.swing.JButton();
         toolBar = new javax.swing.JToolBar();
         homeButton = new javax.swing.JButton();
         divider1 = new javax.swing.JLabel();
@@ -55,8 +46,16 @@ public class CustomerAccount_MakePayment extends javax.swing.JFrame {
         divider2 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        paymentlPolicyPanel = new javax.swing.JPanel();
+        paymentTxt1 = new javax.swing.JLabel();
+        payButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        rentalPolicyLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1800, 1000));
+        setMinimumSize(new java.awt.Dimension(1800, 1000));
+        setPreferredSize(new java.awt.Dimension(1800, 1000));
 
         makePaymentPanel.setBackground(new java.awt.Color(255, 255, 255));
         makePaymentPanel.setMaximumSize(new java.awt.Dimension(1800, 100));
@@ -99,104 +98,6 @@ public class CustomerAccount_MakePayment extends javax.swing.JFrame {
         deleteAccountToolBar.setRollover(true);
         deleteAccountToolBar.setBorderPainted(false);
 
-        sideBarInfoPanel.setBackground(new java.awt.Color(153, 0, 0));
-
-        viewPaymentHistoryToolBar1.setBackground(new java.awt.Color(153, 0, 0));
-        viewPaymentHistoryToolBar1.setBorder(null);
-        viewPaymentHistoryToolBar1.setFloatable(false);
-        viewPaymentHistoryToolBar1.setRollover(true);
-        viewPaymentHistoryToolBar1.setBorderPainted(false);
-
-        ViewPaymentHistoryButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        ViewPaymentHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
-        ViewPaymentHistoryButton.setText("View Payment History");
-        ViewPaymentHistoryButton.setFocusPainted(false);
-        ViewPaymentHistoryButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewPaymentHistoryButtonActionPerformed(evt);
-            }
-        });
-        viewPaymentHistoryToolBar1.add(ViewPaymentHistoryButton);
-
-        accountInfoToolBar.setBackground(new java.awt.Color(153, 0, 0));
-        accountInfoToolBar.setBorder(null);
-        accountInfoToolBar.setFloatable(false);
-        accountInfoToolBar.setRollover(true);
-        accountInfoToolBar.setBorderPainted(false);
-
-        AccountInfoButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        AccountInfoButton.setForeground(new java.awt.Color(255, 255, 255));
-        AccountInfoButton.setText("Account Information");
-        AccountInfoButton.setFocusPainted(false);
-        AccountInfoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AccountInfoButtonActionPerformed(evt);
-            }
-        });
-        accountInfoToolBar.add(AccountInfoButton);
-
-        viewRentalHistoryToolBar1.setBorder(null);
-        viewRentalHistoryToolBar1.setFloatable(false);
-        viewRentalHistoryToolBar1.setForeground(new java.awt.Color(255, 255, 255));
-        viewRentalHistoryToolBar1.setRollover(true);
-        viewRentalHistoryToolBar1.setBorderPainted(false);
-
-        viewRentalHistoryButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        viewRentalHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
-        viewRentalHistoryButton.setText("View Rental History");
-        viewRentalHistoryButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewRentalHistoryButtonActionPerformed(evt);
-            }
-        });
-        viewRentalHistoryToolBar1.add(viewRentalHistoryButton);
-
-        deleteAccountToolBar1.setBorder(null);
-        deleteAccountToolBar1.setFloatable(false);
-        deleteAccountToolBar1.setForeground(new java.awt.Color(255, 255, 255));
-        deleteAccountToolBar1.setRollover(true);
-        deleteAccountToolBar1.setBorderPainted(false);
-
-        deleteMyAcountButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        deleteMyAcountButton.setForeground(new java.awt.Color(255, 255, 255));
-        deleteMyAcountButton.setText("Delete My Account");
-        deleteMyAcountButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteMyAcountButtonActionPerformed(evt);
-            }
-        });
-        deleteAccountToolBar1.add(deleteMyAcountButton);
-
-        javax.swing.GroupLayout sideBarInfoPanelLayout = new javax.swing.GroupLayout(sideBarInfoPanel);
-        sideBarInfoPanel.setLayout(sideBarInfoPanelLayout);
-        sideBarInfoPanelLayout.setHorizontalGroup(
-            sideBarInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sideBarInfoPanelLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addGroup(sideBarInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(accountInfoToolBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideBarInfoPanelLayout.createSequentialGroup()
-                        .addGroup(sideBarInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(deleteAccountToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(viewRentalHistoryToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8))
-                    .addComponent(viewPaymentHistoryToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        sideBarInfoPanelLayout.setVerticalGroup(
-            sideBarInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sideBarInfoPanelLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(accountInfoToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(viewPaymentHistoryToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(viewRentalHistoryToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(deleteAccountToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(185, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout sideBarPanelLayout = new javax.swing.GroupLayout(sideBarPanel);
         sideBarPanel.setLayout(sideBarPanelLayout);
         sideBarPanelLayout.setHorizontalGroup(
@@ -211,10 +112,7 @@ public class CustomerAccount_MakePayment extends javax.swing.JFrame {
                             .addComponent(viewRentalHistoryToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(sideBarPanelLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(deleteAccountToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideBarPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(sideBarInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(deleteAccountToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 32, Short.MAX_VALUE)
                 .addComponent(blackBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -227,9 +125,7 @@ public class CustomerAccount_MakePayment extends javax.swing.JFrame {
                 .addComponent(viewPaymentHistoryToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(viewRentalHistoryToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sideBarInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(501, 501, 501)
+                .addGap(920, 920, 920)
                 .addComponent(deleteAccountToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(550, Short.MAX_VALUE))
             .addComponent(blackBarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -292,83 +188,115 @@ public class CustomerAccount_MakePayment extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/videorentalstore/gui/Image_MakePaymentLabel.png"))); // NOI18N
 
+        paymentlPolicyPanel.setBackground(new java.awt.Color(153, 0, 0));
+        paymentlPolicyPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        paymentTxt1.setFont(new java.awt.Font("Vani", 1, 18)); // NOI18N
+        paymentTxt1.setForeground(new java.awt.Color(255, 255, 255));
+        paymentTxt1.setText("Balance:  $1.00 ");
+
+        payButton.setText("Make Payment");
+        payButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payButtonActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+
+        rentalPolicyLabel.setBackground(new java.awt.Color(0, 0, 0));
+        rentalPolicyLabel.setFont(new java.awt.Font("Vani", 1, 24)); // NOI18N
+        rentalPolicyLabel.setForeground(new java.awt.Color(255, 255, 255));
+        rentalPolicyLabel.setText("Pay:");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rentalPolicyLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(rentalPolicyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout paymentlPolicyPanelLayout = new javax.swing.GroupLayout(paymentlPolicyPanel);
+        paymentlPolicyPanel.setLayout(paymentlPolicyPanelLayout);
+        paymentlPolicyPanelLayout.setHorizontalGroup(
+            paymentlPolicyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(paymentlPolicyPanelLayout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addGroup(paymentlPolicyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(payButton, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paymentTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(198, Short.MAX_VALUE))
+        );
+        paymentlPolicyPanelLayout.setVerticalGroup(
+            paymentlPolicyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paymentlPolicyPanelLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(paymentTxt1)
+                .addGap(37, 37, 37)
+                .addComponent(payButton)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout makePaymentPanelLayout = new javax.swing.GroupLayout(makePaymentPanel);
         makePaymentPanel.setLayout(makePaymentPanelLayout);
         makePaymentPanelLayout.setHorizontalGroup(
             makePaymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(makePaymentPanelLayout.createSequentialGroup()
                 .addComponent(sideBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(962, 962, 962)
-                .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1856, Short.MAX_VALUE))
+                .addGroup(makePaymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(makePaymentPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addGap(679, 679, 679)
+                        .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(makePaymentPanelLayout.createSequentialGroup()
+                        .addGap(341, 341, 341)
+                        .addComponent(paymentlPolicyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         makePaymentPanelLayout.setVerticalGroup(
             makePaymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(sideBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(makePaymentPanelLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
                 .addGroup(makePaymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sideBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(makePaymentPanelLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(makePaymentPanelLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel1)))
-                .addContainerGap(1829, Short.MAX_VALUE))
+                    .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(201, 201, 201)
+                .addComponent(paymentlPolicyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3768, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(makePaymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 3768, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(makePaymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3495, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(makePaymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 3495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(makePaymentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1022, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ViewPaymentHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewPaymentHistoryButtonActionPerformed
-        dispose();
-        CustomerAccount_PaymentHistory f = new CustomerAccount_PaymentHistory(db, currentUser);
-        f.setVisible(true);
-    }//GEN-LAST:event_ViewPaymentHistoryButtonActionPerformed
-
-    private void AccountInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccountInfoButtonActionPerformed
-        dispose();
-        CustomerAccount_MyAccount f = new CustomerAccount_MyAccount(db, currentUser);
-        f.setVisible(true);
-    }//GEN-LAST:event_AccountInfoButtonActionPerformed
-
-    private void viewRentalHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRentalHistoryButtonActionPerformed
-        dispose();
-        CustomerAccount_RentalHistory f = new CustomerAccount_RentalHistory(db, currentUser);
-        f.setVisible(true);
-    }//GEN-LAST:event_viewRentalHistoryButtonActionPerformed
-
-    private void deleteMyAcountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMyAcountButtonActionPerformed
-        dispose();
-        CustomerAccount_DeleteAccount f = new CustomerAccount_DeleteAccount(db, currentUser);
-        f.setVisible(true);
-    }//GEN-LAST:event_deleteMyAcountButtonActionPerformed
-
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         dispose();
-        CustomerAccount_Movies f = new CustomerAccount_Movies(db, currentUser);
+        CustomerAccount_Movie f = new CustomerAccount_Movie(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -383,6 +311,12 @@ public class CustomerAccount_MakePayment extends javax.swing.JFrame {
         Account_SignIn f = new Account_SignIn(db);
         f.setVisible(true);
     }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
+        dispose();
+        CustomerAccount_Movie f = new CustomerAccount_Movie(db, currentUser);
+        f.setVisible(true);
+    }//GEN-LAST:event_payButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,28 +353,24 @@ public class CustomerAccount_MakePayment extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AccountInfoButton;
-    private javax.swing.JButton ViewPaymentHistoryButton;
-    private javax.swing.JToolBar accountInfoToolBar;
     private javax.swing.JPanel blackBarPanel;
     private javax.swing.JToolBar deleteAccountToolBar;
-    private javax.swing.JToolBar deleteAccountToolBar1;
-    private javax.swing.JButton deleteMyAcountButton;
     private javax.swing.JLabel divider1;
     private javax.swing.JLabel divider2;
     private javax.swing.JButton homeButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton logoutButton;
     private javax.swing.JPanel makePaymentPanel;
     private javax.swing.JButton myAccountButton;
+    private javax.swing.JButton payButton;
+    private javax.swing.JLabel paymentTxt1;
+    private javax.swing.JPanel paymentlPolicyPanel;
+    private javax.swing.JLabel rentalPolicyLabel;
     private javax.swing.JLabel rentalsRULogoSmallLabel;
-    private javax.swing.JPanel sideBarInfoPanel;
     private javax.swing.JPanel sideBarPanel;
     private javax.swing.JToolBar toolBar;
     private javax.swing.JToolBar viewPaymentHistoryToolBar;
-    private javax.swing.JToolBar viewPaymentHistoryToolBar1;
-    private javax.swing.JButton viewRentalHistoryButton;
     private javax.swing.JToolBar viewRentalHistoryToolBar;
-    private javax.swing.JToolBar viewRentalHistoryToolBar1;
     // End of variables declaration//GEN-END:variables
 }

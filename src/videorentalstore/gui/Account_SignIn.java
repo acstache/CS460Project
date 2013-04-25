@@ -36,7 +36,6 @@ public class Account_SignIn extends javax.swing.JFrame {
     private void initComponents() {
 
         signInPanel = new javax.swing.JPanel();
-        employee = new javax.swing.JButton();
         signinInfoPanel = new javax.swing.JPanel();
         rental4uLogoPanel = new javax.swing.JLabel();
         signUpButton = new javax.swing.JButton();
@@ -51,20 +50,13 @@ public class Account_SignIn extends javax.swing.JFrame {
         notAMemberLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1800, 1000));
-        setMinimumSize(new java.awt.Dimension(1800, 1000));
-        setPreferredSize(new java.awt.Dimension(1800, 1000));
+        setMaximumSize(new java.awt.Dimension(1200, 800));
+        setMinimumSize(new java.awt.Dimension(1000, 600));
+        setPreferredSize(new java.awt.Dimension(1100, 700));
         setResizable(false);
 
         signInPanel.setBackground(new java.awt.Color(153, 0, 0));
-        signInPanel.setPreferredSize(new java.awt.Dimension(1777, 1000));
-
-        employee.setText("Employee");
-        employee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                employeeActionPerformed(evt);
-            }
-        });
+        signInPanel.setPreferredSize(new java.awt.Dimension(1000, 1000));
 
         signinInfoPanel.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -187,11 +179,9 @@ public class Account_SignIn extends javax.swing.JFrame {
         signInPanelLayout.setHorizontalGroup(
             signInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(signInPanelLayout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(employee)
-                .addGap(307, 307, 307)
+                .addGap(319, 319, 319)
                 .addComponent(signinInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 697, Short.MAX_VALUE))
+                .addGap(0, 321, Short.MAX_VALUE))
         );
         signInPanelLayout.setVerticalGroup(
             signInPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,17 +189,13 @@ public class Account_SignIn extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(signinInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(400, 400, 400))
-            .addGroup(signInPanelLayout.createSequentialGroup()
-                .addGap(262, 262, 262)
-                .addComponent(employee)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(signInPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(signInPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1107, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,7 +220,7 @@ public class Account_SignIn extends javax.swing.JFrame {
                 }
                 else {
                     dispose();
-                    CustomerAccount_Movies f = new CustomerAccount_Movies(db, user);
+                    CustomerAccount_Movie f = new CustomerAccount_Movie(db, user);
                     f.setVisible(true);
                 }
             }
@@ -251,12 +237,6 @@ public class Account_SignIn extends javax.swing.JFrame {
         CustomerAccount_SignUp f = new CustomerAccount_SignUp(db);
         f.setVisible(true);
     }//GEN-LAST:event_signUpButtonActionPerformed
-
-    private void employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeActionPerformed
-        dispose();
-        EmployeeAccount_SignUp f = new EmployeeAccount_SignUp(db);
-        f.setVisible(true);
-    }//GEN-LAST:event_employeeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,7 +273,6 @@ public class Account_SignIn extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton employee;
     private javax.swing.JLabel notAMemberLabel;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JPasswordField passwordTxt;

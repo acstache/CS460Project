@@ -119,9 +119,11 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
         viewPaymentHistoryToolBar1.setRollover(true);
         viewPaymentHistoryToolBar1.setBorderPainted(false);
 
+        ViewPaymentHistoryButton.setBackground(new java.awt.Color(153, 0, 0));
         ViewPaymentHistoryButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ViewPaymentHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
         ViewPaymentHistoryButton.setText("View Payment History");
+        ViewPaymentHistoryButton.setBorderPainted(false);
         ViewPaymentHistoryButton.setFocusPainted(false);
         ViewPaymentHistoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +138,7 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
         accountInfoToolBar.setRollover(true);
         accountInfoToolBar.setBorderPainted(false);
 
+        AccountInfoButton.setBackground(new java.awt.Color(153, 0, 0));
         AccountInfoButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         AccountInfoButton.setForeground(new java.awt.Color(255, 255, 255));
         AccountInfoButton.setText("Account Information");
@@ -147,15 +150,18 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
         });
         accountInfoToolBar.add(AccountInfoButton);
 
+        viewRentalHistoryToolBar1.setBackground(new java.awt.Color(153, 0, 0));
         viewRentalHistoryToolBar1.setBorder(null);
         viewRentalHistoryToolBar1.setFloatable(false);
         viewRentalHistoryToolBar1.setForeground(new java.awt.Color(255, 255, 255));
         viewRentalHistoryToolBar1.setRollover(true);
         viewRentalHistoryToolBar1.setBorderPainted(false);
 
+        viewRentalHistoryButton.setBackground(new java.awt.Color(153, 0, 0));
         viewRentalHistoryButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         viewRentalHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
         viewRentalHistoryButton.setText("View Rental History");
+        viewRentalHistoryButton.setBorderPainted(false);
         viewRentalHistoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewRentalHistoryButtonActionPerformed(evt);
@@ -163,15 +169,18 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
         });
         viewRentalHistoryToolBar1.add(viewRentalHistoryButton);
 
+        deleteAccountToolBar1.setBackground(new java.awt.Color(153, 0, 0));
         deleteAccountToolBar1.setBorder(null);
         deleteAccountToolBar1.setFloatable(false);
         deleteAccountToolBar1.setForeground(new java.awt.Color(255, 255, 255));
         deleteAccountToolBar1.setRollover(true);
         deleteAccountToolBar1.setBorderPainted(false);
 
+        deleteMyAcountButton.setBackground(new java.awt.Color(153, 0, 0));
         deleteMyAcountButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         deleteMyAcountButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteMyAcountButton.setText("Delete My Account");
+        deleteMyAcountButton.setBorderPainted(false);
         deleteMyAcountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteMyAcountButtonActionPerformed(evt);
@@ -198,13 +207,13 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
         sideBarInfoPanelLayout.setVerticalGroup(
             sideBarInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideBarInfoPanelLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(49, 49, 49)
                 .addComponent(accountInfoToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(27, 27, 27)
                 .addComponent(viewPaymentHistoryToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(33, 33, 33)
                 .addComponent(viewRentalHistoryToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(27, 27, 27)
                 .addComponent(deleteAccountToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(185, Short.MAX_VALUE))
         );
@@ -442,12 +451,12 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
                     .addGroup(rentPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(rentYourMovieLabel)
-                        .addGap(930, 930, 930)
+                        .addGap(724, 724, 724)
                         .addComponent(toolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2092, 2092, 2092)
+                        .addGap(2298, 2298, 2298)
                         .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(rentPanelLayout.createSequentialGroup()
-                        .addGap(593, 593, 593)
+                        .addGap(472, 472, 472)
                         .addComponent(rentalPolicyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -467,16 +476,16 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
                             .addGroup(rentPanelLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(toolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(156, 156, 156)
+                        .addGap(166, 166, 166)
                         .addComponent(rentalPolicyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1829, Short.MAX_VALUE))
+                .addContainerGap(1830, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1987, Short.MAX_VALUE)
+            .addComponent(rentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1987, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -514,7 +523,7 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         dispose();
-        CustomerAccount_Movies f = new CustomerAccount_Movies(db, currentUser);
+        CustomerAccount_Movie f = new CustomerAccount_Movie(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed
 
@@ -538,7 +547,7 @@ public class CustomerAccount_Rent extends javax.swing.JFrame {
 
     private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
         dispose();
-        CustomerAccount_Movies f = new CustomerAccount_Movies(db, currentUser);
+        CustomerAccount_Movie f = new CustomerAccount_Movie(db, currentUser);
         f.setVisible(true);
     }//GEN-LAST:event_homeButton1ActionPerformed
 
